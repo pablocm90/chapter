@@ -1,0 +1,41 @@
+.card-big {
+  height: 450px;
+  background-size: cover !important;
+  background-position: center;
+  color: #999999;
+  position: relative;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.card-big p {
+  padding:5px 20px ;
+  justify-content:center;
+  margin: 0;
+}
+
+.col-xs-12 {
+  min-width:auto;
+}
+
+.showpage-title {
+  padding-top:10px;
+  position: relative;
+  font-size: 35px;
+  color: #999999;
+  text-align: center;
+  width: 100%;
+  font-family: 'Special Elite', cursive;
+  text-transform: capitalize;
+
+}
+
+.showpage-description{
+  position:relative;
+  padding-top: 30px;
+  font-size:15px;
+  color:#999999;
+  text-align:justify;
+}
