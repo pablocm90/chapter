@@ -16,6 +16,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+# Search function
+gem 'algoliasearch-rails'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
