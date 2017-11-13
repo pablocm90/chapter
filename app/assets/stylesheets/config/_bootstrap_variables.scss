@@ -10,12 +10,11 @@ $body-bg:                 $light-gray;
 $font-size-base: 18px;
 
 // Colors
-$gray-base:       $gray;
-$brand-primary:   $blue;
-$brand-success:   $green;
-$brand-info:      $yellow;
-$brand-danger:    $red;
-$brand-warning:   $orange;
+$brand-primary:   $primary;
+$brand-success:   $contrast;
+$brand-info:      $secondary;
+$brand-danger:    $blue;
+$brand-warning:   $subtle;
 
 
 
@@ -27,6 +26,6 @@ $border-radius-small: 2px;
 // Override other variables below!
 
 // Button colors
-$btn-default-bg: $red;
+$btn-default-bg: $contrast;
 
 

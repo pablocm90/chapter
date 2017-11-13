@@ -11,6 +11,7 @@
   position: fixed;
   right: 0;
   left: 0;
+  color: $contrast;
   z-index: 99;
 }
 
@@ -41,7 +42,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: $primary;
+  color: $contrast;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
@@ -52,11 +53,12 @@
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: $primary !important;
+  color: $contrast !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
@@ -73,7 +75,7 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: $primary;
+  background-color: rgba(255, 255, 255, 0.1);
   transform: rotate(45deg);
 }
 
