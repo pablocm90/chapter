@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resource :books
-
-  get 'books/index', to: 'books#index'
+  resources :books
+  get 'books/search', to: 'books#search'
 end
