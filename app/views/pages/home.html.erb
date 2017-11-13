@@ -1,2 +1,71 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>Start your adventure!</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+            <input type="text" class="form-control" placeholder="Search for title, author, category...">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
+    </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= image_path 'dragon-ilustration.jpg'%>)">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2>Dragons! Hot and flamy!</h2>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+          </div>
+          <img class="card-user" src="../avatar/images/lynn.jpeg">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'drwarve-ilustration.jpg'%>);">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2>Dwarves and Dwarvesses</h2>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star white" aria-hidden="true"></i>
+            <i class="fa fa-star white" aria-hidden="true"></i>
+          </div>
+          <img class="card-user" src="../avatar/images/pable.jpeg">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'knight-ilustration.jpg'%>);">
+          <div class="card-category">Popular</div>
+          <div class="card-description">
+            <h2>Badass Knights</h2>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star yellow" aria-hidden="true"></i>
+            <i class="fa fa-star white" aria-hidden="true"></i>
+          </div>
+          <img class="card-user" src="../avatar/images/yoshi.jpeg">
+          <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
