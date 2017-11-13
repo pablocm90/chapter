@@ -5,10 +5,10 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :genre
       t.string :tags
-      t.string :cover-pic
-      t.string :quote-hover
-      t.string :content-pdf
-      t.string :content-epub
+      t.string :cover_pic
+      t.string :quote_hover
+      t.string :content_pdf
+      t.string :content_epub
 
       t.timestamps
     end
