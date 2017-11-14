@@ -1,6 +1,17 @@
 
-
-
-
-
+<div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+  <h1><%= @book.title %></h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="showpage-card">
+        <div class="showpage-info">
+          <p><strong>Description: </strong><%= @book.description %></p>
+          <p><strong>Genre: </strong><%= @book.genre %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
