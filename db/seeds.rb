@@ -54,28 +54,15 @@ end
 
 Registration.all.each do |registration|
   params = {}
-
-  params[:number] = 0
-
-
-    params[:title] = Faker::HarryPotter.book
-    params[:content] = Faker::Lovecraft.paragraphs(10).join(" ")
-    params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
-    params[:number] += 1
-    chapter = Episode.new(params)
-    chapter.book = book
-
-    p chapter
-    chapter.save
+  params[:picture] = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dwayne_Johnson_2%2C_2013.jpg/220px-Dwayne_Johnson_2%2C_2013.jpg"
+  params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
+  params[:active] = true
+  params[:author] = false
+  params[:f_name] = Faker::Name.first_name
+  params[:l_name] = Faker::Name.last_name
+  params[:status] = true
+  user = User.new(params)
+  user.registration = registration
+  p user
+  user.save
 end
-
-    t.string   "picture"
-    t.string   "description"
-    t.boolean  "active"
-    t.boolean  "author"
-    t.string   "fav_genre"
-    t.string   "f_name"
-    t.string   "l_name"
-    t.integer  "registration_id"
-    t.boolean  "status"
-

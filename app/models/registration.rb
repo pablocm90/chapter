@@ -4,5 +4,6 @@ class Registration < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :user
   validates :username, presence: true
 end
