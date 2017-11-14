@@ -11,7 +11,7 @@ genres_array = %w(fantasy scy-fi horror comedy crime thriler)
 10.times do
   params = {}
   params[:title] = [Faker::HowIMetYourMother.catch_phrase, Faker::HowIMetYourMother.high_five, Faker::Pokemon.move].sample
-  params[:genre] = genres_array
+  params[:genre] = genres_array.sample
   params[:description] = Faker::StarWars.quote
   params[:quote_hover] = Faker::Pokemon.move
   book = Book.new(params)
