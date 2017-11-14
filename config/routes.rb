@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :registrations
   root to: 'pages#home'
   resources :books do
     resources :episodes
