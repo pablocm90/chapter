@@ -1,32 +1,9 @@
-<h2><%= search_title = (params[:query].present?) ? "Books matching #{params[:query]}" : "All our books" %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= search_title = (params[:query].present?) ? "Books matching \"#{params[:query]}\"" : "All our books" %></h1>
+  </div>
+</div>
 
-
+<%= render 'shared/cards' %>
 
 <!-- HTML Markup -->
-<div class="aa-input-container" id="aa-input-container">
-    <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for title, author, keyword, ..." name="search" autocomplete="on" />
-</div>
-<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-<!-- Initialize autocomplete menu -->
-<script>
-var client = algoliasearch("L4XOTOW05B", "b4f8d8f4c33526b8c662d91def380967");
-var index = client.initIndex('Book');
-//initialize autocomplete on search input (ID selector must match)
-autocomplete('#aa-search-input',
-{ hint: false }, {
-    source: autocomplete.sources.hits(index, {hitsPerPage: 5}),
-    //value to be displayed in input control after user's suggestion selection
-    displayKey: 'name',
-    //hash of templates used when rendering dataset
-    templates: {
-        //'suggestion' templating function used to render a single suggestion
-        suggestion: function(suggestion) {
-          return '<span>' +
-            suggestion._highlightResult.title.value + '</span><span>' +
-            suggestion._highlightResult.genre.value + '</span>';
-        }
-    }
-});
-</script>
