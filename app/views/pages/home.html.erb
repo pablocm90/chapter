@@ -8,10 +8,14 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="input-group">
+            <form action="/books/search" method="get">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+              <%= link_to "Go !", search_books_path, {class: "btn btn-default", type: 'button'} %>
             </span>
-            <input type="text" class="form-control" placeholder="Search for title, author, category...">
+            <div class="aa-input-container" id="aa-input-container">
+                <input type="search" name="query", id="aa-search-input" class="aa-input-search, form-control" placeholder="Search for title, author, category, ..." name="search" autocomplete="on" />
+            </div>
+            </form>
           </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
       </div>
@@ -66,4 +70,7 @@
       </div>
     </div>
     </div>
+
+
+
 
