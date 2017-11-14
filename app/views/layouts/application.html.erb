@@ -30,7 +30,7 @@
         templates: {
             //'suggestion' templating function used to render a single suggestion
             suggestion: function(suggestion) {
-              return '<a href=/"#">' +
+              return '<a href="${suggestion}">' +
                 suggestion._highlightResult.title.value + '</a> - <a href="#">' +
                 suggestion._highlightResult.genre.value + '</a>';
             }

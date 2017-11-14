@@ -23,6 +23,10 @@
 
 // Specific CSS for your home-page
 
+.algolia-autocomplete {
+  width: 100%;
+}
+
 .aa-dropdown-menu {
   background-color: $contrast;
   border: 1px solid $contrast;
