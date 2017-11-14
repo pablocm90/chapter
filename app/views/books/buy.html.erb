@@ -1,0 +1,20 @@
+<div class="container padding-top-90">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-post">
+        <h2>Order summary</h2>
+        <p>Please take a moment to review your order:</p>
+        <h3>Items</h3>
+        <p><b>Title:</b> <%= @book.title %></p>
+
+        <h3> Select payment method</h3>
+        <%= link_to "VISA / Mastercard", root_path , class: "btn btn-default" %>
+        <%= link_to "Bancontact", root_path, class: "btn btn-default" %>
+        <%= link_to "PayPal", root_path, class: "btn btn-default" %>
+        <%= link_to "Bitcoin", root_path, class: "btn btn-default" %>
+        <h2><%= link_to "Back to book", book_path(@book), class: "btn btn-danger" %></h2>
+      </div>
+    </div>
+  </div>
+</div>
+
