@@ -9,10 +9,12 @@
         <div class="showpage-info">
           <p><strong>Description: </strong><%= @book.description %></p>
           <p><strong>Genre: </strong><%= @book.genre %></p>
+                <%= render 'episodes/book_chapters' %>
+
         </div>
       </div>
+
     </div>
   </div>
-
 </div>
 
