@@ -5,4 +5,14 @@ class Registration < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_one :user
   validates :username, presence: true
+
+  after_create :create_user
+
+  private
+
+  def create_user
+    registration = self
+    User.create(registration: registration)
+  end
+
 end
