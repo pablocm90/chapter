@@ -51,21 +51,22 @@
 }
 
 .nav-tabs {
-  position:relative;
+  display:flex;
+  justify-content: center;
   border:none!important;
   background-color:#fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   align-items: center;
 }
 
-.nav-tabs li {
-  margin:0px auto;
-  text-align: center;
+.showpage-card ul {
+  padding-left: 0px;
 }
+
 .nav-tabs li a {
   position:relative;
   margin-right:0px!important;
-  padding: 18px 49px!important;
+  padding: 18px !important;
   font-size:16px;
   border:none!important;
   color:#333;
@@ -83,8 +84,10 @@
   background-color:red;
   position:absolute;
   z-index:1200;
-  bottom:0;
+  // bottom:0;
   transition:all .4s linear;
+  top: 55px;
+
 }
 
 .nav-tabs .active a {
@@ -96,6 +99,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .extra-info {
   display: flex;
   justify-content: space-around;
