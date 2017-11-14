@@ -1,0 +1,19 @@
+<ul class="list list-inline">
+<% @episodes.each do |episode| %>
+  <li>
+  <%= episode.number %>
+  </li>
+  <li>
+  <%= episode.title %>
+  </li>
+  <li>
+  <%= episode.description %>
+  </li>
+  <li>
+  <%= episode.content %>
+  </li>
+  <li>
+  <%= episode.book %>
+  </li>
+<% end %>
+</ul>
