@@ -1,0 +1,50 @@
+.showpage-card {
+  min-height: 500px;
+  max-height: 450px;
+  min-width: 150px;
+  max-width: 450px;
+  background-size: cover !important;
+  background-position: center;
+  background-color: white;
+  position: relative;
+  border-radius: 2px;
+  font-family: 'Roboto', sans-serif;
+  margin: 40px auto;
+  border-radius: 2px;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.showpage-banner {
+  height: 65vh;
+  background-size: cover !important;
+  background-position: center;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.showpage-banner h1 {
+  font-size: 35px;
+  color: white;
+}
+
+
+
+.showpage-info {
+  position: relative;
+  padding-top: 30px;
+  font-size: 15px;
+  color:#999999;
+}
+
+.showpage-card p {
+  padding: 5px 20px;
+  margin: 0;
+}
+
+
+
