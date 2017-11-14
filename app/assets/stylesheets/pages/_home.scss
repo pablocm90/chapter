@@ -1,5 +1,5 @@
 .banner {
-  color: white;
+  color: $light-gray;
   text-align: center;
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -16,25 +16,54 @@
 .banner p {
   font-size: 25px;
   font-weight: lighter;
-  color: rgb(255, 255, 255);
+  color: $light-gray;
   opacity: 0.6;
   margin-bottom: 30px;
 }
 
 // Specific CSS for your home-page
 
+.aa-input-container {
+  display: inline-block;
+  position: relative; }
+.aa-input-search {
+  width: 300px;
+  border: 1px solid $gray;
+  padding: 12px 28px 12px 12px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  .aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button, .aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
+    display: none; }
+.aa-input-icon {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  fill: $gray; }
 .aa-dropdown-menu {
   background-color: $contrast;
-  border: 1px solid $contrast;
+  border: 1px solid $gray;
   min-width: 300px;
   margin-top: 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  opacity: 0.7; }
+
 .aa-suggestion {
   padding: 12px;
   cursor: pointer;
 }
+
+#aa-search-input {
+  color: $gray;
+}
+
 .aa-suggestion + .aa-suggestion {
-    border-top: 1px solid $light-gray;
+    border-top: 1px solid $gray;
 }
   .aa-suggestion:hover, .aa-suggestion.aa-cursor {
-    background-color: rgba(241, 241, 241, 0.35); }
+    background-color: $gray; }
