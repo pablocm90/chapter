@@ -2,6 +2,7 @@ require 'faker'
 
 p "erasing everything"
  Book.destroy_all
+ Registration.destroy_all
 
 p "creating books"
 
@@ -39,4 +40,13 @@ Book.all.each do |book|
   end
 end
 
+p "creating registrations"
+
+10.times do
+  registration = Registration.new
+  registration.email = Faker::Internet.email
+  registration.password = 'password'
+  p registration
+  registration.save!
+end
 
