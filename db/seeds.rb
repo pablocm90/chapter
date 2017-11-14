@@ -2,8 +2,9 @@ require 'faker'
 
 p "erasing everything"
  Book.destroy_all
- Registration.destroy_all
  User.destroy_all
+ Registration.destroy_all
+ Transaction.destroy_all
 
 p "creating books"
 
@@ -52,6 +53,8 @@ p "creating registrations"
   registration.save!
 end
 
+p "creating users"
+
 Registration.all.each do |registration|
   params = {}
   params[:picture] = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dwayne_Johnson_2%2C_2013.jpg/220px-Dwayne_Johnson_2%2C_2013.jpg"
@@ -65,4 +68,22 @@ Registration.all.each do |registration|
   user.registration = registration
   p user
   user.save
+end
+
+p "creating transactions"
+
+User.all.each do |user|
+  params = {}
+
+  params[:number] = 0
+  rand(3..7).times do
+    transaction = Transaction.new
+    transaction.user = user
+    book = Book.order("RANDOM()").first
+    transaction.book = book
+    transaction.episode = book.episodes.order("RANDOM()").first
+
+    p transaction
+    transaction.save
+  end
 end

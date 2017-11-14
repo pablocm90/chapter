@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   get '/books/:book_id/episodes/:id/buy' => 'episodes#buy', as: :buy_episodes
 
-  resources :users, only: [ :show, :new, :create, :edit, :update, :destroy ]
+  resources :users, except: [ :index ]
 end
