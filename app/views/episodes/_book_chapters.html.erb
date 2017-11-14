@@ -1,14 +1,40 @@
 <% @book.episodes.each do |episode| %>
-  <div class="chapter">
-    <div  class="chapter-title"><strong> <%= episode.number %> - <%= episode.title %> </strong></div>
-    <div class="extra-info">
+<div class="chapter">
+  <div  class="chapter-title"><strong> <%= episode.number %> - <%= episode.title %> </strong></div>
+  <div class="extra-info">
     <div><%= (episode.content.size / 4000.00).round(2) %> </div>
-    <div><%= link_to "buy now", book_episode_path(@book, episode) %> </div>
+    <div>
+      <button type="button" data-toggle="modal" data-target="#myModal<%= episode.number %>">Open Modal</button>
+    </div>
     <div> owned </div>
+  </div>
+</div>
+<div id="myModal<%= episode.number %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Order summary</h4>
+      </div>
+      <div class="modal-body">
+        <p><%= episode.title %></p>
+        <%= episode.book.cover_pic %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
-  <hr>
+</div>
 <% end %>
-</tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
 
