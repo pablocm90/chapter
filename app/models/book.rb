@@ -1,11 +1,14 @@
 class Book < ApplicationRecord
-  genres_array = %w(fantasy scy-fi horror comedy crime thriler)
+  # genres_array = %w(fantasy scy-fi horror comedy crime thriler)
+  attr_reader :genres
+  GENRES = %w(fantasy scy-fi horror comedy crime thriler)
+
 
   has_many :episodes, dependent: :destroy
 
   validates :title, presence: true, length: { in: 5..60 }
   validates :description, presence: true
-  validates :genre, inclusion: { in: genres_array }
+  validates :genre, inclusion: { in: GENRES}
   validates :quote_hover, presence: true, length: { maximum: 140 }
   include AlgoliaSearch
 
@@ -19,15 +22,5 @@ class Book < ApplicationRecord
     minWordSizefor2Typos 8
     # To Do: custom ranking (customRanking ['desc(likes_count)'])
   end
-
-  # def genres_array
-  #   return genres
-  # end
-
-  # private
-
-  # def genres
-  #  %w(fantasy scy-fi horror comedy crime thriler)
-  # end
 
 end
