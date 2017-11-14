@@ -1,9 +1,21 @@
 class UsersController < ApplicationController
 
+  before_action :set_registration
+  before_action :set_user
+
 def show
-  #  @user = current_registration.user
-  # @transactions = @user.transactions
+
 end
 
+
+  private
+
+  def set_registration
+    @registration = current_registration
+  end
+
+  def set_user
+    @user = current_user
+  end
 
 end
