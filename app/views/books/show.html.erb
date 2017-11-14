@@ -5,20 +5,25 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="showpage-card text-center">
-          <ul class="nav nav-tabs" role="tablist">
-            <div class="slider"></div>
-            <li role="presentation " class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
-            <li role="presentation"><a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters</a></li>
-            <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
-          </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="info">Info</div>
-            <div role="tabpanel" class="tab-pane" id="chapters">
-              <%= render 'episodes/book_chapters' %>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="reviews">Reviews</div>
+
+      <div class="showpage-card">
+        <ul class="nav nav-tabs" role="tablist">
+          <div class="slider"></div>
+          <li role="presentation " class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+          <li role="presentation"><a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters</a></li>
+          <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="info">
+            <p><strong>Author: </strong></p>
+            <p><strong>Description: </strong><%= @book.description %></p>
+            <p><strong>Genre: </strong><%= @book.genre %></p>
+            <p><strong>Tags: </strong></p>
           </div>
+          <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %></div>
+          <div role="tabpanel" class="tab-pane" id="reviews">Reviews</div>
+        </div>
+
       </div>
     </div>
   </div>
