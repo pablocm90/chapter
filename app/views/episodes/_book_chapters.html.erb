@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <th>Title </th>
+    <th>Price </th>
+    <th>Read </th>
+    <th>Owned </th>
+  </thead>
+  <tbody>
+<% @book.episodes.each do |episode| %>
+  <tr>
+    <td><%= episode.number %> - <%= episode.title %></td>
+    <td><%= (episode.content.length / 4000).round(2) %> </td>
+    <td><%= link_to "buy now", buy_episodes_path(@book, episode) %> </td>
+    <td> <div class="fa fa-check"></div> </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
