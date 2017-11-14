@@ -44,11 +44,6 @@
   margin: 0;
 }
 
-.tile {
-  width:80%;
-  margin:60px auto;
-}
-
 .tab-pane {
   padding:15px;
   height:300px;
@@ -59,15 +54,17 @@
   border:none!important;
   background-color:#fff;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  align-items: center;
 }
 
 .nav-tabs li {
-  margin:0px;
+  margin:0px auto;
+  text-align: center;
 }
 .nav-tabs li a {
   position:relative;
   margin-right:0px!important;
-  padding: 15px 30px!important;
+  padding: 18px 49px!important;
   font-size:16px;
   border:none!important;
   color:#333;
