@@ -7,14 +7,41 @@
     <th>Owned </th>
   </thead>
   <tbody>
-<% @book.episodes.each do |episode| %>
-  <tr>
-    <td><%= episode.number %> - <%= episode.title %></td>
-    <td><%= (episode.content.length / 4000).round(2) %> </td>
-    <td><%= link_to "buy now", buy_episodes_path(@book, episode) %> </td>
-    <td> <div class="fa fa-check"></div> </td>
-  </tr>
-<% end %>
-</tbody>
+    <% @book.episodes.each do |episode| %>
+    <tr>
+      <td><%= episode.number %> - <%= episode.title %></td>
+      <td><%= (episode.content.length / 4000).round(2) %> </td>
+      <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Buy now </button> </td>
+      <td> <div class="fa fa-check"></div> </td>
+    </tr>
+
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+
+            <div class="modal-body">
+              <p><%= episode.title %></p>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <% end %>
+  </tbody>
 </table>
+
+
+
+
 
