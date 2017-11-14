@@ -24,7 +24,7 @@ p "creating chapters"
 Book.all.each do |book|
   params = {}
 
-  params[:number] = 1
+  params[:number] = 0
   rand(3..7).times do
 
     params[:title] = Faker::HarryPotter.book
