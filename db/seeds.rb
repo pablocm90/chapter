@@ -1,10 +1,10 @@
 require 'faker'
 
 p "erasing everything"
- Book.destroy_all
+ Transaction.destroy_all
  User.destroy_all
  Registration.destroy_all
- Transaction.destroy_all
+ Book.destroy_all
 
 p "creating books"
 
