@@ -7,9 +7,9 @@
         <div class="card-description">
          <p><%= book.genre %></p>
         </div>
-        <a class="card-link">
+        <%= link_to book_path(book), class: 'card-link' do %>
           <p class="description-hover"> <%= book.quote_hover %> </p>
-        </a>
+        <% end %>
       </div>
     </div>
     <% end %>
