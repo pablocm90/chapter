@@ -12,6 +12,7 @@
   margin: 40px auto;
   border-radius: 2px;
   box-shadow: 3px 3px 5px 6px #ccc;
+  overflow: scroll;
 }
 
 .showpage-banner {
@@ -84,4 +85,12 @@
   background-color: transparent!important;
   border: none!important;
   color: red!important;
+}
+.chapter {
+  display: flex;
+  flex-direction: column;
+}
+.extra-info {
+  display: flex;
+  justify-content: space-around;
 }
