@@ -22,10 +22,11 @@ end
 p "creating chapters"
 
 Book.all.each do |book|
-  rand(3..7).times do
-    params = {}
+  params = {}
 
-    params[:number] = 1
+  params[:number] = 1
+  rand(3..7).times do
+
     params[:title] = Faker::HarryPotter.book
     params[:content] = Faker::Lovecraft.paragraphs(10).join(" ")
     params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
