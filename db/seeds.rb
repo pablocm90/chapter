@@ -3,6 +3,7 @@ require 'faker'
 p "erasing everything"
  Book.destroy_all
  Registration.destroy_all
+ User.destroy_all
 
 p "creating books"
 
@@ -46,7 +47,35 @@ p "creating registrations"
   registration = Registration.new
   registration.email = Faker::Internet.email
   registration.password = 'password'
+  registration.username = Faker::LordOfTheRings.character
   p registration
   registration.save!
 end
+
+Registration.all.each do |registration|
+  params = {}
+
+  params[:number] = 0
+
+
+    params[:title] = Faker::HarryPotter.book
+    params[:content] = Faker::Lovecraft.paragraphs(10).join(" ")
+    params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
+    params[:number] += 1
+    chapter = Episode.new(params)
+    chapter.book = book
+
+    p chapter
+    chapter.save
+end
+
+    t.string   "picture"
+    t.string   "description"
+    t.boolean  "active"
+    t.boolean  "author"
+    t.string   "fav_genre"
+    t.string   "f_name"
+    t.string   "l_name"
+    t.integer  "registration_id"
+    t.boolean  "status"
 
