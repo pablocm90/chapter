@@ -1,17 +1,32 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="showpage-card">
+        <div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+          <div class="showpage-title"><%= @book.title %></div>
+        </div>
+        <div class="showpage-info">
+          <p><strong>Description: </strong><%= @book.description %></p>
+          <p><strong>Genre: </strong><%= @book.genre %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+  <div class="showpage-title"><%= @book.title %></div>
+</div>
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card-big" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-          <div class="showpage-title"><%= @book.title %></div>
-          <div class="showpage-description">
-            <p>Description: <%= @book.description %></p>
-            <p>Genre: <%= @book.genre %></p>
-          </div>
+    <div class="col-xs-12">
+      <div class="showpage-card">
+        <div class="showpage-info">
+          <p><strong>Description: </strong><%= @book.description %></p>
+          <p><strong>Genre: </strong><%= @book.genre %></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-

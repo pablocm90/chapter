@@ -1,41 +1,49 @@
-.card-big {
-  height: 450px;
+.showpage-card {
+  min-height: 500px;
+  max-height: 450px;
+  min-width: 150px;
+  max-width: 450px;
   background-size: cover !important;
   background-position: center;
-  color: #999999;
+  background-color: white;
   position: relative;
   border-radius: 2px;
   font-family: 'Roboto', sans-serif;
-  max-width: 400px;
+  margin: 40px auto;
+  border-radius: 2px;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.showpage-banner {
+  height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
   margin: 0 auto;
 }
 
-.card-big p {
-  padding:5px 20px ;
-  justify-content:center;
+.showpage-title {
+  padding-top: 25px;
+  position: relative;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.showpage-info {
+  position: relative;
+  padding-top: 30px;
+  font-size: 15px;
+  color:#999999;
+}
+
+.showpage-card p {
+  padding: 5px 20px;
   margin: 0;
 }
 
-.col-xs-12 {
-  min-width:auto;
-}
 
-.showpage-title {
-  padding-top:10px;
-  position: relative;
-  font-size: 35px;
-  color: #999999;
-  text-align: center;
-  width: 100%;
-  font-family: 'Special Elite', cursive;
-  text-transform: capitalize;
 
-}
-
-.showpage-description{
-  position:relative;
-  padding-top: 30px;
-  font-size:15px;
-  color:#999999;
-  text-align:justify;
-}
