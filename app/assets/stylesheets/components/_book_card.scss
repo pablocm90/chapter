@@ -7,6 +7,11 @@
   position: relative;
   margin-top: 30px;
   min-height: 200px;
+  margin-bottom: 20px;
+}
+
+.padding-top-90 {
+  padding-top: 110px;
 }
 
 .card-user {
@@ -44,13 +49,24 @@
   left: 0;
   width: 100%;
   z-index: 2;
-  background-image: url("cool-quotes-saying.jpg");
+  //background-image: url("cool-quotes-saying.jpg");
   opacity: 0;
   background-size: 100%;
 }
 
 .card-link:hover {
+  display:flex;
   opacity: 0.8;
+  background-color: white;
+  font-weight:lighter;
+  align-items: center;
+  justify-content:center;
+  text-decoration: none;
+}
+
+.description-hover {
+  padding: 10px;
+  text-align: justify;
 }
 
 .yellow {
@@ -60,3 +76,5 @@
 .white {
   color: #E9ECEE;
 }
+
+

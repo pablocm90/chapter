@@ -8,62 +8,35 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="input-group">
+            <form action="/books/search" method="get">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+              <%= link_to "Go !", search_books_path, {class: "btn btn-default", type: 'button'} %>
             </span>
-            <input type="text" class="form-control" placeholder="Search for title, author, category...">
+            <div class="aa-input-container" id="aa-input-container">
+                <input type="search" name="query", id="aa-search-input" class="aa-input-search, form-control" placeholder="Search for title, author, category, ..." name="search" autocomplete="on" />
+            </div>
+            </form>
           </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
       </div>
     </div>
 </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= image_path 'dragon-ilustration.jpg'%>)">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Dragons! Hot and flamy!</h2>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-          </div>
-          <img class="card-user" src="../avatar/images/lynn.jpeg">
-          <a class="card-link" href="#" ></a>
+ <div class="container">
+  <div class="row">
+   <% Book.all.each do |book| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+        <div class="card-category"><%= book.title %></div>
+        <div class="card-description">
+          <h2><%= book.description %></h2>
+          <p><%= book.genre %></p>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'drwarve-ilustration.jpg'%>);">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Dwarves and Dwarvesses</h2>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star white" aria-hidden="true"></i>
-            <i class="fa fa-star white" aria-hidden="true"></i>
-          </div>
-          <img class="card-user" src="../avatar/images/pable.jpeg">
-          <a class="card-link" href="#" ></a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'knight-ilustration.jpg'%>);">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Badass Knights</h2>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star yellow" aria-hidden="true"></i>
-            <i class="fa fa-star white" aria-hidden="true"></i>
-          </div>
-          <img class="card-user" src="../avatar/images/yoshi.jpeg">
-          <a class="card-link" href="#" ></a>
-        </div>
+        <a class="card-link" href="#" ></a>
       </div>
     </div>
-    </div>
+    <% end %>
+  </div>
+</div>
+
+
 
