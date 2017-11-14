@@ -11,10 +11,11 @@ p "creating books"
 
   params = {}
   params[:title] = [Faker::HowIMetYourMother.catch_phrase, Faker::HowIMetYourMother.high_five, Faker::Pokemon.move].sample
-  params[:genre] = Book::GENRES
+  params[:genre] = Book::GENRES.sample
   params[:description] = Faker::StarWars.quote
   params[:quote_hover] = Faker::Pokemon.move
   book = Book.new(params)
+  p book
   book.save
 end
 
@@ -31,6 +32,8 @@ Book.all.each do |book|
     params[:number] += 1
     chapter = Episode.new(params)
     chapter.book = book
+
+    p chapter
     chapter.save
   end
 end
