@@ -1,0 +1,28 @@
+#footer {
+  background: #3D3D3D;
+  color: rgba(0,0,0,0.3);
+  position: relative;
+  bottom: -70px;
+  width: 100%;
+  text-align: center;
+  height: 70px;
+}
+
+#footer p {
+  margin-top: 17px;
+}
+
+#footer ul {
+  margin-top: 10px;
+}
+
+#footer a {
+  color: white;
+  font-size: 30px;
+  letter-spacing: 20px;
+  transition: color 0.5s ease;
+}
+
+#footer a:hover {
+  color: #FDA631;
+}
