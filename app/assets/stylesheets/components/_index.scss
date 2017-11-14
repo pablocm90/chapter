@@ -4,3 +4,13 @@
 @import "search_bar";
 @import "book_card";
 @import "cards_showpage";
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
