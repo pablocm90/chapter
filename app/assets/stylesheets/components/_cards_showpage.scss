@@ -92,3 +92,11 @@
   border:none!important;
   color:red!important;
 }
+.chapter {
+  display: flex;
+  flex-direction: column;
+}
+.extra-info {
+  display: flex;
+  justify-content: space-around;
+}

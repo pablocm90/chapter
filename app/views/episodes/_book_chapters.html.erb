@@ -1,19 +1,13 @@
-
-<table class="table">
-  <thead>
-    <th>Title </th>
-    <th>Price </th>
-    <th>Read </th>
-    <th>Owned </th>
-  </thead>
-  <tbody>
 <% @book.episodes.each do |episode| %>
-  <tr>
-    <td><%= episode.number %> - <%= episode.title %></td>
-    <td><%= (episode.content.length / 4000).round(2) %> </td>
-    <td><%= link_to "buy now", buy_episodes_path(@book, episode) %> </td>
-    <td> <div class="fa fa-check"></div> </td>
-  </tr>
+  <div class="chapter">
+    <div  class="chapter-title"><strong> <%= episode.number %> - <%= episode.title %> </strong></div>
+    <div class="extra-info">
+    <div><%= (episode.content.size / 4000.00).round(2) %> </div>
+    <div><%= link_to "buy now", book_episode_path(@book, episode) %> </div>
+    <div> owned </div>
+    </div>
+  </div>
+  <hr>
 <% end %>
 </tbody>
 </table>
