@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'books#search'
     end
+    member do
+    get "buy", to: "books#buy"
+    end
   end
 end
