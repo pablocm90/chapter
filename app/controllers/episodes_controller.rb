@@ -1,5 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :set_book
+  before_action :set_episode
 
   def index
     @episodes = Episode.all
@@ -7,6 +8,10 @@ class EpisodesController < ApplicationController
 
   def buy
   end
+
+  def show
+  end
+
 
 
   private
