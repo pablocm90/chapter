@@ -1,6 +1,7 @@
 class EpisodesController < ApplicationController
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
+  attr_reader :convert_markdown
 
   def index
     @episodes = Episode.all
@@ -11,14 +12,27 @@ class EpisodesController < ApplicationController
   end
 
   def create
+    @episode = Episode.new(episode_params)
+    @episode.number = @book.episodes.last.number.to_i + 1
+    @episode.book = @book
+    if @episode.save
+      redirect_to book_path(@book)
+    else
+      render :new
+    end
   end
 
   def buy
   end
 
   def show
+    @converted = convert_markdown(@episode.content)
   end
 
+  def convert_markdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(escape_html: true, hard_wrap: true,),no_intra_emphasis: true, fenced_code_blocks: true, disable_indented_code_blocks: true, autolink: false, tables: true, underline: true)
+    markdown.render(text).html_safe
+  end
 
 
   private
@@ -32,8 +46,9 @@ class EpisodesController < ApplicationController
   end
 
   def episode_params
-    params.require(:episode).permit(:title, :description, :content, :content_pdf, :content_pdf_cache, :content_epub, :content_epub_cache)
+    params.require(:episode).permit(:title, :description, :content)
   end
+
 
 
 end
