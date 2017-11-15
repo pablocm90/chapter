@@ -1,10 +1,7 @@
-<div class="container padding-top-90">
 <%= simple_form_for [@book, @episode] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :content, as: :text, class: "input-big" %>
-  <%= f.input :content_pdf %>
-  <%= f.input :content_epub %>
+  <%= f.input :content, input_html: {class: 'input-big'}, as: :text %>
   <%= f.button :submit %>
 <% end %>
-</div>
+
