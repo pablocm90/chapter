@@ -13,8 +13,6 @@
       <% end %>
     <% end %>
     <%= render 'shared/cards' %>
-    <% @suggestions = Book.all.where(genre: genre).sample(5) - @my_books %>
-    <%= render 'shared/suggestion_cards' %>
   <% end %>
 </div>
 
