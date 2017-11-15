@@ -23,6 +23,10 @@ gem 'algoliasearch-rails'
 # Users
 gem 'devise'
 
+# File storage
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
