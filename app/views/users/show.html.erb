@@ -1,8 +1,20 @@
+<div class="row">
+<div class="col-xs-12">
+  <h1>Your collection</h1>
+</div></div>
 
-<div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-  <h1>WHUT</h1>
-  <% @transactions.each do |transaction| %>
-    <%= transaction.book.cover_pic %>
+<div>
+  <% @my_genres.each do |genre| %>
+    <h3><%= genre %></h3>
+    <% @books = [] %>
+    <% @my_books.each do |book| %>
+      <% if book.genre == genre %>
+        <% @books << book %>
+      <% end %>
     <% end %>
+    <%= render 'shared/cards' %>
+    <% @suggestions = Book.all.where(genre: genre).sample(5) - @my_books %>
+    <%= render 'shared/suggestion_cards' %>
+  <% end %>
 </div>
 
