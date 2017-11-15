@@ -2,4 +2,37 @@ th, td {
   text-align:center;
 }
 
+.inbox {
+
+  padding: 0 20px;
+  margin: 0;
+}
+.message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+
+
+}
+
+.message-body {
+  flex-grow: 1;
+
+}
+.message-name {
+  padding-left: 10px;
+
+}
+
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+
+}
+.message-body {
+  padding-left: 20px;
+
+}
+
 
