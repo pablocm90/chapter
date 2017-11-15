@@ -23,9 +23,13 @@ gem 'algoliasearch-rails'
 # Users
 gem 'devise'
 
+# Markdown input
+gem 'redcarpet'
+
 # File storage
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
+
 
 group :development, :test do
   gem 'pry-byebug'
