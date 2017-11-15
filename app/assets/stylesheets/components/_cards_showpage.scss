@@ -2,7 +2,7 @@
   min-height: 500px;
   max-height: 450px;
   min-width: 150px;
-  max-width: 450px;
+  max-width: 750px;
   background-size: cover !important;
   background-position: center;
   background-color: white;
@@ -98,11 +98,17 @@
 .chapter {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .extra-info {
   display: flex;
   justify-content: space-around;
+}
+
+.chapter-title {
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .modal {
