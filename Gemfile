@@ -23,6 +23,9 @@ gem 'algoliasearch-rails'
 # Users
 gem 'devise'
 
+# Markdown input
+gem 'redcarpet'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
