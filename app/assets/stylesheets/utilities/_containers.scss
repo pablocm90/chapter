@@ -1,0 +1,47 @@
+.book {
+  min-width: 50%;
+  max-width: 40em;
+  overflow: scroll;
+  background-color: $light-gray;
+  height: 80vh;
+  border-radius: 5px;
+  font-family: 'Crimson Text', serif;
+  h1,
+  h2,
+  strong {
+    margin-top: 1em;
+    padding-top: 1em;
+    color: $primary;
+    text-align: center
+  }
+  p {
+    line-height: 1.5;
+    padding: 4em 2em;
+    color: $secondary;
+    text-align: justify;
+    text-justify: auto;
+  }
+}
+
+ @media only screen and (max-width: 500px) {
+  .book {
+    h1 {
+      font-size: 20px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+ }
+
+.padding-top-90 {
+  padding-top: 110px;
+}
+
+.padding-top-60 {
+  padding-top: 60px;
+}
+
+.margin-top-90 {
+  margin-top: 90px;
+}
