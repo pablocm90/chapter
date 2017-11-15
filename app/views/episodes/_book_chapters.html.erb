@@ -9,12 +9,9 @@
     <div> owned </div>
   </div>
 </div>
-<<<<<<< HEAD
+
 <div id="chapter<%= episode.number %>" class="modal fade" role="dialog">
-=======
-<hr>
-<div id="myModal<%= episode.number %>" class="modal fade" role="dialog">
->>>>>>> master
+  <div class="padding-top-90"></div>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -26,9 +23,9 @@
           <!-- Table -->
           <table class="table">
             <tr>
-            <th>chapter</th>
-            <th>title</th>
-            <th>price</th>
+              <th>Chapter</th>
+              <th>Title</th>
+              <th>Price</th>
             </tr>
             <tr>
               <td> <%= episode.number %></td>
@@ -36,8 +33,8 @@
               <td> 500 tokens</td>
             </tr>
           </table>
-          </div>
-          <%= link_to "Buy now", buy_episodes_path(@book), class: "btn btn-primary" %>
+        </div>
+        <%= link_to "Buy now", buy_episodes_path(@book), class: "btn btn-primary" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
