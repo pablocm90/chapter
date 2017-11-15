@@ -1,48 +1,53 @@
+<ul class="inbox">
+  <li class="message">
+    <div class="message-name">
+      <h5>Chapter</h5>
+    </div>
+    <div class="message-body">
+      <h5 style="padding-left: 20px;">Title</h5>
+    </div>
+    <div class="message-name">
+      <h5>Read/Buy</h5>
+    </div>
+  </li>
+</ul>
 <% @book.episodes.each do |episode| %>
-<div class="chapter">
-  <div class="extra-info">
-    <div  class="chapter-title"><strong> <%= episode.number %> - <%= episode.title %> </strong></div>
-    <div><%= (episode.content.size / 4000.00).round(2) %> </div>
-    <div>
-      <button type="button" data-toggle="modal" data-target="#chapter<%= episode.number %>">Buy Chapter</button>
-    </div>
-    <div> owned </div>
+<li class="message">
+  <div class="message-name">
+    <p><%= episode.number %></p>
   </div>
-</div>
-
-<div id="chapter<%= episode.number %>" class="modal fade" role="dialog">
-  <div class="padding-top-90"></div>
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Order summary</h4>
-      </div>
-      <div class="modal-body">
-        <div class="panel panel-default">
-          <!-- Table -->
-          <table class="table">
-            <tr>
-              <th>Chapter</th>
-              <th>Title</th>
-              <th>Price</th>
-            </tr>
-            <tr>
-              <td> <%= episode.number %></td>
-              <td> <%= episode.title %></td>
-              <td> 500 tokens</td>
-            </tr>
-          </table>
-        </div>
-        <%= link_to "Buy now", buy_episodes_path(@book), class: "btn btn-primary" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+  <div class="message-body">
+    <p>
+      <%= episode.title %>
+    </p>
   </div>
-</div>
+  <div class="message-button">
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#chapter<%= episode.number %>"># Tokens</button>
+  </div>
+</li>
+</ul>
+<%= render 'shared/modal', episode: episode %>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
