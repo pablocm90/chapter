@@ -11,12 +11,12 @@
   font-family: 'Roboto', sans-serif;
   margin: 40px auto;
   border-radius: 2px;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 1px 0 10px rgba(0,0,0,0.4);
   overflow: scroll;
 }
 
 .showpage-banner {
-  height: 65vh;
+  height: 100vh;
   background-size: cover !important;
   background-position: center;
   display: flex;
