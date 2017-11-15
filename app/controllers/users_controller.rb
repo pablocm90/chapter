@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
 def show
-  @user = User.find(82)
+  @user = User.find(83)
   @my_books = []
   @user.transactions.each do |transaction|
     book = transaction.book
@@ -18,6 +18,7 @@ def show
     @my_genres << genre
   end
   @my_genres.uniq!
+
 end
 
 

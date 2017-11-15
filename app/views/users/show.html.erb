@@ -6,13 +6,15 @@
 <div>
   <% @my_genres.each do |genre| %>
     <h3><%= genre %></h3>
+    <% @books = [] %>
     <% @my_books.each do |book| %>
-      <% @books = [] %>
       <% if book.genre == genre %>
         <% @books << book %>
       <% end %>
     <% end %>
+    <%= render 'shared/cards' %>
+    <% @suggestions = Book.all.where(genre: genre).sample(5) - @my_books %>
+    <%= render 'shared/suggestion_cards' %>
   <% end %>
-  <%= render 'shared/cards' %>
 </div>
 
