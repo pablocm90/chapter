@@ -22,22 +22,8 @@
     </div>
 </div>
 
- <div class="container">
-  <div class="row">
-   <% Book.all.each do |book| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-        <div class="card-category"><%= book.title %></div>
-        <div class="card-description">
-          <h2><%= book.description %></h2>
-          <p><%= book.genre %></p>
-        </div>
-        <a class="card-link" href="#" ></a>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
+<% @books = Book.first(10) %>
 
+<%= render 'shared/cards' %>
 
 

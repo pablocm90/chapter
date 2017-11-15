@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114153403) do
+ActiveRecord::Schema.define(version: 20171115105851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "nom_de_plume"
+    t.string   "bank_account"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_authors_on_user_id", using: :btree
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -85,6 +95,7 @@ ActiveRecord::Schema.define(version: 20171114153403) do
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 
+  add_foreign_key "authors", "users"
   add_foreign_key "episodes", "books"
   add_foreign_key "transactions", "books"
   add_foreign_key "transactions", "episodes"
