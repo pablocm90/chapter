@@ -65,7 +65,7 @@ Registration.all.each do |registration|
   params[:l_name] = Faker::Name.last_name
   params[:status] = true
   user = User.new(params)
-  user.registration = registration
+  user.registration_id = registration
   p user
   user.save
 end
