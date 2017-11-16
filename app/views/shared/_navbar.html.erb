@@ -8,7 +8,18 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Become a writer</a>
+    <% if current_user %>
+
+    <% if current_user %>
+    <%= link_to "Add a book", books_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <% else %>
+    <%= link_to "Become an author", books_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <% end %>
+
+    <% else %>
+      <%= link_to "Sign up", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+      <%= link_to "Log in", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+      <% end %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
