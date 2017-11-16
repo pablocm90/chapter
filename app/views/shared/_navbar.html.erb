@@ -8,10 +8,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <% if current_registration %>
-
+    <% if current_user %>
     <% if current_author %>
-    <%= link_to "Add a chapter", new_book_episode, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "Your books", author_path , class: 'navbar-wagon-item navbar-wagon-link' %>
     <% else %>
     <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
@@ -22,12 +21,13 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if current_author %>
-        <% current_author.profile_picture? ? avatar_url = current_author.profile_picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+        <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
         <%= image_tag avatar_url, class: "avatar avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Profile", authors_path %></li>
           <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
         </ul>
         <% else %>
         <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
@@ -38,9 +38,8 @@
 
 
 
-          <% end %>
           <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
-
+        <% end %>
         </ul>
       </div>
     </div>
@@ -60,14 +59,15 @@
 
         <% if current_user && current_author %>
 
-        <li> <%= link_to "Add a chapter", new_book_episode, class: 'navbar-wagon-item navbar-wagon-link' %>
+        <li> <%= link_to "Your books", author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
           </li>
+
           <li>
         <%= link_to "Dashboard", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
 
         <li>
-          <%= link_to "Log out", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "Log out", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
 
         <% elsif current_user %>
