@@ -22,7 +22,11 @@
             </tr>
           </table>
         </div>
-        <%= link_to "Buy now", book_episode_path(@book,episode), class: "btn btn-primary" %>
+        <% if 1000 >= 500 %>
+          <%= link_to "Buy now", new_users_transaction_path(episode), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Top up", :back, class: "btn btn-primary" %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
