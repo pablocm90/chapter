@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<% @books = Book.first(9) %>
+<% @books = @ordered_books.first(9) %>
 
 <%= render 'shared/cards' %>
 
