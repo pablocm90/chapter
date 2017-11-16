@@ -1,7 +1,9 @@
-<%= simple_form_for [@book, @episode] do |f| %>
+<%= simple_form_for [@book, @episode], class: "big" do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :content, input_html: {class: 'input-big'}, as: :text %>
+  <%= f.input :content, input_html: {class: 'input-big', id: 'new-content'}, as: :text %>
   <%= f.button :submit %>
 <% end %>
+
+
 
