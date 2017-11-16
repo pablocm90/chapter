@@ -96,14 +96,14 @@ ActiveRecord::Schema.define(version: 20171116100916) do
     t.string   "picture"
     t.string   "description"
     t.boolean  "active"
-    t.boolean  "author"
+    t.boolean  "is_author",       default: false
     t.string   "fav_genre"
     t.string   "f_name"
     t.string   "l_name"
     t.integer  "registration_id"
     t.boolean  "status"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.float    "tokens"
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end

@@ -3,15 +3,17 @@ class AuthorsController < ApplicationController
 
 # GET
 def new
-  @author = Author.new()
+  @author = Author.new
 end
 
 # POST
 def create
   @author = Author.new(author_params)
   @author.user = current_user
+  current_user.is_author = true
   if @author.save
     # We need to update the redirect_to path
+    current_user.save
     redirect_to root_path
   else
     render :new

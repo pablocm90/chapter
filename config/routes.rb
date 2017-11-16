@@ -19,6 +19,6 @@ Rails.application.routes.draw do
     resources :episodes, except: [:index] do
       resources :reviews, except: [:destroy, :show]
     end
-  get 'dashboard', to: 'users#dashboard'
 end
+  get 'dashboard', to: 'users#dashboard'
 end
