@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_author
-    @current_author ||= current_registration.try(:author)
+    @current_author ||= current_user.try(:author)
   end
 
 
