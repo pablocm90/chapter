@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <% @book.reviews.each do |review| %>
+        <div class= "review-box">
+          <ul class="list-inline">
+            <li>
+              <div class="rating">
+                <% 5.times do |counter|%>
+                  <% if review.rating <= counter %>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% else %>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+            <li><p id="username"> <%= review.user.f_name %> </p></li>
+            <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
+          </ul>
+          <p id="content-box"><%= review.content %></p>
+        </div>
+        <% end %>
+        <div><%= render 'reviews/form' %></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
