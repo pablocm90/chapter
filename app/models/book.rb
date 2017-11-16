@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   has_many :episodes, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  validates :title, presence: true, length: { in: 5..60 }
+  validates :title, presence: true, length: { in: 1..60 }
   validates :description, presence: true
   validates :genre, inclusion: { in: GENRES}
   validates :quote_hover, presence: true, length: { maximum: 140 }
