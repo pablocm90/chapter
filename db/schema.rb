@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116095041) do
+
+ActiveRecord::Schema.define(version: 20171116100916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20171116095041) do
     t.integer  "book_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "price"
     t.index ["book_id"], name: "index_episodes_on_book_id", using: :btree
   end
 
@@ -103,6 +105,7 @@ ActiveRecord::Schema.define(version: 20171116095041) do
     t.boolean  "status"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.float    "tokens"
     t.index ["registration_id"], name: "index_users_on_registration_id", using: :btree
   end
 
