@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container review-container">
   <div class="row">
     <div class="col-xs-12 col-sm-9">
       <div>
@@ -17,7 +17,7 @@
               </div>
             </li>
             <li><p id="username">
-              <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+              <% review.user.picture? ? avatar_url = review.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
               <%= image_tag avatar_url, class: "avatar avatar-review"%>
             <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
           </ul>
