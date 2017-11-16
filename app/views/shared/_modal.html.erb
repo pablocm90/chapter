@@ -22,12 +22,12 @@
             </tr>
           </table>
         </div>
-        <% if current_user.tokens >= episode.price %>
+        <% if 100 >= episode.price %>
           <%= form_tag book_episode_transactions_path(@book, episode) do %>
             <%= hidden_field_tag 'episode', :episode %>
             <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
           <% end %>
-          <% current_user.tokens -= episode.price %>
+          <% episode.price %>
         <% else %>
           <%= link_to "Top up", :back, class: "btn btn-primary" %>
         <% end %>
