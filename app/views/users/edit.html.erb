@@ -2,15 +2,17 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="form-post">
-      <%= simple_form_for current_user, url:"users_path" do |f| %>
+      <%= simple_form_for current_user, url: users_path do |f| %>
+      <!-- simple_form_for(@admin, :url => users_path) -->
       <div class="form-inputs">
-        <%= f.input :picture, placeholder: @user.picture %>
+        <%= f.input :picture, :label => "profile picture", placeholder: @user.picture %>
         <%= f.input :picture_cache, as: :hidden %>
-        <%= f.input :description, placeholder: @user.description%>
-        <%= f.input :fav_genre, placeholder: @user.fav_genre %>
-        <%= f.input :f_name, placeholder: @user.f_name%>
-        <%= f.input :l_name, placeholder: @user.l_name%>
-        <%= f.button :submit, class:"btn btn-danger" %>
+        <%= f.input :description,  placeholder: @user.description%>
+        <%= f.input :fav_genre,:label => "Favorite genre", placeholder: @user.fav_genre %>
+        <%= f.input :f_name, :label => "First name", placeholder: @user.f_name%>
+        <%= f.input :l_name, :label => "Last name", placeholder: @user.l_name%>
+        <%= f.submit  class:"btn btn-danger"%>
+
       </div>
       <% end %>
       </div>
