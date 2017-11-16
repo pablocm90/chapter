@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 
 def show
-  @user = User.find(1)
+  @user = current_user
   @my_books = []
   @user.transactions.each do |transaction|
     book = transaction.book
