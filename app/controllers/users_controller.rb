@@ -48,7 +48,7 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:picture, :description,:registration_id, :fav_genre, :f_name, :l_name, :tokens, :active)
+    params.require(:user).permit(:picture, :picture_cache, :description,:registration_id, :fav_genre, :f_name, :l_name, :tokens, :active)
   end
 
 end
