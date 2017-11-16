@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :reviews, except: [:destroy, :show]
+
 end
   get 'dashboard', to: 'users#dashboard'
 end
