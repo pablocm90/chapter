@@ -37,6 +37,7 @@ Book.all.each do |book|
     params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
     params[:number] += 1
     chapter = Episode.new(params)
+    chapter.price = 20
     chapter.book = book
 
     p chapter

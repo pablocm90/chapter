@@ -18,12 +18,16 @@
             <tr>
               <td> <%= episode.number %></td>
               <td> <%= episode.title %></td>
-              <td> 500 tokens</td>
+              <td> <%= episode.price %> %></td>
             </tr>
           </table>
         </div>
-        <% if 1000 >= 500 %>
-          <%= link_to "Buy now", new_users_transaction_path(episode), class: "btn btn-primary" %>
+        <% if current_user.tokens >= episode.price %>
+          <%= form_tag book_episode_transactions_path(@book, episode) do %>
+            <%= hidden_field_tag 'episode', :episode %>
+            <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
+          <% end %>
+          <% current_user.tokens -= episode.price %>
         <% else %>
           <%= link_to "Top up", :back, class: "btn btn-primary" %>
         <% end %>
