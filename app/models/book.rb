@@ -5,11 +5,12 @@ class Book < ApplicationRecord
   mount_uploader :cover_pic, CoverPicUploader
 
   has_many :episodes, dependent: :destroy
-
+  has_many :reviews, dependent: :destroy
   validates :title, presence: true, length: { in: 5..60 }
   validates :description, presence: true
   validates :genre, inclusion: { in: GENRES}
   validates :quote_hover, presence: true, length: { maximum: 140 }
+  validates_associated :reviews
   include AlgoliaSearch
 
 

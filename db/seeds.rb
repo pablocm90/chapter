@@ -19,7 +19,7 @@ p "creating books"
   params[:quote_hover] = Faker::Pokemon.move
   book = Book.new(params)
   p book
-  book.save
+  book.save!
 end
 
 p "creating chapters"
@@ -38,26 +38,26 @@ Book.all.each do |book|
     chapter.book = book
 
     p chapter
-    chapter.save
+    chapter.save!
   end
 end
 
 p "creating registrations"
 
-10.times do
-  registration = Registration.new
-  registration.email = Faker::Internet.email
-  registration.password = 'password'
-  registration.username = Faker::LordOfTheRings.character
+20.times do
+  params = {}
+  params[:email] = Faker::Internet.email
+  params[:password] = 'password'
+  params[:username] = Faker::LordOfTheRings.character
+  registration = Registration.new(params)
   p registration
-  registration.save!
+  registration.save
 end
 
 p "creating users"
 
 Registration.all.each do |registration|
   params = {}
-  params[:picture] = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dwayne_Johnson_2%2C_2013.jpg/220px-Dwayne_Johnson_2%2C_2013.jpg"
   params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
   params[:active] = true
   params[:author] = false
@@ -65,9 +65,9 @@ Registration.all.each do |registration|
   params[:l_name] = Faker::Name.last_name
   params[:status] = true
   user = User.new(params)
-  user.registration_id = registration
+  user.registration = registration
   p user
-  user.save
+  user.save!
 end
 
 p "creating transactions"
@@ -84,6 +84,21 @@ User.all.each do |user|
     transaction.episode = book.episodes.order("RANDOM()").first
 
     p transaction
-    transaction.save
+    transaction.save!
+  end
+end
+
+p "creating reviews"
+
+Book.all.each do |book|
+  params = {}
+  rand(3..7).times do
+    review = Review.new
+    review.user = User.order("RANDOM()").first
+    review.book = book
+    review.rating = rand(0..5)
+    review.content = Faker::HarryPotter.quote
+    p review
+    review.save!
   end
 end
