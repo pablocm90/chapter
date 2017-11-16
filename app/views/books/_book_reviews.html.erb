@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-9">
+      <div>
+        <% @book.reviews.each do |review| %>
+        <div class= "review-box">
+          <ul class="list-inline">
+            <li>
+              <div class="rating">
+                <% 5.times do |counter|%>
+                  <% if review.rating <= counter %>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                  <% else %>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+            <li><p id="username">
+              <% review.user.picture? ? avatar_url = review.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+              <%= image_tag avatar_url, class: "avatar avatar-review"%>
+            <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
+          </ul>
+          <p id="content-box"><%= review.content %></p>
+        </div>
+        <% end %>
+        <div><%= render 'reviews/form' %></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -22,7 +22,16 @@
   top: 10px;
   left: 10px;
   font-size: 15px;
+  width: 100%;
+  padding-right: 16px;
   text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  p {
+    width: 40%;
+  }
+
 }
 .card-description {
   position: absolute;

@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'books#search'
     end
+
     resources :episodes, except: [:index] do
       resources :reviews, except: [:destroy, :show]
     end
+end
   get 'dashboard', to: 'users#dashboard'
 end
-end
+
+   

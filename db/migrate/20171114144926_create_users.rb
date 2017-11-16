@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :picture
       t.string :description
       t.boolean :active
-      t.boolean :author
+      t.boolean :is_author, default: false
       t.string :fav_genre
       t.string :f_name
       t.string :l_name
