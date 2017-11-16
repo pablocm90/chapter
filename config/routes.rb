@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resource :users, except: [ :new, :create, :index ] do
-    resources :transactions, only: [ :index ]
+    resources :transactions, only: [ :index, :create, :new ]
   end
 
   resource :author, except: [ :new, :create ] do

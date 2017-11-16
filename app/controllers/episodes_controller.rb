@@ -1,6 +1,7 @@
 class EpisodesController < ApplicationController
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
+  skip_before_action :authenticate_registration!
   attr_reader :convert_markdown
 
   def index
