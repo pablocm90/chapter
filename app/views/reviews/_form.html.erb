@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container review-container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="form-post">
+    <div class="col-xs-12 col-sm-9">
+      <div id="review-form">
         <h2>Add a review</h2>
         <%= simple_form_for [@book, @review] do |f| %>
         <%= f.input :rating, collection: (0..5) %>
         <%= f.input :content %>
-        <%= f.submit "Submit your review", class: "btn btn-danger" %>
+        <%= f.submit "Submit your review", class: "btn btn-danger"%>
         <% end %>
       </div>
     </div>

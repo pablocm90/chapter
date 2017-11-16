@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resource :users, except: [ :new, :create, :index ] do
-    resources :transactions, only: [ :index ]
+    resources :transactions, only: [ :index, :create, :new ]
   end
 
   resource :author, except: [ :new, :create ] do
@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'books#search'
     end
+
     resources :episodes, except: [:index]
-      resources :reviews, except: [:destroy, :show]
+    resources :reviews, except: [:destroy, :show]
+
+end
   get 'dashboard', to: 'users#dashboard'
 end
-end
+
+

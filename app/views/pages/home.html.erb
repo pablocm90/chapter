@@ -1,8 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 40%), url('https://static.pexels.com/photos/684314/pexels-photo-684314.jpeg');">
   <div class="banner-content">
       <div class="row">
         <div class="col-xs-12">
-          <h1>Start your adventure!</h1>
+          <h1>CHAPTER</h1>
+          <h2>Discover the world, one chapter at a time</h2>
         </div>
       </div>
       <div class="row">
@@ -22,7 +23,7 @@
     </div>
 </div>
 
-<% @books = Book.first(10) %>
+<% @books = @ordered_books.first(9) %>
 
 <%= render 'shared/cards' %>
 
