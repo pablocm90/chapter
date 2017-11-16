@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row searchFilter" >
+     <div class="col-sm-12" >
+      <div class="input-group" >
+      <% @filters.each do |filter|%>
+       <div class="input-group-btn" >
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon"><%= filter  %> </span> <span class="caret" >&nbsp;</span></button>
+        <div class="dropdown-menu dropdown-menu-right" >
+           <ul class="category_filters" >
+            <% filter.each do |item| %>
+                <li >
+                 <input class="cat_type category-input" data-label="<% item %> " id="<% item %> " value="" name="radios" type="radio" ><label for=" <% item %>" ><%= item %> </label>
+                </li>
+            <% end %>
+           </ul>
+        </div>
+       </div>
+        <% end %>
+      </div>
+     </div>
+  </div>
+</div>

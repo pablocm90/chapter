@@ -14,6 +14,22 @@ class BooksController < ApplicationController
     Book.reindex
     @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
     sort_results(@books)
+    @search_genres = []
+    @search_authors = []
+    @search_prices = []
+    @books.each do |book|
+      search_genre = book.genre
+      @search_genres << search_genre
+      # search_author = book.author.nom_de_plume
+      # @search_authors << search_author
+      # search_price = book.price
+      # @search_prices << search_price
+    end
+    @search_genres.uniq!
+    @search_authors.uniq!
+    @search_prices.uniq!
+    @filters = [@search_genres, @search_authors, @search_prices]
+
   end
 
   def index
