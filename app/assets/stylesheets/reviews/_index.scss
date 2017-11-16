@@ -16,9 +16,15 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 10px;
     margin-left: 0px;
     padding-left: 20px;
+
+    p {
+      font-size: 10px;
+    }
+    i {
+      font-size: 10px;
+    }
   }
   .form-post {
     margin-top: 10px;
@@ -28,12 +34,15 @@ p {
   }
 }
 
+.avatar-review {
+  width: 18px;
+}
+
 #content-box {
   padding-top: 25px;
 }
 
 #username {
-  font-size: 12px;
   font-weight: bold;
 }
 
@@ -55,4 +64,10 @@ p {
   padding-bottom: 10px;
 }
 
+.fa-star{
+  color: $yellow;
+}
 
+.fa-star-o {
+  color: $yellow;
+}
