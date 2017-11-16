@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :books, except: [ :show, :index ]
   end
 
-  resources :author, only: [ :new, :create ]
+  resources :authors, only: [ :new, :create ]
 
   resources :books, only: [ :show ] do
     collection do

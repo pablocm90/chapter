@@ -1,8 +1,9 @@
 class AuthorsController < ApplicationController
+ skip_before_action :authenticate_registration!
 
 # GET
 def new
-  @author = Author.new
+  @author = Author.new()
 end
 
 # POST
@@ -10,8 +11,8 @@ def create
   @author = Author.new(author_params)
   @author.user = current_user
   if @author.save
-    # We need to update this!!
-    redirect_to author_books_path
+    # We need to update the redirect_to path
+    redirect_to root_path
   else
     render :new
   end
