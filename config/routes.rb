@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   get '/books/:book_id/episodes/:id/buy' => 'episodes#buy', as: :buy_episodes
 
-  resources :users, except: [ :index ] do
+  resource :users, except: [ :index ] do
     resources :transactions, only: [ :index ]
   end
   get 'dashboard', to: 'users#dashboard'
