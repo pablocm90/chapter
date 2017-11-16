@@ -3,6 +3,9 @@
   <h2>My collection</h2>
 </div>
 </div>
+<%= link_to edit_users_path do %>
+  <div class="btn btn-danger">Edit my profile page</div>
+<% end %>
 
 <% if @my_genres.size >= 1 %>
   <% genre = @my_genres[0]%>
@@ -273,4 +276,5 @@
     </div>
   </div>
 <% end %>
+
 

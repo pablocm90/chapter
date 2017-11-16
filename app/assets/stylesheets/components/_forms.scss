@@ -1,3 +1,66 @@
 .input-big {
   height: 500px !important;
 }
+
+input[type=text] {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: bold;
+  // margin-bottom: 25px;
+}
+
+p {
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.CodeMirror-wrap {
+  height: 500px !important;
+  h1,
+  h2,
+  strong {
+    margin-top: 1em;
+    padding-top: 1em;
+    color: $primary;
+    text-align: center
+  }
+  p {
+    line-height: 1.5;
+    padding: 1em 2em;
+    color: $secondary;
+    text-align: justify;
+    text-justify: auto;
+  }
+
+}
+
+.form-create {
+  height: 90vh !important;
+}
+
+.editor-preview-active {
+  background-color: $light-gray !important;
+  h1,
+  h2,
+  strong {
+    margin-top: 1em;
+    padding-top: 1em;
+    color: $primary;
+    text-align: center
+  }
+  p {
+    line-height: 1.5;
+    padding: 1em 2em;
+    color: $secondary;
+    text-align: justify;
+    text-justify: auto;
+  }
+}

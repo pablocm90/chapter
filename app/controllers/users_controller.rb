@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 
 def show
-  @user = User.find(83)
+  @user = User.find(1)
   @my_books = []
   @user.transactions.each do |transaction|
     book = transaction.book
@@ -19,8 +19,22 @@ def show
     @my_genres << genre
   end
   @my_genres.uniq!
+end
+
+def edit
 
 end
+
+def update
+    @user.update(user_params)
+    if @user.save
+      redirect_to users_path
+    else
+      render 'show'
+    end
+end
+
+
 
 
   private
@@ -31,6 +45,10 @@ end
 
   def set_user
     @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:picture, :description,:registration_id, :fav_genre, :f_name, :l_name, :tokens, :active)
   end
 
 end
