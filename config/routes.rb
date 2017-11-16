@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
     get "buy", to: "books#buy"
     end
+    resources :reviews, except: [:destroy, :show]
   end
   get '/books/:book_id/episodes/:id/buy' => 'episodes#buy', as: :buy_episodes
 

@@ -1,6 +1,5 @@
 class Episode < ApplicationRecord
   belongs_to :book
-
   validates :title, presence: true
   validates :content, length: { minimum: 20 }
   validates :description, presence: true
