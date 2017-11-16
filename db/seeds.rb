@@ -1,6 +1,8 @@
 require 'faker'
 
 p "erasing everything"
+ Review.destroy_all
+ Author.destroy_all
  Transaction.destroy_all
  User.destroy_all
  Registration.destroy_all
@@ -60,7 +62,7 @@ Registration.all.each do |registration|
   params = {}
   params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
   params[:active] = true
-  params[:author] = false
+
   params[:f_name] = Faker::Name.first_name
   params[:l_name] = Faker::Name.last_name
   params[:status] = true
