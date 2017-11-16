@@ -13,7 +13,7 @@
     <% if current_author %>
     <%= link_to "Add a book", books_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% else %>
-    <%= link_to "Become an author", books_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
 
 
