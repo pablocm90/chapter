@@ -9,6 +9,12 @@ class BooksController < ApplicationController
    @review = Review.new
  end
 
+ def new
+ end
+
+ def create
+ end
+
  def search
     # onder index te plaatsen
     Book.reindex
