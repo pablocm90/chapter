@@ -22,15 +22,11 @@
             </tr>
           </table>
         </div>
-        <% if 100 >= episode.price %>
           <%= form_tag book_episode_transactions_path(@book, episode) do %>
             <%= hidden_field_tag 'episode', :episode %>
             <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
           <% end %>
           <% episode.price %>
-        <% else %>
-          <%= link_to "Top up", :back, class: "btn btn-primary" %>
-        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

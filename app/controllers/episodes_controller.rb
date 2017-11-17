@@ -14,7 +14,7 @@ class EpisodesController < ApplicationController
 
   def create
     @episode = Episode.new(episode_params)
-    @episode.number = @book.episodes.last.number.to_i + 1
+    @episode.number = (@book.episodes.count == 0) ? 1 : @book.episodes.last.number.to_i + 1
     @episode.book = @book
     if @episode.save
       redirect_to book_path(@book)
