@@ -11,6 +11,9 @@
     </div>
   </li>
 </ul>
+<% if current_user == @book.author.user %>
+  <%= link_to "new chapter", new_book_episode_path(@book), class: "btn btn-primary" %>
+<% end %>
 <% @book.episodes.each do |episode| %>
 <li class="message">
   <div class="message-name">
