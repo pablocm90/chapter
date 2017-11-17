@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
- skip_before_action :authenticate_registration!
+  skip_before_action :authenticate_registration!
 
 # GET
 def new
@@ -12,16 +12,25 @@ def create
   @author.user = current_user
   current_user.is_author = true
   if @author.save
-    # We need to update the redirect_to path
-    current_user.save
-    redirect_to root_path
+      # We need to update the redirect_to path
+      current_user.save
+      redirect_to root_path
+    else
+     render :new
+   end
+ end
+
+ def show
+  if params[:id]
+    @author = Author.find(params[:id])
   else
-    render :new
+    @author = current_author
   end
 end
 
 def dashboard
-
+  @books_author = current_author.books
+  @reviews_author = current_author.books.reviews
 end
 
 

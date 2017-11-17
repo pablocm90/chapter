@@ -1,1 +1,24 @@
-<h1>THIS IS THE AUTHOR SHOWPAGE</h1>
+<% if current_author != @author.nom_de_plume %>
+<div class="container">
+  <div class="profile text-center">
+    <div class="main">
+      <div class="main-content">
+        <%= cl_image_tag @author.user.picture, class: "img-circle", width: 150 %>
+        <h2> <%= @author.nom_de_plume %> </h2>
+        <a href="#" class="btn btn-primary btn-lg">Edit profile</a>
+      </div>
+    </div>
+    <div class="description">
+      <div class="description-content">
+        <h3>More about <%= @author.nom_de_plume %> </h3>
+        <p class="text-justify"> <%= @author.user.description  %> </p>
+      </div>
+    </div>
+    <div class="books">
+      <div class="books-content">
+        <h3> <%= @author.nom_de_plume %>'s books </h3>
+     </div>
+   </div>
+ </div>
+</div>
+<% end %>

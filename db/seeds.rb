@@ -1,12 +1,27 @@
 require 'faker'
 
 p "erasing everything"
+ Transaction.destroy_all
+ Book.destroy_all
  Review.destroy_all
  Author.destroy_all
- Transaction.destroy_all
  User.destroy_all
  Registration.destroy_all
- Book.destroy_all
+
+ p "creating 2 users"
+
+ registration = Registration.create(email:"bob@bob", password: "bobbob", username: "bob")
+ User.create(registration: registration)
+
+ registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
+
+ user_author = User.create(registration: registration_author)
+
+
+@author = Author.create(user: user_author)
+
+
+
 
 p "creating books"
 
@@ -21,6 +36,7 @@ p "creating books"
   params[:quote_hover] = Faker::Pokemon.move
   book = Book.new(params)
   p book
+  book.author = @author
   book.save!
 end
 
