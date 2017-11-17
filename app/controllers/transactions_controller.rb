@@ -8,7 +8,6 @@ class TransactionsController < ApplicationController
   end
 
   def create
-
     set_episode
     set_book
     @user = current_user
