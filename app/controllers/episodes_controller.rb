@@ -28,6 +28,7 @@ class EpisodesController < ApplicationController
 
   def show
     @converted = convert_markdown(@episode.content)
+    @author = @episode.book.author
   end
 
   def convert_markdown(text)
