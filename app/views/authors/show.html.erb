@@ -5,7 +5,7 @@
       <div class="main-content">
         <%= cl_image_tag @author.user.picture, class: "img-circle", width: 150 %>
         <h2> <%= @author.nom_de_plume %> </h2>
-        <a href="#" class="btn btn-primary btn-lg">Edit profile</a>
+        <a href="#" class="btn btn-primary">Edit profile</a>
       </div>
     </div>
     <div class="description">
@@ -17,6 +17,19 @@
     <div class="books">
       <div class="books-content">
         <h3> <%= @author.nom_de_plume %>'s books </h3>
+        <% @author.books.each do |book| %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+          <div class="card-category">
+            <p><%= book.title %></p>
+          </div>
+          <div class="card-description">
+           <p><%= book.genre %></p>
+         </div>
+         <%= link_to book_path(book), class: 'card-link' do %>
+         <p class="description-hover"> <%= book.quote_hover %> </p>
+         <% end %>
+       </div>
+       <% end %>
      </div>
    </div>
  </div>

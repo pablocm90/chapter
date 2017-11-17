@@ -33,7 +33,6 @@ def dashboard
   @reviews_author = current_author.books.reviews
 end
 
-
 private
 
 def author_params
