@@ -28,27 +28,31 @@ class BooksController < ApplicationController
  def search
     # onder index te plaatsen
     Book.reindex
-    @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
+    @query = params[:query]
+    @books = @query ? Book.search(@query) : Book.all
     sort_results(@books)
     @genres = []
     @books.each do |book|
       @genres << book.genre
     end
     @genres.uniq!
-    return @books
-  end
 
-  def filter_genre
-    search
-    genre = params[:genre]
-    @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
-    @books = @books.where(genre: genre)
-    sort_results(@books)
-    @genres = []
+    @authors = []
     @books.each do |book|
-      @genres << book.genre
+      @authors << book.author.nom_de_plume
     end
-    @genres.uniq!
+    @authors.uniq!
+
+    if params[:genre]
+      @selected_genre = params[:genre]
+      @books = @books.select { |b| b.genre == @selected_genre }
+      sort_results(@books)
+    end
+    if params[:author]
+      @selected_author = params[:author]
+      @books = @books.select { |b| b.author.nom_de_plume == @selected_author }
+      sort_results(@books)
+    end
   end
 
   def index
