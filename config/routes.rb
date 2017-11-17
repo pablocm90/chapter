@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
 end
   get 'dashboard', to: 'users#dashboard'
+  get 'author_dashboard', to: 'authors#dashboard'
 end
 
 
