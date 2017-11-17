@@ -1,1 +1,24 @@
-<h1>THIS IS THE AUTHOR SHOWPAGE</h1>
+<% if current_author != @author.nom_de_plume %>
+
+
+<div class="container margin-top-50 author-card">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="author-pic text-center thumbnail">
+        <!-- < cl_image_tag @author.user.picture, class: "img-author" %> -->
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 ">
+      <div class="author-info text-center thumbnail">
+        <p><b>Name:</b></p>
+        <p> <%= @author.nom_de_plume %> </p>
+        <p><b>Bank account:</b></p>
+        <p> <%= @author.bank_account %> </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+<% end %>
+
