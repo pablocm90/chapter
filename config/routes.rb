@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   resource :users, except: [ :new, :create, :index ] do
     resources :transactions, only: [ :index ]
   end
+  resources :authors, only: [ :new, :create ]
 
-  resource :author, except: [ :new, :create ] do
+  resources :authors, except: [ :new, :create ] do
     resources :books, except: [ :show, :index ]
   end
 
-  resources :authors, only: [ :new, :create ]
 
   resources :books, only: [ :show ] do
     collection do
