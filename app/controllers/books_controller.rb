@@ -9,6 +9,22 @@ class BooksController < ApplicationController
    @review = Review.new
  end
 
+ def new
+  @author = current_author
+  @book = Book.new
+
+ end
+
+ def create
+  @book = Book.new(book_params)
+  @book.author_id = current_author.id
+  if @book.save
+    redirect_to author_dashboard_path
+  else
+    render :new
+  end
+ end
+
  def search
     # onder index te plaatsen
     Book.reindex
@@ -34,6 +50,10 @@ private
 
   def average_rating(book)
     book.reviews.count != 0 ? @average_rating = book.reviews.average(:rating) : @average_rating = 0
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :description, :genre, :tags, :cover_pic, :cover_pic_cache, :quote_hover)
   end
 
 end

@@ -23,6 +23,9 @@ gem 'algoliasearch-rails'
 # Users
 gem 'devise'
 
+# Charts
+gem 'chartkick'
+
 # Markdown input
 gem 'redcarpet'
 
