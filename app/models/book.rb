@@ -22,13 +22,17 @@ class Book < ApplicationRecord
   end
 
   filterrific(
-  default_filter_params: { sorted_by: 'created_at_desc' },
-  available_filters: [
-    :genre,
-    :search_query,
-    :with_country_id,
-    :with_created_at_gte
+    available_filters: [
+      :with_genre
   ]
 )
+
+  scope :with_genre, lambda { |genre|
+  where(genre: genre)
+}
+
+  def self.options_for_select
+    order('genre').map { |e| [e.genre] }
+  end
 
 end

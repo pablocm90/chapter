@@ -1,22 +1,29 @@
-<div class="container">
-  <div class="row searchFilter" >
-     <div class="col-sm-12" >
-      <div class="input-group" >
-      <% @filters.each do |filter|%>
-       <div class="input-group-btn" >
-        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon"><%= filter  %> </span> <span class="caret" >&nbsp;</span></button>
-        <div class="dropdown-menu dropdown-menu-right" >
-           <ul class="category_filters" >
-            <% filter.each do |item| %>
-                <li >
-                 <input class="cat_type category-input" data-label="<% item %> " id="<% item %> " value="" name="radios" type="radio" ><label for=" <% item %>" ><%= item %> </label>
-                </li>
-            <% end %>
-           </ul>
-        </div>
-       </div>
-        <% end %>
-      </div>
-     </div>
+
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Filter
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
   </div>
+  <div>
+    Genre
+    <%= f.select(
+      :with_genre,
+      @filterrific.select_options[:with_genre],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+<% end %>
+
+<div id="filterrific_results">
+<%= render(
+  partial: 'shared/cards',
+  locals: { books: @books }
+) %>
 </div>
+
