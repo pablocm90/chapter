@@ -7,9 +7,11 @@ class UsersController < ApplicationController
 def show
   @user = current_user
   @my_books = []
-  @user.transactions.each do |transaction|
-    book = transaction.book
-    @my_books << book
+  unless @user.transactions.empty?
+    @user.transactions.each do |transaction|
+      book = transaction.book
+      @my_books << book
+    end
   end
   @my_books.uniq!
 
