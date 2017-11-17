@@ -28,10 +28,10 @@ def create
   end
 end
 
-def dashboard
-  @books_author = current_author.books
-  @reviews_author = current_author.books.reviews
-end
+# def dashboard
+#   @books_author = current_author.books
+#   @reviews_author = current_author.books.reviews
+# end
 
 
 private
