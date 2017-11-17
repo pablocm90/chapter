@@ -7,29 +7,32 @@ class BooksController < ApplicationController
    @book = Book.find(params[:id])
    @user = current_user
    @review = Review.new
- end
+  end
 
- def search
+  def search
     # onder index te plaatsen
     Book.reindex
     @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
-
-    @filterrific = initialize_filterrific(
-      Book,
-      params[:filterrific],
-      select_options: {
-        with_genre: Book.options_for_select
-      },
-        persistence_id: 'shared_key',
-        default_filter_params: {},
-        available_filters: [],
-      ) or return
-
     sort_results(@books)
-    respond_to do |format|
-      format.html
-      format.js
+    @genres = []
+    @books.each do |book|
+      @genres << book.genre
     end
+    @genres.uniq!
+    return @books
+  end
+
+  def filter_genre
+    search
+    genre = params[:genre]
+    @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
+    @books = @books.where(genre: genre)
+    sort_results(@books)
+    @genres = []
+    @books.each do |book|
+      @genres << book.genre
+    end
+    @genres.uniq!
   end
 
   def index

@@ -19,7 +19,6 @@ gem 'uglifier'
 
 # Search function
 gem 'algoliasearch-rails'
-gem 'filterrific'
 
 # Users
 gem 'devise'

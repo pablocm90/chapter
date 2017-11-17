@@ -20,19 +20,4 @@ class Book < ApplicationRecord
     minWordSizefor2Typos 8
     # To Do: custom ranking (customRanking ['desc(likes_count)'])
   end
-
-  filterrific(
-    available_filters: [
-      :with_genre
-  ]
-)
-
-  scope :with_genre, lambda { |genre|
-  where(genre: genre)
-}
-
-  def self.options_for_select
-    order('genre').map { |e| [e.genre] }
-  end
-
 end

@@ -1,29 +1,19 @@
-
-<%= form_for_filterrific @filterrific do |f| %>
-  <div>
-    Filter
-    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-  </div>
-  <div>
+<div class="filters">
+  <div class="dropdown">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
     Genre
-    <%= f.select(
-      :with_genre,
-      @filterrific.select_options[:with_genre],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
-  <div>
-    <%= link_to(
-      'Reset filters',
-      reset_filterrific_url,
-    ) %>
-  </div>
-<% end %>
+    <span class="caret"></span>
+  </a>
 
-<div id="filterrific_results">
-<%= render(
-  partial: 'shared/cards',
-  locals: { books: @books }
-) %>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <% @genres.each do |genre| %>
+      <li>
+        <%= form_tag filter_genre_books_path do %>
+            <%= hidden_field_tag 'genre', genre %>
+            <%= submit_tag genre, class: 'btn btn-primary' %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
 </div>
-
