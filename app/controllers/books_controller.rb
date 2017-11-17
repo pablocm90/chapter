@@ -24,7 +24,7 @@ class BooksController < ApplicationController
         default_filter_params: {},
         available_filters: [],
       ) or return
-    @books = @filterrific.find.page(params[:page])
+
     sort_results(@books)
     respond_to do |format|
       format.html
@@ -50,11 +50,6 @@ private
 
   def average_rating(book)
     book.reviews.count != 0 ? @average_rating = book.reviews.average(:rating) : @average_rating = 0
-  end
-
-  rescue ActiveRecord::RecordNotFound => e
-    # There is an issue with the persisted param_set. Reset it.
-    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
 end
