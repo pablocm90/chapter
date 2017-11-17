@@ -10,7 +10,7 @@
 
     <% if current_user %>
     <% if current_author %>
-    <%= link_to "Your books", author_path , class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "Your books", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
     <% else %>
     <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
@@ -26,7 +26,7 @@
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Profile", users_path %></li>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Dashboard", author_dashboard_path %></li>
           <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
         </ul>
         <% else %>
@@ -59,7 +59,7 @@
 
         <% if current_user && current_author %>
 
-        <li> <%= link_to "Your books", author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+        <li> <%= link_to "Your books", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
 
         <li>

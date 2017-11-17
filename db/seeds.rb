@@ -15,10 +15,10 @@ p "erasing everything"
 
  registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
 
- user_author = User.create(registration: registration_author)
+ user_author = User.create(registration: registration_author, nom_de_plume: "groot")
 
 
-@author = Author.create(user: user_author)
+@author = Author.create(user: user_author, nom_de_plume:"Pablo")
 
 
 

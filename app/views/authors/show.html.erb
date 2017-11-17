@@ -1,11 +1,10 @@
-<% if current_author != @author.nom_de_plume %>
+<% if current_user.author != @author %>
 <div class="container">
   <div class="profile grid text-center">
     <div class="main">
       <div class="main-content">
         <%= cl_image_tag @author.user.picture, class: "img-circle", width: 150 %>
         <h2> <%= @author.nom_de_plume %> </h2>
-        <a href="#" class="btn btn-primary btn-lg">Edit profile</a>
       </div>
     </div>
     <div class="description">

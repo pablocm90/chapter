@@ -1,6 +1,5 @@
 class TransactionsController < ApplicationController
 
-  skip_before_action :authenticate_registration!
 
   def new
     @episode = episode
