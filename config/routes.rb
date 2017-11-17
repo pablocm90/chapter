@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :books, only: [ :show ] do
     collection do
       get 'search', to: 'books#search'
-      post 'filter_genre', to: 'books#filter_genre'
     end
 
     resources :episodes, except: [:index] do

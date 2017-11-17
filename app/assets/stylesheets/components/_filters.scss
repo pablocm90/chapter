@@ -5,3 +5,19 @@
 .filters {
   padding-left: 10px;
 }
+
+.dropdown-menu {
+  padding: 0px;
+}
+
+.dropdown-menu input {
+  width: 100%;
+  border: none;
+  color: $primary;
+  border-bottom: 1px inset $secondary;
+  opacity: 1;
+  border-radius: 0px;
+  background-color: $light-gray;
+}
+
+
