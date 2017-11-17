@@ -1,13 +1,13 @@
 class BooksController < ApplicationController
   # The show method displays only further details on a single book
   # Find only the book that has the id defined in params[:id]
-  skip_before_action :authenticate_registration!, only: [:index, :show, :search]
+  skip_before_action :authenticate_registration!, only: [:index, :show, :search, :filter_genre]
 
   def show
    @book = Book.find(params[:id])
    @user = current_user
    @review = Review.new
- end
+  end
 
  def new
   @author = current_author
@@ -30,6 +30,25 @@ class BooksController < ApplicationController
     Book.reindex
     @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
     sort_results(@books)
+    @genres = []
+    @books.each do |book|
+      @genres << book.genre
+    end
+    @genres.uniq!
+    return @books
+  end
+
+  def filter_genre
+    search
+    genre = params[:genre]
+    @books = (params[:query].present?) ? Book.search(params[:query]) : Book.all
+    @books = @books.where(genre: genre)
+    sort_results(@books)
+    @genres = []
+    @books.each do |book|
+      @genres << book.genre
+    end
+    @genres.uniq!
   end
 
   def index

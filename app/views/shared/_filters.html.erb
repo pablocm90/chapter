@@ -1,0 +1,24 @@
+<div class="container" id="filter-container">
+
+
+<div class="filters">
+  <div class="dropdown">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    Genre
+    <span class="caret"></span>
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <% @genres.each do |genre| %>
+      <li>
+        <%= form_tag filter_genre_books_path do %>
+            <%= hidden_field_tag 'genre', genre %>
+            <%= submit_tag genre %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+</div>
+
+</div>
