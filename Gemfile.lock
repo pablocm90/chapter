@@ -59,6 +59,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (2.2.5)
     cloudinary (1.8.1)
       aws_cf_signer
       rest-client
@@ -222,6 +223,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   carrierwave (~> 1.0)
+  chartkick
   cloudinary
   devise
   faker
