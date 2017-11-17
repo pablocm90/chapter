@@ -37,9 +37,20 @@ class BooksController < ApplicationController
     end
     @genres.uniq!
 
+    @authors = []
+    @books.each do |book|
+      @authors << book.author.nom_de_plume
+    end
+    @authors.uniq!
+
     if params[:genre]
       @selected_genre = params[:genre]
       @books = @books.select { |b| b.genre == @selected_genre }
+      sort_results(@books)
+    end
+    if params[:author]
+      @selected_author = params[:author]
+      @books = @books.select { |b| b.author.nom_de_plume == @selected_author }
       sort_results(@books)
     end
   end

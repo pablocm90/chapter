@@ -18,7 +18,7 @@ p "erasing everything"
  user_author = User.create(registration: registration_author)
 
 
-@author = Author.create(user: user_author)
+@author = Author.create(user: user_author, nom_de_plume:"Pablo")
 
 
 

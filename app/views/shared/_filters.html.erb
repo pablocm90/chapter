@@ -9,6 +9,8 @@
   </form>
 </div>
 <div class="filters">
+  <ul class="list-inline">
+  <li>
   <div class="dropdown">
   <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
     Genre
@@ -27,6 +29,28 @@
     <% end %>
   </ul>
   </div>
+  </li>
+  <li>
+  <div class="dropdown">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    Author
+    <span class="caret"></span>
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <% @authors.each do |author| %>
+      <li>
+        <%= form_tag search_books_path, method: :get do %>
+            <%= hidden_field_tag 'query', @query %>
+            <%= hidden_field_tag 'author', author %>
+            <%= submit_tag author %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+  </li>
+  </ul>
 </div>
 
 </div>
