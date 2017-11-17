@@ -9,7 +9,7 @@
         <div class="card-category">
           <p><%= book.title %></p>
           <div>
-            # <% unless book.reviews.empty? %>
+             <% unless book.reviews.empty? %>
               <% 5.times do |counter|%>
                 <% if book.reviews.average(:rating) <= counter %>
                   <i class="fa fa-star-o" aria-hidden="true"></i>
