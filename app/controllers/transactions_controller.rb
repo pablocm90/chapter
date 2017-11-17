@@ -8,9 +8,10 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @episode = episode
-    @book = @episode.book
-    @user = User.first
+
+    set_episode
+    set_book
+    @user = current_user
     @transaction = Transaction.new
     @transaction.episode = @episode
     @transaction.book = @book
@@ -24,5 +25,11 @@ class TransactionsController < ApplicationController
 
   private
 
+  def set_episode #because this param comes from somewhere elese , the url instead of the form
+    @episode = Episode.find(params[:episode_id])
+  end
 
+  def set_book #because this param comes from somewhere elese , the url instead of the form
+    @book = Book.find(params[:book_id])
+  end
 end
