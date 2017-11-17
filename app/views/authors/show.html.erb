@@ -1,6 +1,6 @@
 <% if current_user.author != @author %>
 <div class="container">
-  <div class="profile text-center">
+  <div class="profile grid text-center">
     <div class="main">
       <div class="main-content">
         <%= cl_image_tag @author.user.picture, class: "img-circle", width: 150 %>
@@ -13,24 +13,39 @@
         <p class="text-justify"> <%= @author.user.description  %> </p>
       </div>
     </div>
+
     <div class="books">
-      <div class="books-content">
-        <h3> <%= @author.nom_de_plume %>'s books </h3>
-        <% @author.books.each do |book| %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-          <div class="card-category">
-            <p><%= book.title %></p>
-          </div>
-          <div class="card-description">
-           <p><%= book.genre %></p>
+      <div class="container">
+        <div class="row">
+         <% @author.books.each do |book| %>
+         <div class="col-xs-12 col-sm-4">
+          <div class="card-author" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+            <div class="card-category">
+              <p><%= book.title %></p>
+              <div>
+               <% unless book.reviews.empty? %>
+               <% 5.times do |counter|%>
+               <% if book.reviews.average(:rating) <= counter %>
+               <i class="fa fa-star-o" aria-hidden="true"></i>
+               <% else %>
+               <i class="fa fa-star" aria-hidden="true"></i>
+               <% end %>
+               <% end %>
+               <% end %>
+             </div>
+           </div>
+           <div class="card-description">
+             <p><%= book.genre %></p>
+           </div>
+           <%= link_to book_path(book), class: 'card-link' do %>
+           <p class="description-hover"> <%= book.quote_hover %> </p>
+           <% end %>
          </div>
-         <%= link_to book_path(book), class: 'card-link' do %>
-         <p class="description-hover"> <%= book.quote_hover %> </p>
-         <% end %>
        </div>
        <% end %>
+
      </div>
    </div>
- </div>
+</div>
 </div>
 <% end %>
