@@ -1,3 +1,4 @@
+
 <div class="container">
 
 
@@ -8,11 +9,13 @@
         <div class="card-category">
           <p><%= book.title %></p>
           <div>
-            <% 5.times do |counter|%>
-              <% if book.reviews.average(:rating) <= counter %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
-              <% else %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
+            # <% unless book.reviews.empty? %>
+              <% 5.times do |counter|%>
+                <% if book.reviews.average(:rating) <= counter %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <% else %>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                <% end %>
               <% end %>
             <% end %>
           </div>
@@ -26,8 +29,8 @@
       </div>
     </div>
     <% end %>
+
+
   </div>
 </div>
-
-
 
