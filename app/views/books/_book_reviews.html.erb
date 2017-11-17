@@ -8,26 +8,32 @@
             <li>
               <div class="rating">
                 <% 5.times do |counter|%>
-                  <% if review.rating <= counter %>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <% else %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  <% end %>
+                <% if review.rating <= counter %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <% else %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <% end %>
                 <% end %>
               </div>
             </li>
             <li><p id="username">
-              <% review.user.picture? ? avatar_url = review.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+              <% review.user.picture? ? avatar_url = review.user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
               <%= image_tag avatar_url, class: "avatar avatar-review"%>
-            <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
-          </ul>
-          <p id="content-box"><%= review.content %></p>
-        </div>
-        <% end %>
-        <div><%= render 'reviews/form' %></div>
+              <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
+            </ul>
+            <p id="content-box"><%= review.content %></p>
+          </div>
+          <% end %>
 
+          <div class="text-center">
+            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#review-modal">Add a review</button>
+          </div>
+
+          <div></div>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+<%= render '/shared/review_modal' %>
