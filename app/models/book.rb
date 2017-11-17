@@ -13,9 +13,6 @@ class Book < ApplicationRecord
   validates_associated :reviews
   include AlgoliaSearch
 
-
-
-
   algoliasearch do
     attribute :title, :description, :genre, :tags, :quote_hover
     searchableAttributes ['title', 'description', 'genre', 'tags', 'quote_hover']
@@ -23,5 +20,15 @@ class Book < ApplicationRecord
     minWordSizefor2Typos 8
     # To Do: custom ranking (customRanking ['desc(likes_count)'])
   end
+
+  filterrific(
+  default_filter_params: { sorted_by: 'created_at_desc' },
+  available_filters: [
+    :genre,
+    :search_query,
+    :with_country_id,
+    :with_created_at_gte
+  ]
+)
 
 end
