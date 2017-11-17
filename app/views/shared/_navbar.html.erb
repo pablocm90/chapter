@@ -2,7 +2,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <img src="images/logo.png" alt="logo">
+    <%= cl_image_path("http://res.cloudinary.com/dpqd2snsv/image/upload/v1510915048/logo_xqiqgj.svg")  %>
   </a>
 
   <!-- Right Navigation -->
@@ -76,7 +76,7 @@
             <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
           </li>
           <li>
-            <%= link_to "Profile", author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+            <%= link_to "Profile", users_path, class: 'navbar-wagon-item navbar-wagon-link' %>
           </li>
           <li>
             <%= link_to "Dashboard", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>

@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
   def create
     set_episode
     set_book
-    @user = User.first
+    @user = current_user
     @transaction = Transaction.new
     @transaction.episode = @episode
     @transaction.book = @book
