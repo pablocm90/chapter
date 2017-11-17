@@ -14,7 +14,7 @@ def create
   if @author.save
       # We need to update the redirect_to path
       current_user.save
-      redirect_to root_path
+      redirect_to author_dashboard_path(current_author)
     else
      render :new
    end
