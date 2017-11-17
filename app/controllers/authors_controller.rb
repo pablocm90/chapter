@@ -29,8 +29,8 @@ def create
 end
 
 def dashboard
-  @books_author = current_author.books
-  @reviews_author = current_author.books.reviews
+  @books = current_author.books
+
 end
 
 
