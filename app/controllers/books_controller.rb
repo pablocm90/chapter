@@ -2,9 +2,9 @@ class BooksController < ApplicationController
   # The show method displays only further details on a single book
   # Find only the book that has the id defined in params[:id]
   skip_before_action :authenticate_registration!, only: [:index, :show, :search, :filter_genre]
+  before_action :set_book, only: [:show, :buy]
 
   def show
-   @book = Book.find(params[:id])
    @user = current_user
    @review = Review.new
   end
@@ -17,7 +17,7 @@ class BooksController < ApplicationController
 
  def create
   @book = Book.new(book_params)
-  @book.author_id = current_author.id
+  @book.author = current_author
   if @book.save
     redirect_to author_dashboard_path
   else
@@ -26,22 +26,32 @@ class BooksController < ApplicationController
  end
 
  def search
-    # onder index te plaatsen
+    # @genres = []
+    # @books.each do |book|
+    #   @genres << book.genre
+    # end
+    # @genres.uniq!
+    # removed since using Active records might make it quicker
+
+    # @authors = []
+    # @books.each do |book|
+    #   @authors << book.author.nom_de_plume
+    # end
+    # @authors.uniq!
+
+
+    # onder index te plaatsen (english?)
+    # Careful cause the end result is not really ordered!
+
     Book.reindex
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
-    sort_results(@books)
-    @genres = []
-    @books.each do |book|
-      @genres << book.genre
-    end
-    @genres.uniq!
 
-    @authors = []
-    @books.each do |book|
-      @authors << book.author.nom_de_plume
-    end
-    @authors.uniq!
+    @genres = @books.pluck(:genre).uniq
+
+    @authors = @books.map { |book| Author.find(book.author_id).nom_de_plume }.uniq
+
+    sort_results(@books)
 
     if params[:genre]
       @selected_genre = params[:genre]
@@ -60,7 +70,6 @@ class BooksController < ApplicationController
   end
 
   def buy
-    @book = Book.find(params[:id])
   end
 
 
@@ -78,5 +87,10 @@ private
   def book_params
     params.require(:book).permit(:title, :description, :genre, :tags, :cover_pic, :cover_pic_cache, :quote_hover)
   end
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
 
 end

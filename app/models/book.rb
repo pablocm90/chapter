@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   # genres_array = %w(fantasy scy-fi horror comedy crime thriler)
   attr_reader :genres
   GENRES = %w(fantasy scy-fi horror comedy crime thriller)
+
   mount_uploader :cover_pic, CoverPicUploader
 
   has_many :episodes, dependent: :destroy
