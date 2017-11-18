@@ -16,9 +16,10 @@
   <div class="site-content">
     <%= yield %>
   </div>
-  <%= render 'shared/footer' %>
-    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= javascript_include_tag 'application' %>
+  <%= yield :after_js %>
+  <%= render 'shared/footer' %>
 
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>

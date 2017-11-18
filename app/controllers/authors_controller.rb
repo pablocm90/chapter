@@ -24,6 +24,7 @@ end
 
 def dashboard
   @books = current_author.books
+  @my_transactions = current_author.transactions
 end
 
 private
