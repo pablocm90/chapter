@@ -7,7 +7,11 @@ class UsersController < ApplicationController
 
 def show
 
-  unless curent_user.transactions.empty?
+  @my_books = []
+  @my_episodes = []
+  @my_genres = []
+
+  unless current_user.transactions.empty?
     @my_books = current_user.transactions.pluck(:book).uniq
 
     @my_episodes = current_user.transactions.pluck(:episode).uniq
@@ -15,6 +19,7 @@ def show
     @my_genres = @my_books.map { |book| book.genre }.uniq
   end
 
+end
 
 
 
@@ -23,8 +28,8 @@ def edit
 end
 
 def update
-    @user.update(user_params)
-    if @user.save
+    current_user.update(user_params)
+    if current_user.save
       redirect_to users_path
     else
       render 'show'
@@ -34,7 +39,7 @@ end
 
 
 
-  private
+private
 
   # from show
   # @user.transactions.each do |transaction|
@@ -55,7 +60,7 @@ end
 
   # def set_user
   #   @user = current_user
-  end
+  # end
 
   def user_params
     params.require(:user).permit(:picture, :picture_cache, :description,:registration_id, :fav_genre, :f_name, :l_name, :tokens, :active)
