@@ -52,6 +52,7 @@ Book.all.each do |book|
     params[:content] = Faker::Lovecraft.paragraphs(10).join(" ")
     params[:description] = Faker::HitchhikersGuideToTheGalaxy.marvin_quote
     params[:number] += 1
+    params[:price] = rand(10..150)
     chapter = Episode.new(params)
     chapter.price = 20
     chapter.book = book

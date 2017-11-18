@@ -6,5 +6,6 @@ class Episode < ApplicationRecord
   validates :description, presence: true
   validates :number, uniqueness: {scope: :book}
   validates :book, presence: true
+  validates :price, presence: true
 
 end

@@ -12,6 +12,6 @@ class Registration < ApplicationRecord
   private
 
   def create_user
-    users.create
+    users.create(tokens: 200)
   end
 end
