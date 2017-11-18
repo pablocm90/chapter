@@ -1,4 +1,4 @@
-<div class="row">
+<div class="container"><div class="row">
   <div class="col-xs-12" id="collection-title">
     <h2>My collection</h2>
   </div>
@@ -8,20 +8,20 @@
   <div class="btn btn-danger text-center">Edit my profile page</div>
   <% end %>
 </div>
-
-
+<hr>
 <% @my_genres.each do |genre| %>
+
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
     <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
+      <div class="panel-heading" role="tab" id="heading">
         <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= genre %>" aria-expanded="false" aria-controls="collapse<%= genre %>">
             <%= genre %>
           </a>
         </h4>
       </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div id="collapse<%= genre %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading<%= genre %>">
         <% @my_books.each do |book| %>
           <% if book.genre == genre %>
             <div class="panel-body">
@@ -38,3 +38,4 @@
     </div>
   </div>
 <% end %>
+</div>
