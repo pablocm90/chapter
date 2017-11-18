@@ -1,27 +1,22 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_registration!
-  before_action :set_registration
-  before_action :set_user
+  # before_action :set_registration
+  # before_action :set_user
+  # I don't think we need the before action
 
 
 def show
-  @user = current_user
-  @my_books = []
-  unless @user.transactions.empty?
-    @user.transactions.each do |transaction|
-      book = transaction.book
-      @my_books << book
-    end
-  end
-  @my_books.uniq!
 
-  @my_genres = []
-  @my_books.each do |book|
-    genre = book.genre
-    @my_genres << genre
+  unless curent_user.transactions.empty?
+    @my_books = current_user.transactions.pluck(:book).uniq
+
+    @my_episodes = current_user.transactions.pluck(:episode).uniq
+
+    @my_genres = @my_books.map { |book| book.genre }.uniq
   end
-  @my_genres.uniq!
-end
+
+
+
 
 def edit
 
@@ -41,12 +36,25 @@ end
 
   private
 
-  def set_registration
-    @registration = current_registration
-  end
+  # from show
+  # @user.transactions.each do |transaction|
+  #   book = transaction.book
+  #   @my_books << book
+  # end
+  #   @my_genres = []
+  #   @my_books.each do |book|
+  #     genre = book.genre
+  #     @my_genres << genre
+  #   end
+  #   @my_genres.uniq!
+  # end
 
-  def set_user
-    @user = current_user
+  # def set_registration
+  #   @registration = current_registration
+  # end
+
+  # def set_user
+  #   @user = current_user
   end
 
   def user_params
