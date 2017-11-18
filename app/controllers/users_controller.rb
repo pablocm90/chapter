@@ -12,9 +12,12 @@ def show
   @my_genres = []
 
   unless current_user.transactions.empty?
-    @my_books = current_user.transactions.pluck(:book).uniq
 
-    @my_episodes = current_user.transactions.pluck(:episode).uniq
+    transactions = current_user.transactions
+
+    @my_books = transactions.map {|t| Book.find(t.book_id) }
+
+    @my_episodes = @my_books.pluck(:episode).uniq
 
     @my_genres = @my_books.map { |book| book.genre }.uniq
   end

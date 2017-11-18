@@ -23,6 +23,9 @@ p "erasing everything"
 
 
 
+p "setting counter to 0"
+
+counter = 0
 p "creating books"
 
 # genres_array = %w(fantasy scy-fi horror comedy crime thriler)
@@ -35,16 +38,20 @@ p "creating books"
   params[:description] = Faker::StarWars.quote
   params[:quote_hover] = Faker::Pokemon.move
   book = Book.new(params)
-  p book
   book.author = @author
-  book.save!
+  if book.save
+    counter += 1
+    book.save
+  end
 end
+
+p "created #{counter} books"
+counter = 0
 
 p "creating chapters"
 
 Book.all.each do |book|
   params = {}
-
   params[:number] = 0
   rand(3..7).times do
 
@@ -56,11 +63,16 @@ Book.all.each do |book|
     chapter = Episode.new(params)
     chapter.price = 20
     chapter.book = book
-
-    p chapter
-    chapter.save!
+    if chapter.save
+      counter += 1
+      chapter.save
+    end
   end
 end
+
+p "created #{counter} chapters"
+
+counter = 0
 
 p "creating registrations"
 
@@ -70,9 +82,16 @@ p "creating registrations"
   params[:password] = 'password'
   params[:username] = Faker::LordOfTheRings.character
   registration = Registration.new(params)
-  p registration
-  registration.save
+  if registration.save
+    counter += 1
+    registration.save
+  end
 end
+
+p "created #{counter} registrations"
+
+counter = 0
+
 
 p "creating users"
 
@@ -85,9 +104,16 @@ Registration.all.each do |registration|
   params[:status] = true
   user = User.new(params)
   user.registration = registration
-  p user
-  user.save!
+  if user.save
+    counter += 1
+    user.save
+  end
 end
+
+p "created #{counter} users"
+
+counter = 0
+
 
 p "creating transactions"
 
@@ -101,11 +127,15 @@ User.all.each do |user|
     book = Book.order("RANDOM()").first
     transaction.book = book
     transaction.episode = book.episodes.order("RANDOM()").first
-
-    p transaction
-    transaction.save!
+    if transaction.save
+      counter += 1
+      transaction.save
+    end
   end
 end
+p "created #{counter} transactions"
+
+counter = 0
 
 p "creating reviews"
 
@@ -117,7 +147,13 @@ Book.all.each do |book|
     review.book = book
     review.rating = rand(0..5)
     review.content = Faker::HarryPotter.quote
-    p review
-    review.save!
+    if review.save
+      review.save
+      counter += 1
+    end
   end
 end
+
+p "created #{counter} reviews"
+
+counter = 0

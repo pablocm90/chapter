@@ -4,6 +4,7 @@
   <a href="/" class="navbar-wagon-brand">
     <%= cl_image_tag("logo_xqiqgj.svg")  %>
   </a>
+  <p class="credits"> <%= current_user.tokens.to_s + " credits" unless current_user.nil? %></p>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
