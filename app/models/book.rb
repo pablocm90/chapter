@@ -7,6 +7,7 @@ class Book < ApplicationRecord
 
   has_many :episodes, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :transactions
   belongs_to :author
   validates :title, presence: true, length: { in: 1..60 }
   validates :description, presence: true
