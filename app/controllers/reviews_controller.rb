@@ -1,22 +1,21 @@
 class ReviewsController < ApplicationController
   skip_before_action :authenticate_registration!, except: [:create]
+  before_action :set_book
 
   def index
-    @book = set_book
     @reviews = Review.all
   end
 
   def new
-    @book = set_book
     @review = Review.new
   end
 
   def create
-    @book = set_book
-    user = current_user
+
     @review = Review.new(review_params)
     @review.book = @book
-    @review.user = user
+    @review.user = current_user
+
     if @review.save!
       redirect_to book_path(@book)
     else
@@ -25,9 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def test
-    @book = set_book
     @reviews = Review.all
-
   end
 
 
