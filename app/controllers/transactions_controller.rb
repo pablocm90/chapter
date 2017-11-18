@@ -1,17 +1,16 @@
 class TransactionsController < ApplicationController
 
+  before_action :set_book
+
 
   def new
-    @episode = episode
     @transaction = Transaction.new
   end
 
   def create
-    set_episode
-    set_book
     @user = current_user
     @transaction = Transaction.new
-    @transaction.episode = @episode
+    params[:episode_id] ?  @transaction.episode = set_episode : @transaction.episode = nil
     @transaction.book = @book
     @transaction.user = @user
     if @transaction.save!
@@ -30,4 +29,5 @@ class TransactionsController < ApplicationController
   def set_book #because this param comes from somewhere elese , the url instead of the form
     @book = Book.find(params[:book_id])
   end
+
 end

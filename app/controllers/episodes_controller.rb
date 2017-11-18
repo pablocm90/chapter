@@ -1,12 +1,28 @@
 class EpisodesController < ApplicationController
+  RENDER_OPTIONS = {
+    escape_html: true,
+    hard_wrap: true
+  }
+
+  MARKDOWN_OPTIONS = {
+    no_intra_emphasis: true,
+    fenced_code_blocks: true,
+    disable_indented_code_blocks: true,
+    autolink: false,
+    tables: true,
+    underline: true
+  }
+
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
   skip_before_action :authenticate_registration!
   attr_reader :convert_markdown
 
-  def index
-    @episodes = Episode.all
-  end
+
+  # I am not sure this method is really needed?
+  # def index
+  #   @episodes = Episode.all
+  # end
 
   def new
     @episode = Episode.new
@@ -29,16 +45,17 @@ class EpisodesController < ApplicationController
   def show
     @converted = convert_markdown(@episode.content)
     @author = @episode.book.author
-    @ndp = @episode.book.author.nom_de_plume? ? @episode.book.author.nom_de_plume : @episode.book.author.user.registration.username
+    @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
   end
 
-  def convert_markdown(text)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(escape_html: true, hard_wrap: true,),no_intra_emphasis: true, fenced_code_blocks: true, disable_indented_code_blocks: true, autolink: false, tables: true, underline: true)
-    markdown.render(text).html_safe
-  end
 
 
   private
+
+  def convert_markdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(RENDER_OPTIONS), MARKDOWN_OPTIONS)
+    markdown.render(text).html_safe
+  end
 
   def set_book
     @book = Book.find(params[:book_id])
