@@ -17,35 +17,8 @@
     <div class="books">
       <div class="container">
         <div class="row">
-         <% @author.books.each do |book| %>
-         <div class="col-xs-12 col-sm-4">
-          <div class="card-author" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-            <div class="card-category">
-              <p><%= book.title %></p>
-              <div>
-               <% unless book.reviews.empty? %>
-               <% 5.times do |counter|%>
-               <% if book.reviews.average(:rating) <= counter %>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               <% else %>
-               <i class="fa fa-star" aria-hidden="true"></i>
-               <% end %>
-               <% end %>
-               <% end %>
-             </div>
-           </div>
-           <div class="card-description">
-             <p><%= book.genre %></p>
-           </div>
-           <%= link_to book_path(book), class: 'card-link' do %>
-           <p class="description-hover"> <%= book.quote_hover %> </p>
-           <% end %>
-         </div>
-       </div>
-       <% end %>
-
+         <%= render 'shared/cards', books:  @author.books %>
      </div>
    </div>
-</div>
 </div>
 <% end %>
