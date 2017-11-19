@@ -12,6 +12,8 @@ class Registration < ApplicationRecord
   private
 
   def create_user
-    User.create(tokens: 200)
+    user = User.new(tokens: 200)
+    user.registration = self
+    user.save!
   end
 end
