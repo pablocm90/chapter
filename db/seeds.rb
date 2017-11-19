@@ -11,7 +11,7 @@ p "erasing everything"
  p "creating 2 users"
 
  registration = Registration.create(email:"bob@bob", password: "bobbob", username: "bob")
- User.create(registration: registration)
+ User.create(registration: registration, tokens: 2000)
 
  registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
 

@@ -6,7 +6,7 @@
         <div>
         <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
         </div>
-        <div class="chart"><%= pie_chart @books.group(:genre).count, width: "200px", height: "200px", donut: true, legend: false %>
+        <div class="chart"><%= pie_chart @books.group(:genre).count, width: "200px", height: "200px", donut: true, legend: false, max: 4 %>
       </div>
       </div>
       <div class="grid averages">
@@ -14,7 +14,7 @@
       </div>
       <div class="grid best-sellers">
         best-sellers
-      <%= pie_chart @my_transactions.group(:title).count, width: "150px", height: "150px", legend: false %>
+      <%= pie_chart @my_transactions.group(:title).count, width: "150px", height: "150px", legend: false, max: 4 %>
       </div>
       <div class="grid reviews">
         reviews
