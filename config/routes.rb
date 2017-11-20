@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
     resources :episodes, except: [:index] do
       resources :transactions, only: [ :new, :create]
+      member do
+        get "download", to: 'episodes#download', as: :download
+      end
     end
 
     resources :reviews, except: [:destroy, :show]

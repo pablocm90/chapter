@@ -48,6 +48,9 @@ class EpisodesController < ApplicationController
     @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
   end
 
+  def download
+    send_data convert_epub, filename: "#{@book.title}"
+  end
 
   private
 
@@ -68,14 +71,14 @@ class EpisodesController < ApplicationController
     params.require(:episode).permit(:title, :description, :content)
   end
 
-  def convert_epub(booktitle, episodetitle, author, content)
+  def convert_epub
     booktitle = @book.title
     episodetitle = @episode.title
-    author = @episode.author.nom_de_plume
+    author = @episode.book.author.nom_de_plume
     content = @episode.content
 
-    string = "/# #{booktitle} /#/# #{episodetitle} #{content}"
+    string = "# #{booktitle} ## #{episodetitle} #{content}"
 
-    PandocRuby.new("# Some title").to_epub
+    file = PandocRuby.new(string).to_epub
   end
 end
