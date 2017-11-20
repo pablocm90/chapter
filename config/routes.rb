@@ -17,8 +17,15 @@
       get 'search', to: 'books#search'
     end
 
+    member do
+      get "download", to: 'books#download_book', as: :download
+    end
+
     resources :episodes, except: [:index] do
       resources :transactions, only: [ :new, :create]
+      member do
+        get "download", to: 'episodes#download_episode', as: :download
+      end
     end
 
     resources :reviews, except: [:destroy, :show]

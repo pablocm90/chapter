@@ -6,10 +6,10 @@
       href="https://twitter.com/intent/tweet?text=Hey%20I%20just%20read%20this%20chapter&url=http%3A%2F%2Fchapter-klyp.herokuapp.com%2Fbooks%2F<%= @episode.book.id %>%2Fepisodes%2F<%= @episode.id %>"
       data-size="large"></a>
       <div class="fb-share-button" data-href="http://chapter-klyp.herokuapp.com/books/12/episodes/47" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fa fa-facebook fb-xfbml-parse-ignore  margin-overall" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fchapter-klyp.herokuapp.com%2Fbooks%2F<%= @episode.book.id %>%2Fepisodes%2F<%= @episode.id %> &amp;src=sdkpreparse"></a></div></div>
-      <h1> <%= @episode.title %> </h1>
       <%= link_to "#{@ndp}", author_path(@author) %>
 
-      <p> <%= @converted %> </p>
+      <%= @converted %>
+    <%= link_to "Download episode" ,download_book_episode_path, :action => :download_episode %>
       <div id="fb-root"></div>
     </div>
   </div>
