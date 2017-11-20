@@ -6,9 +6,16 @@ class BooksController < ApplicationController
 
   def show
     session[:referal_url] = @book.id unless current_user
-   @author = @book.author.user
-   @review = Review.new
-   @episodes = @book.episodes.order(:number).reverse
+    @owned_episodes_price = current_user.episodes.select { |e| e.book_id == @book.id }.pluck(:price).reduce(&:+)
+    if @owned_episodes_price.nil?
+      @remaining_price = @book.episodes.pluck(:price).inject(:+)
+    else
+      @remaining_price = @book.episodes.pluck(:price).inject(:+) - @owned_episodes_price
+    end
+
+    @author = @book.author.user
+    @review = Review.new
+    @episodes = @book.episodes.order(:number).reverse
   end
 
  def new
