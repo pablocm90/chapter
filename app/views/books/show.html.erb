@@ -1,5 +1,4 @@
 <div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-  <%= link_to "Download book", download_book_path(@book), :action => :download_book %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -16,6 +15,7 @@
               <p><strong>Description: </strong><%= @book.description %></p>
               <p><strong>Genre: </strong><%= @book.genre %></p>
               <p><strong>Tags: </strong></p>
+                <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"><p> Download book (epub) </p></button>
             </div>
             <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %></div>
             <div role="tabpanel" class="tab-pane" id="reviews"><%= render 'books/book_reviews' %></div>
@@ -25,3 +25,5 @@
     </div>
     </div>
   </div>
+<%= render 'shared/modal_book_download', book: @book %>
+
