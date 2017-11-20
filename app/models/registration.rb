@@ -3,8 +3,8 @@ class Registration < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :users
-  has_many :authors, through: :users
+  has_one :user
+  has_one :author, through: :user
   # validates :username, presence: true
 
   after_create :create_user
@@ -12,6 +12,6 @@ class Registration < ApplicationRecord
   private
 
   def create_user
-    users.create(tokens: 200)
+    User.create(tokens: 200)
   end
 end

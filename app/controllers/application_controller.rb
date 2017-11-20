@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   attr_reader :current_user, :current_author
 
   def current_user
-    @current_user ||= current_registration && current_registration.try(:users).first
+    @current_user ||= current_registration && current_registration.try(:user)
   end
 
   def current_author
