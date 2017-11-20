@@ -59,7 +59,7 @@ class BooksController < ApplicationController
   end
 
    def download_book
-    send_data convert_epub, filename: "#{@book.title}"
+    send_data convert_epub, filename: "#{@book.title}.epub"
   end
 
 
@@ -96,7 +96,8 @@ private
 
     string = convert_markdown(content)
 
-    PandocRuby.convert(string, :s, {:f => :markdown, to: :epub }, :table_of_contents)
+    puts string
+    PandocRuby.convert(string, :s, {f: :html, t: :epub }, :table_of_contents)
     # PandocRuby.new(string).to_epub(:table_of_content, :standalone)
   end
 
