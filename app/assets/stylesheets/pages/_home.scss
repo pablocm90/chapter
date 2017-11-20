@@ -1,3 +1,5 @@
+// General:
+
 .container {
   margin-top: 115px;
 }
@@ -6,32 +8,24 @@ h1 {
   font-size: 66px;
 }
 
+h2 {
+  font-weight: 100;
+}
+
 p {
   font-size: 22px;
 }
 
+// Banner:
+
 .banner {
-  color: $light-gray;
+  color: white;
   text-align: center;
   height: 100vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.banner h1 {
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
-
-.banner p {
-  font-size: 25px;
-  font-weight: lighter;
-  color: $light-gray;
-  opacity: 0.6;
-  margin-bottom: 30px;
 }
 
 // Search bar:
@@ -43,7 +37,8 @@ p {
 
 .aa-input-search {
   width: 300px;
-  border: 1px solid $gray;
+  // border: 1px solid black;
+  border-radius: 4px;
   padding: 12px 28px 12px 12px;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -59,11 +54,11 @@ p {
   right: 16px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  fill: $gray;
+  fill: black;
 }
 
 .aa-dropdown-menu {
-  background-color: $yellow;
+  background-color: black;
   min-width: 300px;
   margin-top: 10px;
   box-sizing: border-box;
@@ -76,14 +71,15 @@ p {
 }
 
 #aa-search-input {
-  color: $gray;
+  color: black;
 }
 
 .aa-suggestion + .aa-suggestion {
-    border-top: 1px solid $gray;
+    border-top: 1px solid white;
 }
   .aa-suggestion:hover, .aa-suggestion.aa-cursor {
-    background-color: $gray; }
+    background-color: white;
+    color: black }
 
 
 // Sections:
