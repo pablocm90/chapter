@@ -8,16 +8,13 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @transaction = Transaction.new
     params[:episode_id] ?  @transaction.episode = set_episode : @transaction.episode = nil
     @transaction.book = @book
-    @transaction.user = @user
-    if @transaction.save!
-      redirect_to book_episode_path(@book,@episode)
-    else
-      render :new
-    end
+    @transaction.user = current_user
+    @transaction.save
+    reduce_tokens
+    redirect_to book_episode_path(@book,@episode)
   end
 
   private
@@ -29,5 +26,12 @@ class TransactionsController < ApplicationController
   def set_book #because this param comes from somewhere elese , the url instead of the form
     @book = Book.find(params[:book_id])
   end
+
+  def reduce_tokens
+    current_user.tokens -= @episode.price
+    current_user.save
+  end
+
+
 
 end
