@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   @book.author = current_author
   if @book.save
     redirect_to author_dashboard_path
+    Book.reindex
   else
     render :new
   end
@@ -29,7 +30,7 @@ class BooksController < ApplicationController
 
  def search
 
-    Book.reindex
+
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
 

@@ -3,4 +3,5 @@
   <li>Status: <%= @order.state %></li>
   <li>Item: <%= @order.topup_sku %></li>
   <li>Amount: <%= humanized_money_with_symbol(@order.amount) %></li>
+  <li>Tokens: <%= current_user.tokens %> </li>
 <ul>
