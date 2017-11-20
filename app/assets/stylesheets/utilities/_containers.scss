@@ -46,13 +46,15 @@
   margin-top: 90px;
 }
 
-.flex {
-  display: flex;
-}
+
 .justify-left {
   justify-content: left;
 }
 
 .margin-overall {
   margin: 20px 10px;
+}
+
+.sharers {
+  display: flex;
 }

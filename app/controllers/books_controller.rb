@@ -6,9 +6,16 @@ class BooksController < ApplicationController
 
   def show
     session[:referal_url] = @book.id unless current_user
-   @author = @book.author.user
-   @review = Review.new
-   @episodes = @book.episodes.order(:number).reverse
+    @owned_episodes_price = current_user.episodes.select { |e| e.book_id == @book.id }.pluck(:price).reduce(&:+)
+    if @owned_episodes_price.nil?
+      @remaining_price = @book.episodes.pluck(:price).inject(:+)
+    else
+      @remaining_price = @book.episodes.pluck(:price).inject(:+) - @owned_episodes_price
+    end
+
+    @author = @book.author.user
+    @review = Review.new
+    @episodes = @book.episodes.order(:number).reverse
   end
 
  def new
@@ -59,8 +66,12 @@ class BooksController < ApplicationController
   def buy
   end
 
-   def download_book
-    send_data convert_epub, filename: "#{@book.title}.epub"
+  def download_owned_book
+    send_data convert_epub(true), filename: "#{@book.title}.epub"
+  end
+
+  def download_book
+    send_data convert_epub(true), filename: "#{@book.title}.epub"
   end
 
 
@@ -88,10 +99,16 @@ private
     markdown.render(text).html_safe
   end
 
-  def convert_epub
+  def convert_epub(owned)
+    if owned = true
+      episodes = @book.episodes
+    else
+      episodes = @book.episodes.where (episode.transaction.user_id = current_user.id)
+    end
+
     author = @book.author.nom_de_plume
     content = "# #{@book.title}  \n#{author} "
-    @book.episodes.each do |episode|
+    episodes.each do |episode|
       content += "  \n#{set_content(episode)}"
     end
 

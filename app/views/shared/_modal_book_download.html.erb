@@ -1,0 +1,22 @@
+<div id="Book<%= book.id %>" class="modal fade" role="dialog">
+  <div class="padding-top-90"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Order summary</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel panel-default">
+          <!-- Table -->
+        <%= link_to "Download previously purchased chapters" %>
+        <p>or</p>
+        <div> <%= link_to "download and buy remaining chapters(#{@remaining_price})",  download_book_path(@book), :action => :download_book %></div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -13,13 +13,12 @@
 </head>
 <body class="site">
   <%= render 'shared/navbar' %>
-  <div class="site-content">
+  <div class="site-content" id="black-forms">
     <%= yield %>
   </div>
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application' %>
   <%= yield :after_js %>
-  <%= render 'shared/footer' %>
 
   <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
@@ -45,26 +44,6 @@ autocomplete('#aa-search-input',
           suggestion._highlightResult.genre.value + '</span>';
         }
       }
-    });
-    $(function() {
-      $.scrollify({
-      section : ".example-classname",
-      sectionName : "section-name",
-      interstitialSection : ".footer-scrollify",
-      easing: "easeOutExpo",
-      scrollSpeed: 1100,
-      offset : 0,
-      scrollbars: true,
-      standardScrollElements: "",
-      setHeights: true,
-      overflowScroll: true,
-      updateHash: true,
-      touchScroll:true,
-      before:function() {},
-      after:function() {},
-      afterResize:function() {},
-      afterRender:function() {}
-    });
     });
 </script>
 </body>
