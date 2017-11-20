@@ -50,7 +50,7 @@ class EpisodesController < ApplicationController
   end
 
   def download_episode
-    send_data convert_epub, filename: "#{@book.title}"
+    send_data convert_epub, filename: "#{@book.title}.epub"
   end
 
   private
