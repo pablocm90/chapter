@@ -6,25 +6,41 @@
   padding-left: 0px;
 }
 
-.dropdown-menu {
+.filters .dropdown-menu {
   padding: 0px;
+  margin-top: 15px;
+  li {
+  cursor: pointer;
+  padding: 0 0;
+  color: white;
+  }
+  li :hover {
+  color: black;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  }
+  input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 0px;
+  }
 }
 
-.dropdown-menu input {
-  width: 100%;
-  border: none;
-  color: $primary;
-  border-bottom: 1px inset $secondary;
-  opacity: 1;
-  border-radius: 0px;
-  background-color: $light-gray;
-}
 
 .navbar-fixed-left {
   width: 140px;
   position: fixed;
-  border-radius: 0;
   height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  right: 0;
+  left: 0;
+  color: white;
+  z-index: 99;
+  border: none;
 }
 
 .navbar-fixed-left .navbar-nav > li {
@@ -34,6 +50,7 @@
 
 .navbar-fixed-left + .container {
   padding-left: 160px;
+  margin-right: 10px;
 }
 
 /* On using dropdown menu (To right shift popuped) */

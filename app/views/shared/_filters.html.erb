@@ -1,3 +1,4 @@
+
   <div class="aa-input-container" id="aa-input-container">
     <form action="/books/search" method="get">
     <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for books..." name="query" autocomplete="on"  value="<%= @query %>">
@@ -12,40 +13,62 @@
 
 <ul class="nav navbar-nav" >
 
+<li class="dropdown filters " aria-labelledby="dLabel">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading">
 
-<li class="dropdown filters" aria-labelledby="dLabel"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Genre <span class="caret"></span></a>
+
+<a role="button" class="dropdown-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsegenre" aria-expanded="false" aria-controls="collapsegenre">GENRE <span class="caret"></span></a>
+
+</div>
+<div id="collapsegenre" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headinggenre">
 <ul class="dropdown-menu" role="menu">
     <% @genres.each do |genre| %>
+      <div class="panel-body">
       <li>
         <%= form_tag search_books_path, method: :get do %>
             <%= hidden_field_tag 'query', @query %>
             <%= hidden_field_tag 'genre', genre %>
-            <%= submit_tag genre %>
+            <%= submit_tag genre.upcase %>
         <% end %>
       </li>
+    </div>
     <% end %>
 </ul>
+</div>
+</div>
+</div>
 </li>
 
-<li class="dropdown filters" aria-labelledby="dLabel"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Author <span class="caret"></span></a>
+
+<li class="dropdown filters" aria-labelledby="dLabel">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="heading">
+        <a role="button" class="dropdown-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseauthor" aria-expanded="false" aria-controls="collapseauthor">AUTHOR <span class="caret"></span></a>
+      </div>
+<div id="collapseauthor" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingauthor">
 <ul class="dropdown-menu" role="menu">
     <% @authors.each do |author| %>
+      <div class="panel-body">
       <li>
         <%= form_tag search_books_path, method: :get do %>
             <%= hidden_field_tag 'query', @query %>
             <%= hidden_field_tag 'author', author %>
-            <%= submit_tag author %>
+            <%= submit_tag author.upcase %>
         <% end %>
       </li>
+      </div>
     <% end %>
 </ul>
+</div>
+</div>
+</div>
 </li>
 
 </ul>
 </div>
-<div class="container">
- <div class="row">
- </div>
-</div>
+
 
 
