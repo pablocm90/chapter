@@ -1,11 +1,7 @@
 // General:
 
-.container {
-  margin-top: 115px;
-}
-
 h1 {
-  font-size: 66px;
+  font-size: 64px;
 }
 
 h2 {
@@ -28,7 +24,7 @@ p {
   justify-content: center;
 }
 
-// Search bar:
+// Search-bar:
 
 .aa-input-container {
   display: inline-block;
@@ -46,40 +42,40 @@ p {
   appearance: none; }
   .aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button, .aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
     display: none; }
-.aa-input-icon {
-  height: 16px;
-  width: 16px;
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  fill: black;
-}
+    .aa-input-icon {
+      height: 16px;
+      width: 16px;
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      fill: black;
+    }
 
-.aa-dropdown-menu {
-  background-color: black;
-  min-width: 300px;
-  margin-top: 10px;
-  box-sizing: border-box;
-  opacity: 0.7;
-}
+    .aa-dropdown-menu {
+      background-color: black;
+      min-width: 300px;
+      margin-top: 10px;
+      box-sizing: border-box;
+      opacity: 0.7;
+    }
 
-.aa-suggestion {
-  padding: 12px;
-  cursor: pointer;
-}
+    .aa-suggestion {
+      padding: 12px;
+      cursor: pointer;
+    }
 
-#aa-search-input {
-  color: black;
-}
+    #aa-search-input {
+      color: black;
+    }
 
-.aa-suggestion + .aa-suggestion {
-    border-top: 1px solid white;
-}
-  .aa-suggestion:hover, .aa-suggestion.aa-cursor {
-    background-color: white;
-    color: black }
+    .aa-suggestion + .aa-suggestion {
+      border-top: 1px solid white;
+    }
+    .aa-suggestion:hover, .aa-suggestion.aa-cursor {
+      background-color: white;
+      color: black }
 
 
 // Sections:
@@ -106,4 +102,20 @@ p {
   display: flex;
   justify-content: center;
   height: 100vh;
+}
+
+// Mobile-responsive:
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 12px;
+  }
 }
