@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117112940) do
+ActiveRecord::Schema.define(version: 20171120104725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,20 @@ ActiveRecord::Schema.define(version: 20171117112940) do
     t.string   "content_epub"
     t.string   "number"
     t.integer  "book_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "price_cents",  default: 0, null: false
     t.float    "price"
     t.index ["book_id"], name: "index_episodes_on_book_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "topup_sku"
+    t.integer  "amount_cents", default: 0, null: false
+    t.jsonb    "payment"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -81,6 +91,14 @@ ActiveRecord::Schema.define(version: 20171117112940) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "topups", force: :cascade do |t|
+    t.string   "sku"
+    t.string   "name"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "price_cents", default: 0, null: false
   end
 
   create_table "transactions", force: :cascade do |t|

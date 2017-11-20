@@ -33,6 +33,10 @@ gem 'redcarpet'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
 
+# Payments
+gem 'money-rails', '~>1'
+gem 'stripe'
+
 
 group :development, :test do
   gem 'pry-byebug'
