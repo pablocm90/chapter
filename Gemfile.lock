@@ -179,6 +179,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scrollify (0.1.0)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -240,6 +241,7 @@ DEPENDENCIES
   redcarpet
   redis
   sass-rails
+  scrollify
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
