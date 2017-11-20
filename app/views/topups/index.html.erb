@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <h1>Topups</h1>
+    <% @topups.each do |topup| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><%= link_to topup.name, topup_path(topup) %></h3>
+            <p>Amount: <%= humanized_money_with_symbol(topup.price) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
