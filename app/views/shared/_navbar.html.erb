@@ -1,105 +1,75 @@
 
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <%= cl_image_tag("logo_xqiqgj.svg")  %>
-  </a>
+  <a href="/" class="navbar-wagon-brand"><%= cl_image_tag("logo_xqiqgj.svg") %></a>
   <p class="credits"> <%= current_user.tokens.to_s + " credits" unless current_user.nil? %></p>
-
-  <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if current_user %>
     <% if current_author %>
-    <%= link_to "Your books", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "YOUR BOOKS", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
     <% else %>
-    <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
-
-
-
-    <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if current_author %>
         <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
         <%= image_tag avatar_url, class: "avatar avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to "Profile", users_path %></li>
-          <li><%= link_to "Dashboard", author_dashboard_path %></li>
-          <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
+          <li><%= link_to "PROFILE", users_path %></li>
+          <li><%= link_to "DASHBOARD", author_dashboard_path %></li>
+          <li><%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %></li>
         </ul>
         <% else %>
         <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
         <%= image_tag avatar_url, class: "avatar avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"%>
-
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to "Profile", users_path %></li>
-
-
-
-          <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
+          <li><%= link_to "PROFILE", users_path %></li>
+          <li><%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </div>
     </div>
     <% else %>
-    <%= link_to "Sign up", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-    <%= link_to "Log in", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "SIGN UP", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to "LOG IN", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
   </div>
 
 
 
-  <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-
         <% if current_user && current_author %>
-
-        <li> <%= link_to "Your books", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %>
+        <li> <%= link_to "YOUR BOOKS", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
-
         <li>
-          <li><%= link_to "Profile", users_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
+          <li><%= link_to "PROFILE", users_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
         </li>
-
         <li>
-          <%= link_to "Dashboard", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "DASHBOARD", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
-
-
-
         <li>
-          <%= link_to "Log out", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
-
         <% elsif current_user %>
-
         <li>
-          <%= link_to "Become an author", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
         <li>
-          <%= link_to "Profile", users_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "PROFILE", users_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
         <li>
-          <%= link_to "Dashboard", author_dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "DASHBOARD", author_dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
         <li>
-          <%= link_to "Log out", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <%= link_to "LOG OUT", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
-
         <% else %>
-
-        <li> <%= link_to "Sign up", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
-        <li><%= link_to "Log in", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
-
+        <li> <%= link_to "SIGN UP", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
+        <li><%= link_to "LOG IN", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
         <% end %>
-
-
       </ul>
     </div>
   </div>

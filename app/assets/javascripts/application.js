@@ -4,5 +4,7 @@
 //= require markdown_editor
 //= require Chart.bundle
 //= require chartkick
+//= require scrollify
 //= require_tree .
+
 
