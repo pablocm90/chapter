@@ -9,8 +9,9 @@
       <div class="modal-body">
         <div class="panel panel-default">
           <!-- Table -->
-        <%= link_to "Buy  #{book.episodes.pluck(:price).reduce(&:+)}",  download_book_path(@book), :action => :download_book %>
-        <%= link_to "Download " %>
+        <%= link_to "Download previously purchased chapters" %>
+        <p>or</p>
+        <div> <%= link_to "download and buy remaining chapters(#{book.episodes.pluck(:price).reduce(&:+)})",  download_book_path(@book), :action => :download_book %></div>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

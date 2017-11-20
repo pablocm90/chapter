@@ -59,8 +59,12 @@ class BooksController < ApplicationController
   def buy
   end
 
-   def download_book
-    send_data convert_epub, filename: "#{@book.title}.epub"
+  def download_owned_book
+    send_data convert_epub(true), filename: "#{@book.title}.epub"
+  end
+
+  def download_book
+    send_data convert_epub(true), filename: "#{@book.title}.epub"
   end
 
 
@@ -88,10 +92,16 @@ private
     markdown.render(text).html_safe
   end
 
-  def convert_epub
+  def convert_epub(owned)
+    if owned = true
+      episodes = @book.episodes
+    else
+      episodes = @book.episodes.where (episode.transaction.user_id = current_user.id)
+    end
+
     author = @book.author.nom_de_plume
     content = "# #{@book.title}  \n#{author} "
-    @book.episodes.each do |episode|
+    episodes.each do |episode|
       content += "  \n#{set_content(episode)}"
     end
 
