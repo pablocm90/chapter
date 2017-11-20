@@ -33,6 +33,9 @@ gem 'redcarpet'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
 
+# for epubs
+gem 'pandoc-ruby'
+
 
 group :development, :test do
   gem 'pry-byebug'

@@ -49,7 +49,6 @@ class EpisodesController < ApplicationController
   end
 
 
-
   private
 
   def convert_markdown(text)
@@ -69,6 +68,14 @@ class EpisodesController < ApplicationController
     params.require(:episode).permit(:title, :description, :content)
   end
 
+  def convert_epub(booktitle, episodetitle, author, content)
+    booktitle = @book.title
+    episodetitle = @episode.title
+    author = @episode.author.nom_de_plume
+    content = @episode.content
 
+    string = "/# #{booktitle} /#/# #{episodetitle} #{content}"
 
+    PandocRuby.new("# Some title").to_epub
+  end
 end
