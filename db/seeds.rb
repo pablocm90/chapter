@@ -7,6 +7,7 @@ p "erasing everything"
  Author.destroy_all
  User.destroy_all
  Registration.destroy_all
+ Topup.destroy_all
 
  p "creating 2 users"
 
@@ -162,3 +163,18 @@ end
 p "created #{counter} reviews"
 
 counter = 0
+
+p "creating topups"
+  topups = {
+    "Silver" => 2000,
+    "Gold" => 4000,
+    "Diamond" => 6000
+  }
+
+  topups.each do |key, value|
+    topup = Topup.new
+    topup.name = key
+    topup.price_cents = value
+    topup.save
+  end
+

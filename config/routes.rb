@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   devise_for :registrations
   root to: 'pages#home'
 
@@ -22,10 +22,17 @@ Rails.application.routes.draw do
     end
 
     resources :reviews, except: [:destroy, :show]
+    end
 
-end
   get 'dashboard', to: 'users#dashboard'
   get 'author_dashboard', to: 'authors#dashboard'
+
+  resources :topups, only: [:index, :show]
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
+
 end
 
 
