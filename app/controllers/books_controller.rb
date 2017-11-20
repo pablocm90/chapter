@@ -5,6 +5,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :buy]
 
   def show
+    session[:referal_url] = @book.id unless current_user
    @author = @book.author.user
    @review = Review.new
    @episodes = @book.episodes.order(:number).reverse

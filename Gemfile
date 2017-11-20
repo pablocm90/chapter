@@ -36,6 +36,11 @@ gem 'carrierwave', '~> 1.0'
 # for epubs
 gem 'pandoc-ruby'
 
+# Payments
+gem 'money-rails', '~>1'
+gem 'stripe'
+
+
 
 group :development, :test do
   gem 'pry-byebug'
