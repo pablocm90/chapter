@@ -1,6 +1,7 @@
   Rails.application.routes.draw do
-  devise_for :registrations
   root to: 'pages#home'
+
+  devise_for :registrations, :controllers => { registrations: "registrations"}
 
   resource :users, except: [ :new, :create, :index ] do
     resources :transactions, only: [ :index ]
@@ -10,7 +11,6 @@
   resources :authors, except: [ :new, :create ] do
     resources :books, except: [ :show, :index ]
   end
-
 
   resources :books, only: [ :show ] do
     collection do
