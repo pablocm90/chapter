@@ -43,12 +43,13 @@ class EpisodesController < ApplicationController
   end
 
   def show
-    @converted = convert_markdown(@episode.content)
+    content = set_content(@episode)
+    @converted = convert_markdown(content)
     @author = @episode.book.author
     @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
   end
 
-  def download
+  def download_episode
     send_data convert_epub, filename: "#{@book.title}"
   end
 
@@ -72,13 +73,15 @@ class EpisodesController < ApplicationController
   end
 
   def convert_epub
-    booktitle = @book.title
-    episodetitle = @episode.title
     author = @episode.book.author.nom_de_plume
-    content = @episode.content
+    content = "## #{@episode.title}  \n#{author}  \n#{@episode.content}"
 
-    string = "#{convert_markdown(@episode.content)}"
+    string = convert_markdown(content)
 
-    file = PandocRuby.new(string).to_epub
+    PandocRuby.new(string).to_epub
+  end
+
+  def set_content(episode)
+    "# #{episode.title}  \n#{episode.content}"
   end
 end

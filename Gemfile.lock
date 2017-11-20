@@ -247,8 +247,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
-  pandoc-ruby
   money-rails (~> 1)
+  pandoc-ruby
   pg
   pry-byebug
   pry-rails

@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   # The show method displays only further details on a single book
   # Find only the book that has the id defined in params[:id]
   skip_before_action :authenticate_registration!, only: [:index, :show, :search, :filter_genre]
-  before_action :set_book, only: [:show, :buy]
+  before_action :set_book, except: [:new, :create, :search]
 
   def show
     session[:referal_url] = @book.id unless current_user
@@ -28,22 +28,6 @@ class BooksController < ApplicationController
  end
 
  def search
-    # @genres = []
-    # @books.each do |book|
-    #   @genres << book.genre
-    # end
-    # @genres.uniq!
-    # removed since using Active records might make it quicker
-
-    # @authors = []
-    # @books.each do |book|
-    #   @authors << book.author.nom_de_plume
-    # end
-    # @authors.uniq!
-
-
-    # onder index te plaatsen (english?)
-    # Careful cause the end result is not really ordered!
 
     Book.reindex
     @query = params[:query]
@@ -74,6 +58,10 @@ class BooksController < ApplicationController
   def buy
   end
 
+   def download_book
+    send_data convert_epub, filename: "#{@book.title}"
+  end
+
 
 private
 
@@ -92,6 +80,28 @@ private
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def convert_markdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(EpisodesController::RENDER_OPTIONS), EpisodesController::MARKDOWN_OPTIONS)
+    markdown.render(text).html_safe
+  end
+
+  def convert_epub
+    author = @book.author.nom_de_plume
+    content = "# #{@book.title}  \n#{author} "
+    @book.episodes.each do |episode|
+      content += "  \n#{set_content(episode)}"
+    end
+
+    string = convert_markdown(content)
+
+    PandocRuby.convert(string, :s, {:f => :markdown, to: :epub }, :table_of_contents)
+    # PandocRuby.new(string).to_epub(:table_of_content, :standalone)
+  end
+
+  def set_content(episode)
+    "## #{episode.title}  \n#{episode.content}"
   end
 
 
