@@ -3,6 +3,6 @@ class Transaction < ApplicationRecord
   belongs_to :episode, optional: true
   belongs_to :book
 
-  validates :episode, uniqueness: {socpe: :user}
+  validates :episode, uniqueness: {scope: :user}
 
 end
