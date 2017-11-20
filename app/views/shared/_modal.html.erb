@@ -22,11 +22,19 @@
             </tr>
           </table>
         </div>
+        <div>
+        <% if current_user && current_user.tokens >= episode.price %>
           <%= form_tag book_episode_transactions_path(@book, episode), method: :post do %>
             <%= hidden_field_tag 'episode', :episode %>
             <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
           <% end %>
           <% episode.price %>
+        <% elsif current_user %>
+          <%= link_to "Top up", topups_path, class: 'btn btn-primary' %>
+        <% else %>
+          <%= link_to "Log in", new_registration_session_path, class: 'btn btn-primary' %>
+        <% end %>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

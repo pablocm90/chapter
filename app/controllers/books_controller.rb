@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   @book.author = current_author
   if @book.save
     redirect_to author_dashboard_path
+    Book.reindex
   else
     render :new
   end
@@ -45,7 +46,7 @@ class BooksController < ApplicationController
     # onder index te plaatsen (english?)
     # Careful cause the end result is not really ordered!
 
-    Book.reindex
+
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
 

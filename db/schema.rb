@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120104725) do
+ActiveRecord::Schema.define(version: 20171120113046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 20171120104725) do
     t.jsonb    "payment"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "topup_id"
+    t.index ["topup_id"], name: "index_orders_on_topup_id", using: :btree
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 20171120104725) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "price_cents", default: 0, null: false
+    t.float    "tokens"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -130,6 +133,7 @@ ActiveRecord::Schema.define(version: 20171120104725) do
   add_foreign_key "authors", "users"
   add_foreign_key "books", "authors"
   add_foreign_key "episodes", "books"
+  add_foreign_key "orders", "topups"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
   add_foreign_key "transactions", "books"

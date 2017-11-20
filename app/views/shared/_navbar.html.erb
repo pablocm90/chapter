@@ -26,6 +26,7 @@
           <li><%= link_to "PROFILE", users_path %></li>
           <li><%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %></li>
           <% end %>
+          <li><%= link_to "Top Up", topups_path %></li>
         </ul>
       </div>
     </div>
@@ -50,6 +51,8 @@
         <li>
           <%= link_to "DASHBOARD", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
+        <li><%= link_to "Top Up", topups_path %></li>
+
         <li>
           <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
@@ -63,6 +66,9 @@
         <li>
           <%= link_to "DASHBOARD", author_dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
+
+        <li><%= link_to "Top Up", topups_path %></li>
+
         <li>
           <%= link_to "LOG OUT", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
