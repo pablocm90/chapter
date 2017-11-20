@@ -69,7 +69,7 @@ class EpisodesController < ApplicationController
   end
 
   def episode_params
-    params.require(:episode).permit(:title, :description, :content)
+    params.require(:episode).permit(:title, :description, :price, :content)
   end
 
   def convert_epub
