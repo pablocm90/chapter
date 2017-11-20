@@ -77,7 +77,7 @@ class EpisodesController < ApplicationController
     author = @episode.book.author.nom_de_plume
     content = @episode.content
 
-    string = "# #{booktitle} ## #{episodetitle} #{content}"
+    string = "#{convert_markdown(@episode.content)}"
 
     file = PandocRuby.new(string).to_epub
   end
