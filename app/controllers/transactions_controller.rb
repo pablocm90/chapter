@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
     @transaction.user = current_user
     @transaction.save
     reduce_tokens
+    pay_author
     redirect_to book_episode_path(@book,@episode)
   end
 
@@ -32,6 +33,11 @@ class TransactionsController < ApplicationController
     current_user.save
   end
 
+  def pay_author
+    @author = @book.author.user
+    @author.tokens += @episode.price
+    @author.save
+  end
 
 
 end

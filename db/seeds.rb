@@ -16,7 +16,7 @@ p "erasing everything"
 
  registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
 
- user_author = User.create(registration: registration_author, is_author: true)
+ user_author = User.create(registration: registration_author, is_author: true, tokens: 0)
 
 
   @author = Author.create(user_id: user_author.id, nom_de_plume:"Pablo")
@@ -174,7 +174,9 @@ p "creating topups"
   topups.each do |key, value|
     topup = Topup.new
     topup.name = key
+    topup.sku = key.downcase
     topup.price_cents = value
+    topup.tokens = value * 0.007
     topup.save
   end
 

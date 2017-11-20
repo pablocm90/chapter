@@ -27,7 +27,7 @@
   get 'dashboard', to: 'users#dashboard'
   get 'author_dashboard', to: 'authors#dashboard'
 
-  resources :topups, only: [:index, :show]
+  resources :topups, only: [:index]
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]

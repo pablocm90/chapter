@@ -5,8 +5,13 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="caption">
-            <h3><%= link_to topup.name, topup_path(topup) %></h3>
+            <h3><%= topup.name %></h3>
             <p>Amount: <%= humanized_money_with_symbol(topup.price) %></p>
+            <p>Tokens: <%= topup.tokens %></p>
+            <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'topup_id', topup.id %>
+              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <% end %>
           </div>
         </div>
       </div>

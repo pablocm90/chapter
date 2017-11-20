@@ -41,6 +41,7 @@
 
           <li><%= link_to "Log out", destroy_registration_session_path, method: :delete %></li>
           <% end %>
+          <li><%= link_to "Top Up", topups_path %></li>
         </ul>
       </div>
     </div>
@@ -71,11 +72,12 @@
           <%= link_to "Dashboard", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
 
-
+        <li><%= link_to "Top Up", topups_path %></li>
 
         <li>
           <%= link_to "Log out", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
+
 
         <% elsif current_user %>
 
@@ -88,6 +90,9 @@
         <li>
           <%= link_to "Dashboard", author_dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
+
+        <li><%= link_to "Top Up", topups_path %></li>
+
         <li>
           <%= link_to "Log out", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>

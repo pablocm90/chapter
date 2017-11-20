@@ -4,8 +4,4 @@ class TopupsController < ApplicationController
   def index
     @topups = Topup.all
   end
-
-  def show
-    @topup = Topup.find(params[:id])
-  end
 end
