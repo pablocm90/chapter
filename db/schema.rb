@@ -48,9 +48,8 @@ ActiveRecord::Schema.define(version: 20171120113046) do
     t.string   "content_epub"
     t.string   "number"
     t.integer  "book_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "price_cents",  default: 0, null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "price"
     t.index ["book_id"], name: "index_episodes_on_book_id", using: :btree
   end
