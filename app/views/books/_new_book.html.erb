@@ -1,9 +1,8 @@
-
 <%= simple_form_for [@author, @book], url: author_books_path do |f| %>
 <div class="form-inputs">
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :genre %>
+  <%= f.input :genre , collection: Book::GENRES %>
   <%= f.input :tags %>
   <%= f.input :cover_pic %>
   <%= f.input :cover_pic_cache, as: :hidden %>
