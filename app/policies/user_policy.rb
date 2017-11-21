@@ -4,12 +4,8 @@ class UserPolicy < ApplicationPolicy
       scope
     end
   end
-  def show?
 
-  end
 
-  def update?
-    return true
 
-  end
+
 end

@@ -17,20 +17,24 @@ class BooksController < ApplicationController
   end
 
  def new
-  @author = current_author
   @book = Book.new
-
+  @book.author = current_author
+  authorize @book
  end
 
  def create
   @book = Book.new(book_params)
   @book.author = current_author
+
+  authorize @book
   if @book.save
     redirect_to author_dashboard_path
     Book.reindex
   else
     render :new
   end
+
+
  end
 
 

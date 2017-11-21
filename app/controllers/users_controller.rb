@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # before_action :set_user
   # I don't think we need the before action
 
-  skip_after_action :verify_authorized, only: :show
+  skip_after_action :verify_authorized, only: [:show, :edit, :update]
 
 def show
 
