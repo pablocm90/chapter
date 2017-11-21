@@ -5,7 +5,6 @@
         <div class="form-post" style="margin-top: 100px";>
           <h2>Edit my profile page</h2>
           <%= simple_form_for current_user, url: users_path do |f| %>
-          <!-- simple_form_for(@admin, :url => users_path) -->
           <div class="form-inputs">
             <%= f.input :picture, :label => "Profile Picture"  %>
             <%= f.input :picture_cache, as: :hidden %>
@@ -13,7 +12,7 @@
             <%= f.input :fav_genre,:label => "Favorite genre"%>
             <%= f.input :f_name, :label => "First name" %>
             <%= f.input :l_name, :label => "Last name"%>
-            <%= f.submit  class:"btn btn-danger"%>
+            <%= f.submit class:"btn btn-danger"%>
           </div>
           <% end %>
         </div>
