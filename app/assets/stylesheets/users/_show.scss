@@ -5,15 +5,38 @@
   color: $gray;
 }
 
-.panel-title {
-  text-align: center
+.blue {
+  background-color: #4FA5CD;
 }
 
-.badge {
-  width: 30px;
+.panel {
+  border: none !important;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.panel-title {
+  text-align: center
 }
 
 .middle {
   position: absolute;
   top: 50vh;
+}
+
+.panel-group p {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.panel-heading {
+  background-color: black !important;
+  color: white !important;
+}
+
+.panel-body {
+  background-color: black;
+  color: white;
 }
