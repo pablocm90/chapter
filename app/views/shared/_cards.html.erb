@@ -1,11 +1,12 @@
 <% @books.nil? ? @books = books : @books %>
 <% @books.each do |book| %>
   <div class="col-xs-12 col-sm-4">
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path book.cover_pic, crop: :fill %>');">
       <div class="card-category">
-        <p><%= book.title %></p>
-        <div>
+        <div class= "flex-column">
+          <div><h4><%= book.title %></h4></div>
          <% unless book.reviews.empty? %>
+           <div>
            <% 5.times do |counter|%>
             <% if book.reviews.average(:rating) <= counter %>
               <i class="fa fa-star-o" aria-hidden="true"></i>
@@ -13,8 +14,9 @@
               <i class="fa fa-star" aria-hidden="true"></i>
             <% end %>
           <% end %>
+          </div>
+        </div>
         <% end %>
-      </div>
     </div>
     <div class="card-description">
       <p><%= book.genre %></p>
