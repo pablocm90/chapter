@@ -9,31 +9,51 @@ p "erasing everything"
  Registration.destroy_all
  Topup.destroy_all
 
- p "creating 2 users"
+p "creating show book"
+  contents = File.read('filename')
 
- registration = Registration.create(email:"bob@bob", password: "bobbob", username: "bob")
- User.create(registration: registration, tokens: 2000)
+p "creating main user"
 
- registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
+  registration_author = Registration.create(email:"alexandre@dumas", password: "aramis", username: "Alex")
 
- user_author = User.create(registration: registration_author, is_author: true)
- user_author = User.new(registration: registration_author, is_author: true, tokens: 0)
+  user_author = registration_author.user
+
+  user_author.update(f_name: "Alexandre", l_name: "Dumas", is_author: true, tokens: 1000, fav_genre: "drama", description: "Alexandre Dumas was born on July 24, 1802, in Villers-Cotterêts, France. He adopted the last name 'Dumas' from his grandmother, a former Haitian slave. Dumas established himself as one of the most popular and prolific authors in France, known for plays and historical adventure novels such as The Three Musketeers and The Count of Monte Cristo. He died on December 5, 1870, in Puys, France. His works have been translated into more than 100 languages and adapted for numerous films." )
 
   user_author.save
 
   p user_author
 
 
-  @author = Author.new(user_id: user_author.id, nom_de_plume:"Pablo")
-  p @author
+  @author = Author.new(user_id: user_author.id, nom_de_plume: "Alexandre", bank_account: "46543268451")
 
+  p @author
   p @author.user.registration.email
   p @author.user.is_author
   p user_author.registration.email
 
+p "creating rest of users"
+20.times do
+  username = Faker::Internet.user_name
+  email = Faker::Internet.email
+  password = "password"
+  registration = Registration.new(username: username, email: email, password: password)
+  registration_user = registration.user
+  registration_user.save
+end
 
 
+p "creating main book"
 
+
+url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
+
+main_book.title = "The Three Musketeers"
+main_book.description = "D'Artagnan arrives in Paris and, seeking to join the king's musketeers, goes to see their captain, Tréville. In his haste he offends three of the best musketeers—Porthos, Athos, and Aramis—and challenges each to a duel that afternoon."
+main_book.genre = "historical-fiction"
+main_book.tags = "three, musketeers, fiction, dumas"
+main_book.remote_cover_pic_url = url
+main_book.quote_hover = "Love is the most selfish of all the passions."
 
 p "setting counter to 0"
 
