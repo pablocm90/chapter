@@ -1,6 +1,6 @@
 class Episode < ApplicationRecord
   belongs_to :book
-  belongs_to :transactions
+  belongs_to :transactions, optional: true
   has_many :transactions
   validates :title, presence: true
   validates :content, length: { minimum: 20 }

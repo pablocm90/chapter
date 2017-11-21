@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
   <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
-<body class="site">
+<body>
   <%= render 'shared/navbar' %>
-  <div class="site-content" id="black-forms">
+
     <%= yield %>
-  </div>
+
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application' %>
   <%= yield :after_js %>

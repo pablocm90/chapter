@@ -4,30 +4,30 @@
   <p class="credits"> <%= current_user.tokens.to_s + " credits" unless current_user.nil? %></p>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
+     <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% if current_author %>
     <%= link_to "YOUR BOOKS", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
+
     <% else %>
     <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if current_author %>
-        <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+        <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %>
         <%= image_tag avatar_url, class: "avatar avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to "PROFILE", users_path %></li>
-          <li><%= link_to "DASHBOARD", author_dashboard_path %></li>
-          <li><%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %></li>
+          <li> <%= link_to "PROFILE", users_path %> </li>
+          <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
+          <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
         </ul>
         <% else %>
-        <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "http://res.cloudinary.com/danbala/image/upload/v1510221593/images_z1miqg.png" %>
+        <% current_user.picture? ? avatar_url = current_user.picture : avatar_url = "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %>
         <%= image_tag avatar_url, class: "avatar avatar-small dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"%>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><%= link_to "PROFILE", users_path %></li>
-          <li><%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %></li>
-          <li><%= link_to "Top Up", topups_path %></li>
+          <li> <%= link_to "PROFILE", users_path %> </li>
+          <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
           <% end %>
-
         </ul>
       </div>
     </div>
@@ -44,15 +44,12 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
-        <li> <%= link_to "YOUR BOOKS", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %>
-        </li>
+        <li> <%= link_to "YOUR BOOKS", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %> </li>
+        <li> <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li>
-          <li><%= link_to "PROFILE", users_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
+          <li> <%= link_to "PROFILE", users_path, class: 'navbar-wagon-item navbar-wagon-link' %> <li>
         </li>
-        <li>
-          <%= link_to "DASHBOARD", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-        </li>
-        <li><%= link_to "Top Up", topups_path %></li>
+        <li> <%= link_to "DASHBOARD", dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
 
         <li>
           <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
@@ -68,7 +65,7 @@
           <%= link_to "DASHBOARD", author_dashboard_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
 
-        <li><%= link_to "Top Up", topups_path %></li>
+        <li><%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
 
         <li>
           <%= link_to "LOG OUT", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>

@@ -9,9 +9,8 @@
       <div class="modal-body">
         <div class="panel panel-default">
           <!-- Table -->
-        <%= link_to "Download previously purchased chapters" %>
-        <p>or</p>
-        <div> <%= link_to "download and buy remaining chapters(#{@remaining_price})",  download_book_path(@book), :action => :download_book %></div>
+        <%= link_to("Download previously purchased chapters", download_owned_book_path(@book), action: :download_owned_book, class: "btn btn-primary") unless current_user.owned_episodes(@book).empty? %>
+        <div> <%= link_to("download and buy remaining chapters(#{@remaining_price})",  download_book_path(@book), :action => :download_book, class: "btn btn-primary") unless current_user.not_owned_episodes(@book).empty? %></div>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

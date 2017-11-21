@@ -24,8 +24,5 @@ class Book < ApplicationRecord
     # To Do: custom ranking (customRanking ['desc(likes_count)'])
   end
 
-  def owned_books
-    books
-  end
 
 end
