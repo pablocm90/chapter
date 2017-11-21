@@ -70,9 +70,10 @@ p "populating main book"
   content_split = contents.split("+++")
   number = 0
   content_split.each_with_index do |part, index|
-    number += 1
+
     if index % 3 == 0
       episode = Episode.new(title: content_split[index + 1], content: content_split[index + 2], description: content_split[index + 3], price: rand(20..40), book_id: main_book.id)
+      number += 1
       episode.number = number
        p episode
       if episode.save
