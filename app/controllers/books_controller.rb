@@ -38,7 +38,7 @@ class BooksController < ApplicationController
 
 
  def search
-
+    Book.reindex
 
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
@@ -127,8 +127,4 @@ private
   def set_content(episode)
     "## #{episode.title}  \n#{episode.content}"
   end
-
-
-
-
 end

@@ -16,6 +16,7 @@ p "erasing everything"
 
  registration_author = Registration.create(email:"bobwritter@bob", password: "bobbob", username: "bobwritter")
 
+ user_author = User.create(registration: registration_author, is_author: true)
  user_author = User.new(registration: registration_author, is_author: true, tokens: 0)
 
   user_author.save
