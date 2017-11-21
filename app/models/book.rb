@@ -17,7 +17,7 @@ class Book < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :title, :description, :genre, :tags, :quote_hover
+    attribute :title, :description, :genre, :tags, :quote_hover, :id
     searchableAttributes ['title', 'description', 'genre', 'tags', 'quote_hover']
     minWordSizefor1Typo 4
     minWordSizefor2Typos 8

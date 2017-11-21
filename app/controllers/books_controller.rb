@@ -36,7 +36,7 @@ class BooksController < ApplicationController
  end
 
  def search
-
+    Book.reindex
 
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all

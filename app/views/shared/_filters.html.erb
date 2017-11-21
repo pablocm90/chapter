@@ -10,65 +10,57 @@
 
 
 <div class="navbar navbar-inverse navbar-fixed-left">
+<div class="nav navbar-nav" >
+<div id="accordion" role="tablist">
 
-<ul class="nav navbar-nav" >
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          GENRE
+        </a>
+      </h5>
+    </div>
 
-<li class="dropdown filters " aria-labelledby="dLabel">
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="heading">
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <% @genres.each do |genre| %>
 
-
-<a role="button" class="dropdown-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsegenre" aria-expanded="false" aria-controls="collapsegenre">GENRE <span class="caret"></span></a>
-
-</div>
-<div id="collapsegenre" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headinggenre">
-<ul class="dropdown-menu" role="menu">
-    <% @genres.each do |genre| %>
-      <div class="panel-body">
-      <li>
-        <%= form_tag search_books_path, method: :get do %>
+          <%= form_tag search_books_path, method: :get do %>
             <%= hidden_field_tag 'query', @query %>
             <%= hidden_field_tag 'genre', genre %>
             <%= submit_tag genre.upcase %>
+          <% end %>
+
         <% end %>
-      </li>
+      </div>
     </div>
-    <% end %>
-</ul>
-</div>
-</div>
-</div>
-</li>
+  </div>
 
 
-<li class="dropdown filters" aria-labelledby="dLabel">
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="heading">
-        <a role="button" class="dropdown-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseauthor" aria-expanded="false" aria-controls="collapseauthor">AUTHOR <span class="caret"></span></a>
-      </div>
-<div id="collapseauthor" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingauthor">
-<ul class="dropdown-menu" role="menu">
-    <% @authors.each do |author| %>
-      <div class="panel-body">
-      <li>
-        <%= form_tag search_books_path, method: :get do %>
-            <%= hidden_field_tag 'query', @query %>
-            <%= hidden_field_tag 'author', author %>
-            <%= submit_tag author.upcase %>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          AUTHOR
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <% @authors.each do |author| %>
+
+          <%= form_tag search_books_path, method: :get do %>
+              <%= hidden_field_tag 'query', @query %>
+              <%= hidden_field_tag 'author', author %>
+              <%= submit_tag author.upcase %>
+          <% end %>
+
         <% end %>
-      </li>
       </div>
-    <% end %>
-</ul>
+    </div>
+  </div>
+
 </div>
 </div>
 </div>
-</li>
-
-</ul>
-</div>
-
-
-

@@ -38,10 +38,11 @@ autocomplete('#aa-search-input',
     templates: {
         //'suggestion' templating function used to render a single suggestion
         suggestion: function(suggestion) {
+          console.log(suggestion.id);
 
-          return '<span>' +
+          return '<a href="/books/'+ suggestion.id +  '"><span>' +
           suggestion._highlightResult.title.value + '</span> - <span>' +
-          suggestion._highlightResult.genre.value + '</span>';
+          suggestion._highlightResult.genre.value + '</span></a>';
         }
       }
     });
