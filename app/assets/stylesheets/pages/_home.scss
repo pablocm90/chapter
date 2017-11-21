@@ -75,7 +75,7 @@ p {
     }
     .aa-suggestion:hover, .aa-suggestion.aa-cursor {
       background-color: white;
-      color: black }
+      color: black; }
 
 
 // Sections:
@@ -102,6 +102,17 @@ p {
   display: flex;
   justify-content: center;
   height: 100vh;
+}
+
+.algolia-autocomplete {
+  a {
+    color: $light-gray;
+    text-decoration: none;
+  }
+}
+
+.algolia-autocomplete :hover {
+  color: black !important;
 }
 
 // Mobile-responsive:

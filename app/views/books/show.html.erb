@@ -17,7 +17,8 @@
               <p><strong>Tags: </strong></p>
                 <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"><p> Download book (epub) </p></button>
             </div>
-            <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %></div>
+            <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %>
+            </div>
             <div role="tabpanel" class="tab-pane" id="reviews"><%= render 'books/book_reviews' %></div>
           </div>
         </div>
