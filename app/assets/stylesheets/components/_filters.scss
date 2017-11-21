@@ -1,32 +1,3 @@
-#filter-container {
-  margin-top: 0px;
-}
-
-.filters {
-  padding-left: 0px;
-}
-
-.filters .dropdown-menu {
-  padding: 0px;
-  margin-top: 15px;
-  li {
-  cursor: pointer;
-  padding: 0 0;
-  color: white;
-  }
-  li :hover {
-  color: black;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  }
-  input {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 0px;
-  }
-}
-
-
 .navbar-fixed-left {
   width: 140px;
   position: fixed;
@@ -43,18 +14,51 @@
   border: none;
 }
 
-.navbar-fixed-left .navbar-nav > li {
-  float: none;  /* Cancel default li float: left */
-  width: 139px;
-}
-
 .navbar-fixed-left + .container {
   padding-left: 160px;
   margin-right: 10px;
 }
 
-/* On using dropdown menu (To right shift popuped) */
-.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-  margin-top: -50px;
-  margin-left: 140px;
+
+#headingOne, #headingTwo {
+  a {
+      transition: color 0.3s ease;
+      font-weight: lighter !important;
+      color: black !important;
+      font-size: 15px !important;
+      padding: 10px 20px;
+
+    }
+
+  a:-webkit-any-link {
+    cursor: auto;
+    text-decoration: none;
+    text-shadow: none;
+
+  }
+}
+
+#accordion {
+  .card {
+    min-height: 40px;
+    margin-bottom: 5px;
+    margin-top: 12px;
+  }
+}
+
+#collapseOne, #collapseTwo {
+  input {
+    border: 0px;
+    background-color: #F4F4F4;
+    font-weight: lighter !important;
+    color: black !important;
+    font-size: 15px !important;
+    padding: 10px 20px;
+  }
+}
+
+.card-body {
+  input {
+    margin-left: 18px;
+  }
 }

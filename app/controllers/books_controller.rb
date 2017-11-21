@@ -127,8 +127,4 @@ private
   def set_content(episode)
     "## #{episode.title}  \n#{episode.content}"
   end
-
-
-
-
 end
