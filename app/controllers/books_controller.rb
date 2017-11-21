@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   def show
     session[:referal_url] = @book.id unless current_user
 
-    @remaining_price = current_user.not_owned_episodes(@book).pluck(:price).inject(:+)
+    @remaining_price = current_user.not_owned_episodes(@book).pluck(:price).inject(:+) unless current_user.nil?
 
     @author = @book.author.user
     @review = Review.new
