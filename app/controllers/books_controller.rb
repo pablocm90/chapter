@@ -34,8 +34,6 @@ class BooksController < ApplicationController
 
 
  def search
-
-
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
 
