@@ -15,8 +15,9 @@ class EpisodesController < ApplicationController
 
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
-  skip_before_action :authenticate_registration!
+  # skip_before_action :authenticate_registration!
   attr_reader :convert_markdown
+
 
 
   # I am not sure this method is really needed?
@@ -26,12 +27,15 @@ class EpisodesController < ApplicationController
 
   def new
     @episode = Episode.new
+    @episode.book = @book
+    authorize @episode
   end
 
   def create
     @episode = Episode.new(episode_params)
     @episode.number = (@book.episodes.count == 0) ? 1 : @book.episodes.last.number.to_i + 1
     @episode.book = @book
+    authorize @episode
     if @episode.save
       redirect_to book_path(@book)
     else
@@ -47,6 +51,7 @@ class EpisodesController < ApplicationController
     @converted = convert_markdown(content)
     @author = @episode.book.author
     @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
+    authorize @episode
   end
 
   def download_episode

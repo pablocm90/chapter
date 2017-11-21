@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    authorize @transaction
   end
 
   def create
@@ -13,6 +14,7 @@ class TransactionsController < ApplicationController
     @transaction.book = @book
     @transaction.user = current_user
     @transaction.save
+    authorize @transaction
     reduce_tokens
     pay_author
     redirect_to book_episode_path(@book,@episode)

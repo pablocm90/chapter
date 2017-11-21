@@ -4,12 +4,15 @@ class UsersController < ApplicationController
   # before_action :set_user
   # I don't think we need the before action
 
+  skip_after_action :verify_authorized, only: [:show, :edit, :update]
 
 def show
 
   @my_books = []
   @my_episodes = []
   @my_genres = []
+
+
 
   unless current_user.transactions.empty?
 
@@ -21,7 +24,6 @@ def show
 
     @my_genres = @my_books.map { |book| book.genre }.uniq
   end
-
 end
 
 
