@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def owned_episodes(book)
-    book.episodes - not_owned_episodes
+    book.episodes - not_owned_episodes(book)
   end
 
   def owned_books
