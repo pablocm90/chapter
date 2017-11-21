@@ -11,10 +11,9 @@
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="info">
-              <p><strong>Author: </strong></p>
+              <p><strong>Author:</strong> <%= @book.author.nom_de_plume%></p>
               <p><strong>Description: </strong><%= @book.description %></p>
               <p><strong>Genre: </strong><%= @book.genre %></p>
-              <p><strong>Tags: </strong></p>
                 <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"><p> Download book (epub) </p></button>
             </div>
             <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %>
