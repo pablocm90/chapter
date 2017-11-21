@@ -35,6 +35,8 @@ class BooksController < ApplicationController
   end
  end
 
+
+
  def search
 
 
@@ -71,7 +73,7 @@ class BooksController < ApplicationController
   end
 
   def download_book
-    send_data convert_epub(true), filename: "#{@book.title}.epub"
+    send_data convert_epub(false), filename: "#{@book.title}.epub"
   end
 
 
@@ -102,6 +104,9 @@ private
   def convert_epub(owned)
     if owned = true
       episodes = @book.episodes
+      ot_owned = current_user.remaining_episodes(@book)
+      not_owned =   episodes - current_user.episodes.select { |e| e.book_id == @book.id }
+      raise
     else
       episodes = @book.episodes.where (episode.transaction.user_id = current_user.id)
     end
@@ -122,6 +127,8 @@ private
   def set_content(episode)
     "## #{episode.title}  \n#{episode.content}"
   end
+
+
 
 
 end
