@@ -1,74 +1,88 @@
-<div class="container"><div class="row">
-  <div class="col-xs-12" id="collection-title">
-    <h2>My collection</h2>
+<body class="blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12" id="collection-title">
+        <h2>My books</h2>
+      </div>
+    </div>
+
+    <div class="panel-group" id="accordion">
+
+      <% @my_genres.each do |genre| %>
+
+      <div class="panel panel-default">
+
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= genre %>" aria-expanded="true" aria-controls="collapse<%= genre %>">
+              <%= genre %>
+            </a>
+
+          </h4>
+        </div>
+
+        <div id="collapse<%= genre %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
+          <% @my_books.each do |book| %>
+          <% if book.genre == genre %>
+          <div class="panel-group" id="<%= book.id %>" role="tablist" aria-multiselectable="true">
+
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading<%= book.id %>">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="<%= book.id %>" href="#collapse<%= book.id %>" aria-expanded="true" aria-controls="collapse<%= book.id %>">
+                    <p> Book: <%= book.title %> </p>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapse<%= book.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
+                <% book.episodes.each do |episode| %>
+                <% if current_user.owned_episodes(book).include?(episode) %>
+                <div class="panel-body">
+                  <div class="col-xs-9">
+                   <p>Chapter: <%= episode.title %> </p>
+                 </div>
+                 <div class="col-xs-3">
+                  <%= link_to "read", book_episode_path(book, episode), class: "btn btn-danger" %>
+                </div>
+              </div>
+              <% else %>
+              <div class="panel-body">
+                <div class="col-xs-9">
+                  <p> Chapter: <%= link_to episode.title, book_episode_path(book, episode) %> </p>
+                </div>
+                <div class="col-xs-3">
+                  <button class="btn btn-danger" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p> <%= episode.price %> Euros </p></button>
+                </div>
+              </div>
+              <div class="middle"> <%= render 'shared/modal', episode: episode, book: book %></div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <% end %>
   </div>
+
+
 </div>
+
+
 <div class="text-center">
   <%= link_to edit_users_path do %>
   <div class="btn btn-danger text-center">Edit my profile page</div>
   <% end %>
 </div>
-<hr>
-<div class="panel-group" id="accordion" role="tablist">
-<% @my_genres.each do |genre| %>
 
 
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading<%= genre %>">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= genre %>" aria-expanded="true" aria-controls="collapse<%= genre %>">
-          <%= genre %>
-        </a>
-      </h4>
-    </div>
-    <div id="collapse<%= genre %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
-      <% @my_books.each do |book| %>
-      <% if book.genre == genre %>
-      <div class="panel-group" id="<%= book.id %>" role="tablist" aria-multiselectable="true">
 
-        <div class="panel panel-default">
-          <div class="panel-heading" role="tab" id="heading<%= book.id %>">
-            <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="<%= book.id %>" href="#collapse<%= book.id %>" aria-expanded="true" aria-controls="collapse<%= book.id %>">
-                  <%= book.title %>
-                  <div class="col-xs-3">
-                    <span class="badge"><%= book.episodes.count - current_user.transactions.where(book: book).count %></span>
-                  </div>
-              </a>
-            </h4>
-          </div>
-          <div id="collapse<%= book.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
-          <% book.episodes.each do |episode| %>
-            <% if current_user.owned_episodes(book).include?(episode) %>
-              <div class="panel-body">
-                <div class="col-xs-9">
-                  <%= episode.title %>
-                </div>
-                <div class="col-xs-3">
-                  <%= link_to "read", book_episode_path(book, episode), class: "btn btn-primary" %>
-                </div>
-              </div>
-            <% else %>
-              <div class="panel-body">
-                <div class="col-xs-9">
-                  <%= link_to episode.title, book_episode_path(book, episode) %>
-                </div>
-                <div class="col-xs-3">
-                  <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p> <%= episode.price %> Euros </p></button>
-                </div>
-              </div>
-              <div class="middle"> <%= render 'shared/modal', episode: episode, book: book %></div>
-            <% end %>
-          <% end %>
-          </div>
-      </div>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
-</div>
-</div>
+</body>
+
+
 
 
