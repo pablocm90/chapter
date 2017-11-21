@@ -15,7 +15,7 @@ class EpisodesController < ApplicationController
 
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
-  skip_before_action :authenticate_registration!
+  # skip_before_action :authenticate_registration!
   attr_reader :convert_markdown
 
 
@@ -51,7 +51,7 @@ class EpisodesController < ApplicationController
     @converted = convert_markdown(content)
     @author = @episode.book.author
     @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
-    authorize @book
+    authorize @episode
   end
 
   def download_episode

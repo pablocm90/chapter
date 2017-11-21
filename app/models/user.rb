@@ -17,6 +17,10 @@ class User < ApplicationRecord
     book.episodes - not_owned_episodes(book)
   end
 
+  def owns_episode?(episode)
+    self.transactions.where(episode_id: episode.id).any?
+  end
+
   def owned_books
     books
   end

@@ -14,7 +14,8 @@ class EpisodePolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    # should only show if current user has a transaction for that episode
+    @user.owns_episode?(@record)
   end
 
 end
