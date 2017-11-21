@@ -15,7 +15,7 @@ def show
 
     transactions = current_user.transactions
 
-    @my_books = transactions.map {|t| Book.find(t.book_id) }
+    @my_books = transactions.map {|t| Book.find(t.book_id) }.uniq
 
     @my_episodes = @my_books.pluck(:episode).uniq
 

@@ -1,4 +1,4 @@
-<div id="chapter<%= episode.number %>" class="modal fade" role="dialog">
+<div id="chapter<%= episode.id %>" class="modal fade" role="dialog">
   <div class="padding-top-90"></div>
   <div class="modal-dialog">
     <div class="modal-content">
@@ -24,7 +24,7 @@
         </div>
         <div>
         <% if current_user && current_user.tokens >= episode.price %>
-          <%= form_tag book_episode_transactions_path(@book, episode), method: :post do %>
+          <%= form_tag book_episode_transactions_path(book, episode), method: :post do %>
             <%= hidden_field_tag 'episode', :episode %>
             <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
           <% end %>
