@@ -13,7 +13,7 @@ p "setting counter to 0"
 
 counter = 0
 p "creating show book"
-  contents = File.read('filename')
+  contents = File.read('db/book.txt')
 
 p "creating main user"
 
@@ -41,9 +41,8 @@ p "creating rest of users"
   email = Faker::Internet.email
   password = "password"
   registration = Registration.new(username: username, email: email, password: password)
-  registration_user = registration.user
-  if registration_user.save
-    registration_user.save
+  if registration.save
+    registration.save
     counter += 1
   end
 end
@@ -56,26 +55,31 @@ p "creating main book"
 
 
 url = "http://blog.catherinedelors.com/wp-content/uploads/Paris-Port-au-ble.jpg"
-
+main_book = Book.new()
 main_book.title = "The Three Musketeers"
 main_book.description = "D'Artagnan arrives in Paris and, seeking to join the king's musketeers, goes to see their captain, Tréville. In his haste he offends three of the best musketeers—Porthos, Athos, and Aramis—and challenges each to a duel that afternoon."
 main_book.genre = "historical-fiction"
 main_book.tags = "three, musketeers, fiction, dumas"
 main_book.remote_cover_pic_url = url
 main_book.quote_hover = "Love is the most selfish of all the passions."
-
+main_book.author = @author
 p "saved main book" if main_book.save
   main_book.save
 
 p "populating main book"
-  content_split = content.split("+++")
+  content_split = contents.split("+++")
+  number = 0
   content_split.each_with_index do |part, index|
+    number += 1
     if index % 3 == 0
-      episode = Episode.new(title: part, content: content_split[index + 1], description: content_split[index + 2], price: rand(20..40))
-    end
-    if episode.save
-      counter += 1
-      episode.save
+      episode = Episode.new(title: content_split[index + 1], content: content_split[index + 2], description: content_split[index + 3], price: rand(20..40), book_id: main_book.id)
+      episode.number = number
+       p episode
+      if episode.save
+        p "this one saved"
+        counter += 1
+        episode.save
+      end
     end
   end
 p "it has #{counter} chapters"
@@ -102,12 +106,15 @@ books_populate = []
 
 titles.each do |title, picture|
   url = picture
+  p url
   book = Book.new()
+  book.title = title
   book.remote_cover_pic_url = url
   book.genre = Book::GENRES.sample
   book.description = Faker::HitchhikersGuideToTheGalaxy.quote
-  book.quote_hover = Faker::VForVendetta.quote
+  book.quote_hover = Faker::HarryPotter.quote
   book.author = @author
+  p book
   if book.save
     counter += 1
     book.save
@@ -154,9 +161,9 @@ User.all.each do |user|
   rand(10..20).times do
     transaction = Transaction.new
     transaction.user = user
-    book = Book.order("RANDOM()").first
+    book = Book.all.sample
     transaction.book = book
-    transaction.episode = book.episodes.order("RANDOM()").first
+    transaction.episode = book.episodes.sample
     if transaction.save
       counter += 1
       transaction.save
