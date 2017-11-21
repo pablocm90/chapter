@@ -1,30 +1,87 @@
 <% content_for(:after_js) do %>
   <div class="container">
     <div class="dashboard">
-      <div class="grid profile-author">
-        Profile goes here
-        <div>
-        <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
-        </div>
-        <div class="chart"><%= pie_chart @books.group(:genre).count, width: "200px", height: "200px", donut: true, legend: false, max: 4 %>
-      </div>
-      </div>
-      <div class="grid averages">
-        Averages
-      </div>
-      <div class="grid best-sellers">
-        best-sellers
-      <%= pie_chart @my_transactions.group(:title).count, width: "150px", height: "150px", legend: false, max: 4 %>
-      </div>
-      <div class="grid reviews">
-        reviews
-      </div>
-      <div class="grid my-books">
 
-     </div>
+      <div class="grid profile-author">
+        <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
+        <div>
+          <%= current_author.nom_de_plume %>
+          <%= current_user.description %>
+        </div>
+        <div>
+          <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
+        </div>
+      </div>
+
+      <div class="grid best-sellers">
+
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation " class="active"><a href="#reads" aria-controls="reads" role="tab" data-toggle="tab">Reads</a></li>
+            <li role="presentation"><a href="#money" aria-controls="money" role="tab" data-toggle="tab">Money</a></li>
+            <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
+          </ul>
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane active" id="reads">
+              <div class="row">
+              <div class="col-xs-12">
+              <div class="dropdown" id="book-dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select a book
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <% @books.each do |book| %>
+                    <%= form_tag author_dashboard_path, method: :get do %>
+                      <%= hidden_field_tag 'selected_book_reads', book.title %>
+                      <%= submit_tag book.title %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              </div>
+              <div class="col-xs-12">
+
+                <%= line_chart @book_transactions.group(:episode).count, xtitle: "Chapters", ytitle: "Reads", colors: ["light-grey", "#999"] %>
+              </div>
+            </div>
+          </div>
+
+            <div role="tabpanel" class="tab-pane" id="money">
+              <%= line_chart @my_transactions.group(:created_at).count, xtitle: "Date", ytitle: "Transactions", colors: ["light-grey", "#999"] %>
+              <!-- Maybe this should be a table with the number of transactions per book + money made -->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="reviews">
+              <% @my_reviews.each do |review| %>
+                <div class= "review-box">
+                  <ul class="list-inline">
+                    <li>
+                      <div class="rating">
+                        <% 5.times do |counter|%>
+                        <% if review.rating <= counter %>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <% else %>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <% end %>
+                        <% end %>
+                      </div>
+                    </li>
+                    <li><p id="username">
+                      <%= review.book.title %>
+                    </p></li>
+                    <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
+                  </ul>
+                  <p id="content-box"><%= review.content %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+      </div>
    </div>
   </div>
-<%=  render 'shared/cards' %>
+<div class="container">
+  <%=  render 'shared/cards' %>
+</div>
 <% end %>
 
 

@@ -26,6 +26,7 @@ gem 'devise'
 
 # Charts
 gem 'chartkick'
+gem 'groupdate'
 
 # Markdown input
 gem 'redcarpet'

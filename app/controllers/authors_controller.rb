@@ -24,7 +24,17 @@ end
 
 def dashboard
   @books = current_author.books
+  @selected_book = @books.where(title: params[:selected_book_reads])
   @my_transactions = current_author.transactions
+  @book_transactions = @my_transactions.where(book: @selected_book)
+  @book = @books.where(title: params[:selected_book_reviews])
+  @my_reviews = []
+  @books.each do |book|
+    book.reviews.each do |review|
+      @my_reviews << review
+    end
+  end
+  @my_reviews.sort_by { |k| k[:updated_at] }
 end
 
 private
