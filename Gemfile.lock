@@ -87,6 +87,8 @@ GEM
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httpclient (2.8.3)
@@ -245,6 +247,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
+  groupdate
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
