@@ -1,16 +1,21 @@
 class AuthorsController < ApplicationController
-  skip_before_action :authenticate_registration!
+  skip_before_action :authenticate_registration!, only: [:show]
   before_action :set_author, only: [:show, :dashboard]
+  skip_after_action :verify_authorized, only: :dashboard
 
 # GET
 def new
   @author = Author.new
+  authorize @author
+
 end
 
 # POST
 def create
   @author = Author.new(author_params)
   @author.user = current_user
+  authorize @author
+
   if @author.save
       user_author
       redirect_to author_dashboard_path(current_author)

@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   # Find only the book that has the id defined in params[:id]
   skip_before_action :authenticate_registration!, only: [:index, :show, :search, :filter_genre]
   before_action :set_book, except: [:new, :create, :search]
+  skip_after_action :verify_authorized, only: :show
 
   def show
     session[:referal_url] = @book.id unless current_user
@@ -16,6 +17,8 @@ class BooksController < ApplicationController
     @author = @book.author.user
     @review = Review.new
     @episodes = @book.episodes.order(:number).reverse
+
+
   end
 
  def new
@@ -59,6 +62,7 @@ class BooksController < ApplicationController
       @books = @books.select { |b| b.author.nom_de_plume == @selected_author }
       sort_results(@books)
     end
+
   end
 
   def index
