@@ -7,7 +7,7 @@
      <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% if current_author %>
     <%= link_to "YOUR BOOKS", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
-    <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+
     <% else %>
     <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
