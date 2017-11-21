@@ -19,6 +19,7 @@ class EpisodesController < ApplicationController
   attr_reader :convert_markdown
 
 
+
   # I am not sure this method is really needed?
   # def index
   #   @episodes = Episode.all
@@ -50,6 +51,7 @@ class EpisodesController < ApplicationController
     @converted = convert_markdown(content)
     @author = @episode.book.author
     @ndp = @author.nom_de_plume? ? @author.nom_de_plume : @author.user.registration.username
+    authorize @book
   end
 
   def download_episode

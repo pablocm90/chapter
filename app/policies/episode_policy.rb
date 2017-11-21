@@ -13,4 +13,8 @@ class EpisodePolicy < ApplicationPolicy
     @record.book.author.user == @user
   end
 
+  def show?
+    return true
+  end
+
 end
