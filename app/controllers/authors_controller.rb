@@ -25,6 +25,7 @@ def create
  end
 
 def show
+authorize @author
 end
 
 def dashboard

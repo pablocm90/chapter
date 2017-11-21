@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 
   def show
     session[:referal_url] = @book.id unless current_user
-    @owned_episodes_price = current_user.episodes.select { |e| e.book_id == @book.id }.pluck(:price).reduce(&:+)
+    @owned_episodes_price = current_user.episodes.select { |e| e.book_id == @book.id }.pluck(:price).reduce(&:+) unless current_user.nil?
     if @owned_episodes_price.nil?
       @remaining_price = @book.episodes.pluck(:price).inject(:+)
     else
