@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   authorize @book
   if @book.save
-    redirect_to author_dashboard_path
+    redirect_to book_path(@book)
     Book.reindex
   else
     render :new
