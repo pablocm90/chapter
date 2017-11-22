@@ -55,7 +55,7 @@ def dashboard
   @my_transactions.each do |transaction|
     @total_money_month += (transaction.episode.price / 100) if transaction.created_at.strftime("%m%y") == Date.today.strftime("%m%y")
   end
-  @total_money_month.round(2)
+  @total_money_month
 
   @my_reviews = []
   @books.each do |book|
