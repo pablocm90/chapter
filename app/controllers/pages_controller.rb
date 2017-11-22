@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
 
   def home
+    @no_navbar = true
     @books = Book.all
     sort_results(@books)
   end
