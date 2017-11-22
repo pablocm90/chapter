@@ -25,7 +25,7 @@
             <div role="tabpanel" class="tab-pane active" id="reads">
               <div class="row">
               <div class="col-xs-12">
-              <p><%= @selected_book.first.title %></p>
+              <p><%= @selected_book.first.title unless @selected_book.empty? %></p>
               <div class="dropdown" id="book-dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p><i class="fa fa-caret-down" aria-hidden="true"></i>
