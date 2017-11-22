@@ -14,7 +14,7 @@ class EpisodePolicy < ApplicationPolicy
   end
 
   def show?
-    @user.transactions.where(episode_id: @record.id).any?
+    @user.owns_episode?(@record)
   end
 
 end
