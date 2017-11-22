@@ -1,3 +1,12 @@
+.blue-dashboard {
+  background-color: #162B3A;
+}
+
+.btn-danger {
+  background-color: #162B3A;
+  border: none;
+}
+
 .dashboard {
   height: 500px;
   display: grid;
@@ -5,14 +14,14 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  margin-top: 80px;
+  margin-top: 120px;
   margin-bottom: 30px;
 
   .profile-author {
     grid-row: 1 / span 3;
     text-align: center;
     .avatar-big {
-      margin-top: 40px
+      margin-top: 40px;
     }
   }
   .best-sellers {
@@ -55,7 +64,6 @@
   }
 }
 
-
 #chart-1{
   margin-left: auto;
   margin-right: auto;
@@ -69,16 +77,16 @@
 
 #dashboard-picture {
   img {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 250px;
-    width: 95%;
+    height: 150px;
+    width: 150px;
     size: cover !important;
+    border-radius: 50%;
+    margin: 20px 0;
   }
 }
 
 #author-description {
-  padding: 10px;
+  padding: 20px;
 }
 
 #dropdownMenuButton {
@@ -86,7 +94,7 @@
   margin-bottom: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
-  border: 1px dotted $primary;
+  border: 1px solid $primary;
 }
 
 #book-dropdown {

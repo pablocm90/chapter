@@ -15,25 +15,37 @@ counter = 0
 p "creating show book"
   contents = File.read('db/book.txt')
 
-p "creating main user"
+p "creating dumas"
 
   registration_author = Registration.create(email:"alexandre@dumas", password: "aramis", username: "Alex")
 
   user_author = registration_author.user
 
-  user_author.update(f_name: "Alexandre", l_name: "Dumas", is_author: true, tokens: 1000, fav_genre: "drama", description: "Alexandre Dumas was born on July 24, 1802, in Villers-Cotterêts, France. He adopted the last name 'Dumas' from his grandmother, a former Haitian slave. Dumas established himself as one of the most popular and prolific authors in France, known for plays and historical adventure novels such as The Three Musketeers and The Count of Monte Cristo. He died on December 5, 1870, in Puys, France. His works have been translated into more than 100 languages and adapted for numerous films." )
+  user_author.update(f_name: "Alexandre", l_name: "Dumas", is_author: true, tokens: 1000, fav_genre: "drama", description: "Alexandre Dumas was born on July 24, 1802, in Villers-Cotterêts, France. He adopted the last name 'Dumas' from his grandmother, a former Haitian slave. Dumas established himself as one of the most popular and prolific authors in France, known for plays and historical adventure novels such as The Three Musketeers and The Count of Monte Cristo." )
 
   user_author.save
 
-  p user_author
+  @author = Author.new(user_id: user_author.id, nom_de_plume: "Alexandre Dumas", bank_account: "46543268451")
+  @author.save
+
+  p "creating main author"
+
+  url = "https://avatars2.githubusercontent.com/u/24973905?v=4"
+
+  registration_main_author = Registration.create(email:"pablo@pablo", password: "pablito", username: "Pablocm90")
+
+  user_main_author = registration_main_author.user
+  user_main_author.remote_picture_url = url
+
+  user_main_author.update(f_name: "Pablo", l_name: "Curell", is_author: true, tokens: 1000, fav_genre: "drama", description: "Pablo Curell is an aspiring writter and developer, when not writing or coding he likes to spend time on chapter.website catching up with other people's work." )
+
+  user_main_author.save
 
 
-  @author = Author.new(user_id: user_author.id, nom_de_plume: "Alexandre", bank_account: "46543268451")
 
-  p @author
-  p @author.user.registration.email
-  p @author.user.is_author
-  p user_author.registration.email
+  @main_author = Author.new(user_id: user_main_author.id, nom_de_plume: "Pablo Curell Mompo", bank_account: "46543268451")
+
+  @main_author.save
 
 p "creating rest of users"
 20.times do
@@ -114,7 +126,7 @@ titles.each do |title, picture|
   book.genre = Book::GENRES.sample
   book.description = Faker::HitchhikersGuideToTheGalaxy.quote
   book.quote_hover = Faker::HarryPotter.quote
-  book.author = @author
+  book.author = [@author, @main_author, @author].sample
   p book
   if book.save
     counter += 1
