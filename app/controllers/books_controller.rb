@@ -75,6 +75,7 @@ class BooksController < ApplicationController
 
   def download_owned_book
     send_data convert_epub(true), filename: "#{@book.title}.epub"
+    authorize @book
   end
 
   def download_book
