@@ -5,8 +5,8 @@
       <div class="grid profile-author">
         <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
         <div>
-          <%= current_author.nom_de_plume %>
-          <%= current_user.description %>
+          <p><%= current_author.nom_de_plume %></p>
+          <p><%= current_user.description %></p>
         </div>
         <div>
           <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
@@ -25,9 +25,11 @@
             <div role="tabpanel" class="tab-pane active" id="reads">
               <div class="row">
               <div class="col-xs-12">
+              <p><%= @selected_book.first.title %></p>
               <div class="dropdown" id="book-dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select a book
+                  <p><i class="fa fa-caret-down" aria-hidden="true"></i>
+                  Other book</p>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <% @books.each do |book| %>
@@ -38,17 +40,27 @@
                   <% end %>
                 </div>
               </div>
+
               </div>
               <div class="col-xs-12">
 
-                <%= line_chart @book_transactions.group(:episode).count, xtitle: "Chapters", ytitle: "Reads", colors: ["light-grey", "#999"] %>
+                <%= line_chart @book_transactions.group(:episode).count, legend: false, xtitle: "Chapters", ytitle: "Reads", colors: ["light-grey", "#999"] %>
               </div>
             </div>
           </div>
 
             <div role="tabpanel" class="tab-pane" id="money">
-              <%= line_chart @my_transactions.group(:created_at).count, xtitle: "Date", ytitle: "Transactions", colors: ["light-grey", "#999"] %>
-              <!-- Maybe this should be a table with the number of transactions per book + money made -->
+              <div class="row">
+                <div class="col-xs-6"><p>Earnings this month</p></div>
+                <div class="col-xs-6"><p>€ <%= @total_money_month %></p></div>
+                <div class="col-xs-6"><p>TOTAL EARNINGS</p></div>
+                <div class="col-xs-6"><p>€ <%= @total_money %></p></div>
+                <% @book_amounts.each do |book| %>
+                  <div class="col-xs-6"><p> <%= book["title"] %></p></div>
+                  <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
+                <% end %>
+              </div>
+
             </div>
             <div role="tabpanel" class="tab-pane" id="reviews">
               <% @my_reviews.each do |review| %>

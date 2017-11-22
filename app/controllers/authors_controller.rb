@@ -30,10 +30,31 @@ end
 
 def dashboard
   @books = current_author.books
-  @selected_book = @books.where(title: params[:selected_book_reads])
+  @selected_book = @books.where(title: params[:selected_book_reads]) || @books.last
   @my_transactions = current_author.transactions
   @book_transactions = @my_transactions.where(book: @selected_book)
   @book = @books.where(title: params[:selected_book_reviews])
+
+  @book_amounts = []
+  @total_money = 0
+  @books.each do |book|
+    book_hash = Hash.new
+
+    money = 0
+    book.episodes.each do |episode|
+      money += (episode.transactions.count * episode.price)
+    end
+    book_hash["title"] = book.title
+    book_hash["amount"] = money
+    @book_amounts << book_hash
+    @total_money += money
+  end
+
+  @total_money_month = 0
+  @my_transactions.each do |transaction|
+    @total_money_month += transaction.episode.price if transaction.created_at.strftime("%m%y") == Date.today.strftime("%m%y")
+  end
+
   @my_reviews = []
   @books.each do |book|
     book.reviews.each do |review|
