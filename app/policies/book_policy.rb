@@ -17,5 +17,4 @@ class BookPolicy < ApplicationPolicy
    @user.owned_episodes(@record).empty? ? false : true
   end
 
-
 end
