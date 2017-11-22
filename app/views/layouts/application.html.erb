@@ -32,10 +32,14 @@
   <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 </head>
 <body>
-  <%= render 'shared/navbar' unless @no_navbar %>
+  <% unless  @no_navbar %>
+  <%= render 'shared/navbar'  %>
+  <% end %>
+
   <%= render 'shared/flashes' %>
 
     <%= yield %>
+
 
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application' %>
