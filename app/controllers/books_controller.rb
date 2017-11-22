@@ -12,8 +12,6 @@ class BooksController < ApplicationController
     @author = @book.author.user
     @review = Review.new
     @episodes = @book.episodes.order(:number).reverse
-
-
   end
 
  def new
