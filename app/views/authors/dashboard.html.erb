@@ -8,7 +8,7 @@
         <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
         <div class="text-center">
           <%= link_to edit_users_path do %>
-          <div class="btn btn-danger text-center">Edit my profile page</div>
+          <div class="btn btn-primary" style="font-weight: lighter";>Edit my profile page</div>
           <% end %>
         </div>
         <div id="author-description">
@@ -100,11 +100,11 @@
   </div>
 
   <div class="dashboard-title text-center">
-    <h1 style="color: white";>My books</h1>
+    <h1 style="color: white;margin-bottom: 25px;";>My books</h1>
   </div>
 
   <div class="text-center">
-    <%= link_to "Create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
+    <%= link_to "Create a new book", new_author_book_path(current_author), class: "btn-inverted" %>
   </div>
 
   <div class="container" style="margin-top: 45px";>
