@@ -5,12 +5,13 @@
       <div class="grid profile-author">
         <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
         <div>
-          <p><strong><%= current_author.nom_de_plume %></p>
-          <p><%= current_user.description %></p>
-        </div>
-        <div>
           <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
         </div>
+        <div id="author-description">
+          <p><strong><%= current_author.nom_de_plume %></strong> </p>
+          <p><%= current_user.description %></p>
+        </div>
+
       </div>
 
       <div class="grid best-sellers">
@@ -44,17 +45,20 @@
               </div>
               <div class="col-xs-12">
 
-                <%= line_chart @book_transactions.group(:episode).count, legend: false, xtitle: "Chapters", ytitle: "Reads", colors: ["light-grey", "#999"] %>
+                <%= line_chart @chart_data, legend: false, xtitle: "Chapters", ytitle: "Reads", colors: ["light-grey", "#999"] %>
               </div>
             </div>
           </div>
 
             <div role="tabpanel" class="tab-pane" id="money">
               <div class="row">
-                <div class="col-xs-6"><p>Earnings this month</p></div>
-                <div class="col-xs-6"><p>€ <%= @total_money_month %></p></div>
-                <div class="col-xs-6"><p>TOTAL EARNINGS</p></div>
-                <div class="col-xs-6"><p>€ <%= @total_money %></p></div>
+
+                <div class="col-xs-6"><p><strong> Earnings this month</strong> </p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money_month %></strong></p></div>
+                <div class="col-xs-12">     </div>
+
+                <div class="col-xs-6"><p><strong> TOTAL EARNINGS </strong></p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money %></strong> </p></div>
                 <% @book_amounts.each do |book| %>
                   <div class="col-xs-6"><p> <%= book["title"] %></p></div>
                   <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
