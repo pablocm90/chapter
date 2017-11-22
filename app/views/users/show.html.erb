@@ -13,13 +13,12 @@
 
       <div class="panel panel-default">
 
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= genre %>" aria-expanded="true" aria-controls="collapse<%= genre %>">
+        <div class="panel-heading panel-big-heading">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= genre %>" aria-expanded="true" aria-controls="collapse<%= genre %>">
+            <h4 class="panel-title">
               <%= genre %>
-            </a>
-
-          </h4>
+            </h4>
+          </a>
         </div>
 
         <div id="collapse<%= genre %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
@@ -28,13 +27,13 @@
           <div class="panel-group" id="<%= book.id %>" role="tablist" aria-multiselectable="true">
 
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading<%= book.id %>">
-                <h4 class="panel-title">
-                  <a role="button" data-toggle="collapse" data-parent="<%= book.id %>" href="#collapse<%= book.id %>" aria-expanded="true" aria-controls="collapse<%= book.id %>">
+              <div class="panel-heading panel-small-heading" role="tab" id="heading<%= book.id %>">
+                <a role="button" data-toggle="collapse" data-parent="<%= book.id %>" href="#collapse<%= book.id %>" aria-expanded="true" aria-controls="collapse<%= book.id %>">
+                  <h4 class="panel-title">
                     <%= book.title %>
 
-                  </a>
-                </h4>
+                  </h4>
+                </a>
               </div>
               <div id="collapse<%= book.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= genre %>">
                 <% book.episodes.each do |episode| %>
@@ -53,7 +52,7 @@
                     <%= link_to episode.title, book_episode_path(book, episode) %>
                   </div>
                   <div class="col-xs-3">
-                    <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p> <%= episode.price %> Euros </p></button>
+                    <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p> buy </p></button>
                   </div>
                 </div>
                 <div class="middle"> <%= render 'shared/modal', episode: episode, book: book %></div>
