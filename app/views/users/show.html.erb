@@ -7,7 +7,19 @@
       </div>
     </div>
 
+        <div class="text-center">
+          <%= link_to edit_users_path do %>
+          <div class="btn btn-danger text-center">Edit my profile page</div>
+          <% end %>
 
+
+          <%= link_to search_books_path do %>
+          <div class="btn btn-danger text-center">Buy a book</div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
           <% @my_books.each do |book| %>
           <div class="panel-group" id="<%= book.id %>" role="tablist" aria-multiselectable="true">
 
@@ -51,20 +63,9 @@
                 <% end %>
             </div>
           </div>
+
       </div>
     <% end %>
-
-
-
-  <div class="text-center">
-    <%= link_to edit_users_path do %>
-    <div class="btn btn-danger text-center">Edit my profile page</div>
-    <% end %>
-  </div>
-</div>
-</div>
-
-
 
 </body>
 
