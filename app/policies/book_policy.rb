@@ -17,4 +17,8 @@ class BookPolicy < ApplicationPolicy
    @user.owned_episodes(@record).empty? ? false : true
   end
 
+  def download_book?
+    @user.not_owned_episodes(@record).empty? ? false : true
+  end
+
 end

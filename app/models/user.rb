@@ -21,6 +21,9 @@ class User < ApplicationRecord
     self.transactions.where(episode_id: episode.id).any?
   end
 
+  def price(book)
+    (not_owned_episodes(book).pluck(:price).inject(:+) / 100).round(2)
+  end
   def owned_books
     books
   end

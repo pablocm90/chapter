@@ -12,8 +12,6 @@ def show
   @my_episodes = []
   @my_genres = []
 
-
-
   unless current_user.transactions.empty?
 
     transactions = current_user.transactions
