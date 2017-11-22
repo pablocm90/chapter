@@ -2,11 +2,12 @@
   <div class="container">
     <div class="row">
       <div id="showpage-header">
-        <div class="col-xs-12">
-
-          <%= link_to "Go back", :back, class:"btn btn-primary" %>
-          <h1><%= @book.title %> </h1>
-        </div>
+          <div class="dashboard-title text-center">
+            <h1 style="color: white";><%= @book.title %></h1>
+          </div>
+          <div class="text-center">
+            <%= link_to "Go back", :back, class:"btn btn-primary" %>
+          </div>
       </div>
       <div class="col-xs-12">
         <div class="showpage-card">

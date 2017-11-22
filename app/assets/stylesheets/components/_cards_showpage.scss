@@ -1,11 +1,9 @@
 #showpage-header {
-  max-width: 750px;
-  min-width: 350px;
+  margin-top: 70px;
 }
 
-
 .showpage-card {
-  min-height: 500px;
+  min-height: 450px;
   max-height: 450px;
   max-width: 750px;
   min-width: 350px;
@@ -131,6 +129,11 @@
 
 #back-btn {
   padding-left: 22px;
+}
+
+#buy-btn {
+  margin-top: 20px;
+  margin-left: 18px;
 }
 
 #book-show-title h1 {
