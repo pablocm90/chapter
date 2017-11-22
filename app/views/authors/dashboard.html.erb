@@ -3,10 +3,16 @@
   <% content_for(:after_js) do %>
   <div class="container">
     <div class="dashboard">
+        <div class= "grid dashboard-picture">
+          <% if current_user.picture? %>
+            <%= cl_image_tag current_user.picture%>
+          <% else %>
+            <%= link_to cl_image_tag("no_profile_pic_rvtb0n.png"), edit_users_path %>
 
-      <div class="grid profile-author">
-        <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
-        <div class="text-center">
+          <% end %>
+        </div>
+        <div class= "grid author-box">
+        <div class="text-center" id="edit-btn">
           <%= link_to edit_users_path do %>
           <div class="btn btn-primary" style="font-weight: lighter";>Edit my profile page</div>
           <% end %>
@@ -15,7 +21,8 @@
           <p><strong><%= current_author.nom_de_plume %></strong> </p>
           <p><%= current_user.description %></p>
         </div>
-      </div>
+        </div>
+
 
       <div class="grid best-sellers">
         <ul class="nav nav-tabs" role="tablist">
@@ -56,48 +63,50 @@
           <div role="tabpanel" class="tab-pane" id="money">
             <div class="row">
 
-              <div class="col-xs-6"><p><strong> Earnings this month</strong> </p></div>
-              <div class="col-xs-6"><p><strong> € <%= @total_money_month %></strong></p></div>
-              <div class="col-xs-12">     </div>
 
-              <div class="col-xs-6"><p><strong> TOTAL EARNINGS </strong></p></div>
-              <div class="col-xs-6"><p><strong> € <%= @total_money %></strong> </p></div>
-              <% @book_amounts.each do |book| %>
-              <div class="col-xs-6"><p> <%= book["title"] %></p></div>
-              <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
-              <% end %>
+                <div class="col-xs-6"><p><strong> Earnings this month</strong> </p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money_month.round(2) %></strong></p></div>
+                <div class="col-xs-12">     </div>
+
+                <div class="col-xs-6"><p><strong> TOTAL EARNINGS </strong></p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money.round(2) %></strong> </p></div>
+                <% @book_amounts.each do |book| %>
+                  <div class="col-xs-6"><p> <%= book["title"] %></p></div>
+                  <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
+                <% end %>
+              </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="reviews">
+              <% @my_reviews.each do |review| %>
+                <div class= "review-box">
+                  <ul class="list-inline">
+                    <li>
+                      <div class="rating">
+                        <% 5.times do |counter|%>
+                        <% if review.rating <= counter %>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <% else %>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <% end %>
+                        <% end %>
+                      </div>
+                    </li>
+                    <li><p id="username">
+                      <%= review.book.title %>
+                    </p></li>
+                    <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
+                  </ul>
+                  <p id="content-box"><%= review.content %></p>
+                </div>
+                <% end %>
+
             </div>
 
-          </div>
-          <div role="tabpanel" class="tab-pane" id="reviews">
-            <% @my_reviews.each do |review| %>
-            <div class= "review-box">
-              <ul class="list-inline">
-                <li>
-                  <div class="rating">
-                    <% 5.times do |counter|%>
-                    <% if review.rating <= counter %>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                    <% else %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <% end %>
-                    <% end %>
-                  </div>
-                </li>
-                <li><p id="username">
-                  <%= review.book.title %>
-                </p></li>
-                <li><p id="review-date"><i><%= review.updated_at.strftime("%m/%d/%y") %></i></p></li>
-              </ul>
-              <p id="content-box"><%= review.content %></p>
-            </div>
-            <% end %>
           </div>
         </div>
 
       </div>
-    </div>
-  </div>
 
   <div class="dashboard-title text-center">
     <h1 style="color: white;margin-bottom: 25px;";>My books</h1>
@@ -107,10 +116,11 @@
     <%= link_to "Create a new book", new_author_book_path(current_author), class: "btn-inverted" %>
   </div>
 
-  <div class="container" style="margin-top: 45px";>
+  <div class="container" style="margin-top: 45px">
     <%=  render 'shared/cards' %>
   </div>
+</div>
   <% end %>
-
 </body>
+
 
