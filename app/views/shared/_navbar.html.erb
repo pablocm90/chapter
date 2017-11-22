@@ -3,7 +3,7 @@
   <%= link_to root_path do %>
     <%= cl_image_tag "logo.svg", class: "navbar-wagon-brand" %>
   <% end %>
-  <p class="credits"> <%= current_user.tokens.to_s + " credits" unless current_user.nil? %></p>
+
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
      <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>

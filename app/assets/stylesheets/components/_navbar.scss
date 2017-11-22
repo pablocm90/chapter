@@ -7,12 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: absolute;
+  top:10;
   right: 0;
   left: 0;
   color: white;
   z-index: 99;
+
 }
+
+.home {
+    position:fixed;
+  }
+
 
 /* Logo */
 .navbar-wagon-brand {
