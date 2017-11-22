@@ -25,7 +25,15 @@
     </p>
   </div>
   <div class="message-button">
-    <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p> <%= episode.price %> Tokens </p></button>
+
+      <% if @book.author == current_author %>
+        <%= link_to "Open", book_episode_path(@book,episode), class: "btn btn-primary" %>
+      <% elsif current_user.owned_episodes(@book).include? episode  %>
+        <%= link_to "Read", book_episode_path(@book,episode), class: "btn btn-primary" %>
+      <% else %>
+        <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#chapter<%= episode.id %>"><p><%= episode.price %> cents </p></button>
+      <% end %>
+
   </div>
 </li>
 </ul>
