@@ -1,11 +1,11 @@
 <div class="navbar-wagon home">
   <%= link_to root_path do %>
-    <%= cl_image_tag "logo.svg", class: "navbar-wagon-brand" %>
+  <%= cl_image_tag "logo.svg", class: "navbar-wagon-brand" %>
   <% end %>
 
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
-     <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
+    <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
     <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% if current_author %>
 
@@ -46,30 +46,32 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
-          <li> <%= link_to "ABOUT", about_path %> </li>
-          <li> <%= link_to "TOP UP", topups_path %> </li>
-          <li> <%= link_to "MY COLLECTION", users_path %> </li>
-          <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
-          <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
+        <li> <%= link_to "ABOUT", about_path %> </li>
+        <li> <%= link_to "TOP UP", topups_path %> </li>
+        <li> <%= link_to "MY COLLECTION", users_path %> </li>
+        <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
+        <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
 
         <% elsif current_user %>
-          <li> <%= link_to "ABOUT", about_path %> </li>
-          <li> <%= link_to "BECOME AN AUTHOR", new_author_path %> </li>
-          <li> <%= link_to "MY COLLECTION", users_path %> </li>
-          <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
-          <li> <%= link_to "TOP UP", topups_path %> </li>
-          <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
+        <li> <%= link_to "ABOUT", about_path %> </li>
+        <li> <%= link_to "BECOME AN AUTHOR", new_author_path %> </li>
+        <li> <%= link_to "MY COLLECTION", users_path %> </li>
+        <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
+        <li> <%= link_to "TOP UP", topups_path %> </li>
+        <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
 
         <% else %>
-          <li> <%= link_to "ABOUT", about_path %> </li>
-          <li> <%= link_to "SIGN UP", new_registration_registration_path %> </li>
-          <li> <%= link_to "LOG IN", new_registration_session_path %> </li>
+        <li> <%= link_to "ABOUT", about_path %> </li>
+        <li> <%= link_to "SIGN UP", new_registration_registration_path %> </li>
+        <li> <%= link_to "LOG IN", new_registration_session_path %> </li>
         <% end %>
       </ul>
     </div>
   </div>
-
 </div>
+
+
+
 <section class="example-classname" data-section-name="home">
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 30%), url('https://static.pexels.com/photos/267569/pexels-photo-267569.jpeg');">
     <div class="banner-content">
@@ -130,25 +132,25 @@
   </div>
 </section>
 <% content_for :after_js do %>
-  <script>
-      $(function() {
-        $.scrollify({
-        section : ".example-classname",
-        sectionName : "section-name",
-        easing: "easeOutExpo",
-        scrollSpeed: 900,
-        offset : 0,
-        scrollbars: false,
-        standardScrollElements: "",
-        setHeights: true,
-        overflowScroll: true,
-        updateHash: true,
-        touchScroll:true,
-        before:function() {},
-        after:function() {},
-        afterResize:function() {},
-        afterRender:function() {}
-      });
-      });
-  </script>
+<script>
+  $(function() {
+    $.scrollify({
+      section : ".example-classname",
+      sectionName : "section-name",
+      easing: "easeOutExpo",
+      scrollSpeed: 900,
+      offset : 0,
+      scrollbars: false,
+      standardScrollElements: "",
+      setHeights: true,
+      overflowScroll: true,
+      updateHash: true,
+      touchScroll:true,
+      before:function() {},
+      after:function() {},
+      afterResize:function() {},
+      afterRender:function() {}
+    });
+  });
+</script>
 <% end %>
