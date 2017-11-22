@@ -34,6 +34,10 @@
   overflow: hidden;
 }
 
+.subtitle {
+  font-weight: 100;
+}
+
 .about-info-team .about-team-picture {
   background-size: cover;
   margin: 20px auto;
@@ -53,10 +57,17 @@
   margin-bottom: 0;
 }
 
-
 #under-p {
   font-size: 18px;
   font-weight: lighter;
   text-align: justify;
-  padding-top: 15px;
+  padding-top: 10px;
+}
+
+.linkedin:hover {
+  color: #F97942;
+}
+
+.github:hover {
+  color: #F97942;
 }
