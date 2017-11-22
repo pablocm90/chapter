@@ -20,7 +20,7 @@
 
     member do
       get "download", to: 'books#download_book', as: :download
-      get "download_owned", to: 'books#download_owned', as: :download_owned
+      get "download_owned", to: 'books#download_owned_books', as: :download_owned_books
     end
 
     resources :episodes, except: [:index] do
