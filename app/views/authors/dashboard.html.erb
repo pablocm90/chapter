@@ -17,13 +17,9 @@
         </div>
       </div>
 
-      <div>
-        <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
-      </div>
-
       <div class="grid best-sellers">
-
         <ul class="nav nav-tabs" role="tablist">
+         <!--  <div class="slider"></div> -->
           <li role="presentation " class="active"><a href="#reads" aria-controls="reads" role="tab" data-toggle="tab">Reads</a></li>
           <li role="presentation"><a href="#money" aria-controls="money" role="tab" data-toggle="tab">Earnings</a></li>
           <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
@@ -102,11 +98,19 @@
       </div>
     </div>
   </div>
-  <div class="container">
+
+  <div class="dashboard-title text-center">
+    <h1 style="color: white";>My books</h1>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "Create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
+  </div>
+
+  <div class="container" style="margin-top: 45px";>
     <%=  render 'shared/cards' %>
   </div>
   <% end %>
-
 
 </body>
 
