@@ -3,10 +3,19 @@
     <div class="row">
       <div class="col-xs-12" id="collection-title">
         <h2>My books</h2>
+
+        <div class="text-center">
+          <%= link_to edit_users_path do %>
+          <div class="btn btn-danger text-center">Edit my profile page</div>
+          <% end %>
+
+          <%= link_to search_books_path do %>
+          <div class="btn btn-danger text-center">Buy a book</div>
+          <% end %>
+
+        </div>
       </div>
     </div>
-
-
     <div class="panel-group" id="accordion">
 
       <% @my_genres.each do |genre| %>
@@ -62,6 +71,7 @@
               </div>
             </div>
           </div>
+
           <% end %>
           <% end %>
         </div>
@@ -71,15 +81,6 @@
       <% end %>
     </div>
   </div>
-
-
-  <div class="text-center">
-    <%= link_to edit_users_path do %>
-    <div class="btn btn-danger text-center">Edit my profile page</div>
-    <% end %>
-  </div>
-
-
 
 </body>
 
