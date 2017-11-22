@@ -20,7 +20,9 @@
 .panel-title {
   text-align: center
 }
-
+.panel-group {
+  margin-bottom: 0px;
+}
 .middle {
   position: absolute;
   top: 50vh;
@@ -40,3 +42,4 @@
   background-color: black;
   color: white;
 }
+
