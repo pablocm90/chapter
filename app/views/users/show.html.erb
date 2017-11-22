@@ -39,7 +39,7 @@
                     <%= episode.title %>
                   </div>
                   <div class="col-xs-3">
-                    <%= link_to "read", book_episode_path(book, episode), class: "btn btn-primary" %>
+                    <%= link_to "read", book_episode_path(book, episode), class: "btn btn-primary read-button" %>
                   </div>
                 </div>
                 <% else %>
@@ -48,7 +48,7 @@
                     <%= link_to episode.title, book_episode_path(book, episode) %>
                   </div>
                   <div class="col-xs-3">
-                    <button class="btn btn-primary"  data-toggle="modal" data-target="#chapter<%= episode.id %>">buy</button>
+                    <button class="btn btn-primary buy-button"  data-toggle="modal" data-target="#chapter<%= episode.id %>">buy</button>
                   </div>
                 </div>
                 <div class="middle"> <%= render 'shared/modal', episode: episode, book: book %></div>
