@@ -13,6 +13,7 @@ class EpisodesController < ApplicationController
     underline: true
   }
 
+
   before_action :set_book
   before_action :set_episode, except: [:new, :create]
   # skip_before_action :authenticate_registration!
@@ -37,6 +38,7 @@ class EpisodesController < ApplicationController
     @episode.book = @book
     authorize @episode
     if @episode.save
+      author_owns_episode
       redirect_to book_path(@book)
     else
       render :new
@@ -59,6 +61,10 @@ class EpisodesController < ApplicationController
   end
 
   private
+
+  def author_owns_episode
+    Transaction.create(user: @book.author.user, book: @book, episode: self)
+  end
 
   def convert_markdown(text)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(RENDER_OPTIONS), MARKDOWN_OPTIONS)
