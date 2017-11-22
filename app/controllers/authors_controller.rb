@@ -42,18 +42,20 @@ def dashboard
 
     money = 0
     book.episodes.each do |episode|
-      money += (episode.transactions.count * episode.price)
+      money += (episode.transactions.count * episode.price / 100)
     end
     book_hash["title"] = book.title
-    book_hash["amount"] = money
+    book_hash["amount"] = money.round(2)
     @book_amounts << book_hash
-    @total_money += money
+    @total_money += money.round(2)
+
   end
 
   @total_money_month = 0
   @my_transactions.each do |transaction|
-    @total_money_month += transaction.episode.price if transaction.created_at.strftime("%m%y") == Date.today.strftime("%m%y")
+    @total_money_month += (transaction.episode.price / 100) if transaction.created_at.strftime("%m%y") == Date.today.strftime("%m%y")
   end
+  @total_money_month.round(2)
 
   @my_reviews = []
   @books.each do |book|

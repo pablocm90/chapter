@@ -1,7 +1,11 @@
 #collection-title {
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  color:white;
+}
+
+.btn-buy {
+  margin-bottom: 27px;
 }
 
 .blue {
@@ -31,13 +35,7 @@
 }
 
 .panel {
-  :first-child {
-  border-radius: 5px 5px 0 0;
-  }
-  :last-child {
-  border-radius: 0 0 5px 5px;
-  }
-  background-color: $pale-yellow;
+  border-radius: 2px;
 }
 
 
