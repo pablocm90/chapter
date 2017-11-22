@@ -12,6 +12,7 @@ class Episode < ApplicationRecord
 
   def to_s
     title
+    title.split.first
   end
 
   private
