@@ -6,6 +6,7 @@
   <p class="credits"> <%= current_user.tokens.to_s + " credits" unless current_user.nil? %></p>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
+    <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
      <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% if current_author %>
     <%= link_to "YOUR BOOKS", author_path(current_author) , class: 'navbar-wagon-item navbar-wagon-link' %>
@@ -34,6 +35,7 @@
       </div>
     </div>
     <% else %>
+    <%= link_to "ABOUT", about_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <%= link_to "SIGN UP", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <%= link_to "LOG IN", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% end %>
@@ -46,6 +48,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
+        <li> <%= link_to "ABOUT", about_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li> <%= link_to "YOUR BOOKS", author_path(current_author), class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li> <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li>
@@ -57,6 +60,7 @@
           <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
         <% elsif current_user %>
+        <li> <%= link_to "ABOUT", about_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li>
           <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
@@ -73,6 +77,7 @@
           <%= link_to "LOG OUT", destroy_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
         </li>
         <% else %>
+        <li> <%= link_to "ABOUT", about_path, class: 'navbar-wagon-item navbar-wagon-link' %> </li>
         <li> <%= link_to "SIGN UP", new_registration_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
         <li><%= link_to "LOG IN", new_registration_session_path, class: 'navbar-wagon-item navbar-wagon-link' %></li>
         <% end %>

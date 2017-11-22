@@ -1,0 +1,62 @@
+.heading-team {
+  display: table;
+  width: 100%;
+  height: 40vh;
+  background-color: #ff3244;
+  background-position: center bottom;
+  background-image: linear-gradient(106deg,#FB7C36,#F23D5C);
+}
+
+.heading-team .title {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 65px;
+  font-size: 6.5rem;
+  padding: 3rem 1rem 1rem;
+}
+
+.heading-team .title .subtitle {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 750px;
+  font-size: 20px;
+  font-size: 2rem;
+}
+
+.padded {
+  padding: 20px 10px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+.about-info-team .about-team-picture {
+  background-size: cover;
+  margin: 20px auto;
+}
+
+.avatar-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.about-info-team p {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+
+#under-p {
+  font-size: 18px;
+  font-weight: lighter;
+  text-align: justify;
+  padding-top: 15px;
+}
