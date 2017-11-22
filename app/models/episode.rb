@@ -11,8 +11,7 @@ class Episode < ApplicationRecord
   after_create :author_owns_episode
 
   def to_s
-    title
-    title.split.first
+    number
   end
 
   private

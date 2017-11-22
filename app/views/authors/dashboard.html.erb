@@ -2,8 +2,16 @@
   <div class="container">
     <div class="dashboard">
 
-      <div class="grid profile-author">
-        <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
+
+        <div class= "grid dashboard-picture">
+          <% if current_user.picture? %>
+            <%= cl_image_tag current_user.picture%>
+          <% else %>
+            <%= link_to cl_image_tag("no_profile_pic_rvtb0n.png"), edit_users_path %>
+
+          <% end %>
+        </div>
+        <div class= "grid author-box">
         <div>
           <%= link_to "create a new book", new_author_book_path(current_author), class: "btn btn-primary" %>
         </div>
@@ -11,8 +19,9 @@
           <p><strong><%= current_author.nom_de_plume %></strong> </p>
           <p><%= current_user.description %></p>
         </div>
+        </div>
 
-      </div>
+
 
       <div class="grid best-sellers">
 
@@ -54,11 +63,11 @@
               <div class="row">
 
                 <div class="col-xs-6"><p><strong> Earnings this month</strong> </p></div>
-                <div class="col-xs-6"><p><strong> € <%= @total_money_month %></strong></p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money_month.round(2) %></strong></p></div>
                 <div class="col-xs-12">     </div>
 
                 <div class="col-xs-6"><p><strong> TOTAL EARNINGS </strong></p></div>
-                <div class="col-xs-6"><p><strong> € <%= @total_money %></strong> </p></div>
+                <div class="col-xs-6"><p><strong> € <%= @total_money.round(2) %></strong> </p></div>
                 <% @book_amounts.each do |book| %>
                   <div class="col-xs-6"><p> <%= book["title"] %></p></div>
                   <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
