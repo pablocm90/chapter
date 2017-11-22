@@ -10,6 +10,10 @@ class Episode < ApplicationRecord
   validates :price, presence: true
   after_create :author_owns_episode
 
+  def to_s
+    title
+  end
+
   private
   def author_owns_episode
     Transaction.create(user: self.book.author.user, book: self.book, episode: self)

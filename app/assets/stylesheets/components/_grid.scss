@@ -47,6 +47,7 @@
   }
   p {
     margin-top: 10px;
+    font-size: 15px;
   }
 }
 
@@ -65,7 +66,21 @@
 #dashboard-picture {
   img {
     padding-top: 10px;
+    padding-bottom: 10px;
     height: 250px;
     width: 95%;
+    size: cover !important;
   }
+}
+
+#author-description {
+  padding: 10px;
+}
+
+#dropdownMenuButton {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: 1px dotted $primary;
 }

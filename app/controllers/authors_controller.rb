@@ -62,6 +62,8 @@ def dashboard
     end
   end
   @my_reviews.sort_by { |k| k[:updated_at] }
+
+  @chart_data = @book_transactions.group(:episode).count
 end
 
 private
