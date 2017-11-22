@@ -8,5 +8,11 @@ class Episode < ApplicationRecord
   validates :number, uniqueness: {scope: :book}
   validates :book, presence: true
   validates :price, presence: true
+  after_create :author_owns_episode
+
+  private
+  def author_owns_episode
+    Transaction.create(user: self.book.author.user, book: self.book, episode: self)
+  end
 
 end
