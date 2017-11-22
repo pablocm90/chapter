@@ -31,8 +31,14 @@ p {
   position: relative;
 }
 
+@media (max-width: 940px) {
+  .aa-input-search {
+    width: 200px;
+  }
+}
+
 .aa-input-search {
-  width: 300px;
+  width: 500px;
   // border: 1px solid black;
   border-radius: 4px;
   padding: 12px 28px 12px 12px;
