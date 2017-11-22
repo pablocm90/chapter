@@ -5,7 +5,7 @@
       <div class="grid profile-author">
         <div id=dashboard-picture><%= image_tag "https://avatars1.githubusercontent.com/u/22871877?s=460&v=4" %></div>
         <div>
-          <p><%= current_author.nom_de_plume %></p>
+          <p><strong><%= current_author.nom_de_plume %></p>
           <p><%= current_user.description %></p>
         </div>
         <div>
@@ -25,7 +25,7 @@
             <div role="tabpanel" class="tab-pane active" id="reads">
               <div class="row">
               <div class="col-xs-12">
-              <p><%= @selected_book.first.title %></p>
+              <p><strong><%= @selected_book.first.title %></strong></p>
               <div class="dropdown" id="book-dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p><i class="fa fa-caret-down" aria-hidden="true"></i>
