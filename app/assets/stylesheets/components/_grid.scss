@@ -84,3 +84,16 @@
   padding-bottom: 0px;
   border: 1px dotted $primary;
 }
+
+#book-dropdown {
+  .dropdown-menu {
+    input {
+      border: 0px;
+      background-color: none;
+      font-weight: lighter !important;
+      color: black !important;
+      font-size: 15px !important;
+      padding: 10px 20px;
+    }
+  }
+}
