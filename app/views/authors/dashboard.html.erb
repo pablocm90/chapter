@@ -6,11 +6,13 @@
       <div class= "grid dashboard-picture">
         <div class="row">
         <div class="col-xs-12">
+        <div class="dashboard-flex">
         <% if current_user.picture? %>
         <%= cl_image_tag current_user.picture, class: "avatar-dashboard"%>
         <% else %>
         <%= link_to cl_image_tag("pexels-photo-373465_ocuirm.jpg"), edit_users_path, class: "avatar-dashboard" %>
         <% end %>
+        </div>
         </div>
         <div class="col-xs-12">
         <p class="text-center author-ndp"><strong><%= current_author.nom_de_plume %></strong> </p>

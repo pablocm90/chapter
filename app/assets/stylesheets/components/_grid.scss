@@ -80,17 +80,20 @@
     text-align: center;
   }
 
-
+.dashboard-flex {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .dashboard-picture {
-
+  align-items: center;
 
   img {
-    width: 85%;
-    height: 85%;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    margin-top: 9%;
-    margin-left: 7%;
   }
 
 }
@@ -206,3 +209,5 @@
     font-size: 22px;
   }
 }
+
+
