@@ -17,11 +17,11 @@
   color: white;
 }
 
+
+
 .dashboard {
   height: 500px;
   display: grid;
-  grid-template-columns: 200px 1fr 1fr 1fr;
-  grid-template-rows: 45% 1fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   margin-top: 120px;
@@ -31,26 +31,47 @@
     text-align: center;
   }
 
+@media(min-width: 720px) {
+  .dashboard {
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    grid-template-rows: 45% 1fr 1fr;
+  }
+
+  .dashboard-picture {
+    grid-row: 1 / span 1;
+  }
+
+  .author-box {
+    grid-row: 2 / span 2;
+  }
+
+  .best-sellers {
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 3;
+  }
+}
+
 @media(max-width: 720px) {
 
   .dashboard {
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 2fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr;
     /* re-define your grid for mobile and tablet */
   }
   .dashboard-picture {
     grid-row: 1 / span 1;
+    height: 150px;
   }
   .author-box {
     grid-row: 2 / span 1;
   }
   .best-sellers {
-    grid-row: 1 / span 1;
+    grid-row: 3 / span 1;
+
   }
 }
 
 .dashboard-picture {
-  grid-row: 1 / span 1;
+
 
   img {
     width: 170px;
@@ -70,13 +91,7 @@
   margin-top: 7px;
 }
 
-.author-box {
-  grid-row: 2 / span 2;
-}
-
   .best-sellers {
-    grid-column: 2 / span 3;
-    grid-row: 1 / span 3;
     #reviews {
       padding-left: 32px;
       padding-right: 32px;

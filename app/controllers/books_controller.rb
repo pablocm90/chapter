@@ -26,8 +26,8 @@ class BooksController < ApplicationController
 
   authorize @book
   if @book.save
-    redirect_to book_path(@book)
     Book.reindex
+    redirect_to book_path(@book)
   else
     render :new
   end
@@ -38,8 +38,6 @@ class BooksController < ApplicationController
 
 
  def search
-
-    Book.reindex
     @query = params[:query]
     @books = @query ? Book.search(@query) : Book.all
 
