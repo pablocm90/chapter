@@ -3,7 +3,8 @@
 <div class="search-flexbox">
   <div class="search-flexitem"> <%= render 'shared/filters' %> </div>
   <div class="search-flexbody">
-      <div class="aa-input-container" id="aa-input-container">
+
+      <div class="aa-input-container search-searchbar" id="aa-input-container">
         <form action="/books/search" method="get">
         <input type="search" id="aa-search-input" class="aa-input-search" placeholder="Search for books..." name="query" autocomplete="on"  value="<%= @query %>">
         <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
@@ -11,10 +12,10 @@
         </svg>
         </form>
       </div>
-
     <div class="container">
     <%= render 'shared/cards' %>
     </div>
+
   </div>
 </div>
 
