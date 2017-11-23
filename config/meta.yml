@@ -1,7 +1,7 @@
 meta_product_name: "Chapter"
 meta_title: "Chapter - Discover the world one chapter at a time"
 meta_description: "Read and write books chapter by chapter"
-meta_image: "ms-icon-144x144.png"                       # should exist in `app/assets/images/`
+meta_image: "picture-facebook.png"                       # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
 
 
