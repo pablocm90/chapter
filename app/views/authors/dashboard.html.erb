@@ -5,9 +5,9 @@
     <div class="dashboard">
         <div class= "grid dashboard-picture">
           <% if current_user.picture? %>
-            <%= cl_image_tag current_user.picture%>
+            <%= cl_image_tag current_user.picture, class: "avatar-dashboard"%>
           <% else %>
-            <%= link_to cl_image_tag("no_profile_pic_rvtb0n.png"), edit_users_path %>
+            <%= link_to cl_image_tag("no_profile_pic_rvtb0n.png"), edit_users_path, class: "avatar-dashboard" %>
 
           <% end %>
         </div>
@@ -63,16 +63,18 @@
           <div role="tabpanel" class="tab-pane" id="money">
             <div class="row">
 
-
+                <div class="col-xs-2"></div>
                 <div class="col-xs-6"><p><strong> Earnings this month</strong> </p></div>
-                <div class="col-xs-6"><p><strong> € <%= @total_money_month.round(2) %></strong></p></div>
-                <div class="col-xs-12">     </div>
+                <div class="col-xs-4"><p><strong> € <%= @total_money_month.round(2) %></strong></p></div>
+                <div class="col-xs-12"> <hr>    </div>
 
+                <div class="col-xs-2"></div>
                 <div class="col-xs-6"><p><strong> TOTAL EARNINGS </strong></p></div>
-                <div class="col-xs-6"><p><strong> € <%= @total_money.round(2) %></strong> </p></div>
+                <div class="col-xs-4"><p><strong> € <%= @total_money.round(2) %></strong> </p></div>
                 <% @book_amounts.each do |book| %>
+                  <div class="col-xs-2"></div>
                   <div class="col-xs-6"><p> <%= book["title"] %></p></div>
-                  <div class="col-xs-6"><p> € <%= book["amount"] %></p></div>
+                  <div class="col-xs-4"><p> € <%= book["amount"] %></p></div>
                 <% end %>
               </div>
 
@@ -80,7 +82,7 @@
             <div role="tabpanel" class="tab-pane" id="reviews">
               <% @my_reviews.each do |review| %>
                 <div class= "review-box">
-                  <ul class="list-inline">
+                  <ul class="list-inline" id="dashboard-reviews">
                     <li>
                       <div class="rating">
                         <% 5.times do |counter|%>
