@@ -8,6 +8,13 @@
   margin-bottom: 27px;
 }
 
+
+.btn-inverted:hover {
+  opacity: 0.7;
+  text-decoration: none !important;
+  color: white !important;
+}
+
 .read-button {
   width:70px;
 }
@@ -20,17 +27,34 @@
   background-color: #162B3A;
 }
 
+.book-list {
+  flex: grow;
+  h4 {
+  text-align: center;
+
+  }
+}
+
 .panel {
   border: none !important;
   a {
     text-decoration: none;
+    margin-right: 20px;
   }
 }
 
+.picture {
+  margin-right: 20px;
+}
 .panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   a {
     outline: none;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 600px)  {

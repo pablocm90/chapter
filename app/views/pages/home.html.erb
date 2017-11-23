@@ -5,9 +5,8 @@
 
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
-    <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
-    <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
-    <% if current_author %>
+     <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
+     <% if current_author %>
 
     <% else %>
     <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
@@ -46,19 +45,18 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
-        <li> <%= link_to "ABOUT", about_path %> </li>
-        <li> <%= link_to "TOP UP", topups_path %> </li>
-        <li> <%= link_to "MY COLLECTION", users_path %> </li>
-        <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
-        <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
+
+          <li> <%= link_to "ABOUT", about_path %> </li>
+          <li> <%= link_to "MY COLLECTION", users_path %> </li>
+          <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
+          <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
 
         <% elsif current_user %>
-        <li> <%= link_to "ABOUT", about_path %> </li>
-        <li> <%= link_to "BECOME AN AUTHOR", new_author_path %> </li>
-        <li> <%= link_to "MY COLLECTION", users_path %> </li>
-        <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
-        <li> <%= link_to "TOP UP", topups_path %> </li>
-        <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
+          <li> <%= link_to "ABOUT", about_path %> </li>
+          <li> <%= link_to "BECOME AN AUTHOR", new_author_path %> </li>
+          <li> <%= link_to "MY COLLECTION", users_path %> </li>
+          <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
+          <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
 
         <% else %>
         <li> <%= link_to "ABOUT", about_path %> </li>
@@ -101,10 +99,8 @@
 <section class="example-classname" data-section-name="feature-1" style="height: 676px; background-color: rgb(244, 58, 89);">
   <div class="container flex">
     <div class="description-feature-1" >
-      <h1 style="text-align:center;">DISCOVER NEW AUTHORS</h1>
-      <h1 style="text-align:center;">BEFORE ANYONE ELSE</h1>
-      <p style="text-align:center;">Be the first to read chapters from unpublished authors.</p>
-      <p style="text-align:center;">Discover the first chapter for free!</p>
+      <h1 style="text-align:center;">BUY ONLY WHAT YOU READ</h1>
+      <p style="text-align:center;">Never feel forced to finish a book because you bought it complete</p>
     </div>
   </div>
 </section>
@@ -112,9 +108,9 @@
 <section class="example-classname" data-section-name="feature-2" style="height: 676px; background-color: rgb(75, 164, 207);">
   <div class="container flex">
     <div class="description-feature-2" >
-      <h1 style="text-align:center;">SERIALIZED WRITING</h1>
-      <p style="text-align:center;">Read the first chapter and decide if you want to explore more</p>
-      <p style="text-align:center;">Never end up with bought books you don't read</p>
+      <h1 style="text-align:center;">DISCOVER</h1>
+      <h1 style="text-align:center;">AND SUPPORT TALENT</h1>
+      <p style="text-align:center;">Don't be restrained by the publishing houses</p>
     </div>
   </div>
 </section>
@@ -122,12 +118,9 @@
 <section class="example-classname" data-section-name="feature-3" style="height: 676px; background-color: rgb(253, 124, 39);">
   <div class="container flex">
     <div class="description-feature-3" >
-      <h1 style="text-align:center;">SUPPORT</h1>
-      <h1 style="text-align:center;">BRILLIANT AUTHORS</h1>
-      <p style="text-align:center;">We believe talented authors should be able to write whenever they want,</p>
-      <p style="text-align:center;">not when they can fit it in around their day job.</p>
-      <p style="text-align:center;">With Chapter, authors can earn a living from writing—</p>
-      <p style="text-align:center;">so you’ll never be left waiting for weekly updates again.</p>
+      <h1 style="text-align:center;">YOUR AUDIENCE</h1>
+      <h1 style="text-align:center;">IS ONE CLICK AWAY</h1>
+      <p style="text-align:center;">Say no to the gatekeepers</p>
     </div>
   </div>
 </section>

@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   authorize @book
   if @book.save
-    redirect_to author_dashboard_path
+    redirect_to book_path(@book)
     Book.reindex
   else
     render :new
@@ -72,11 +72,12 @@ class BooksController < ApplicationController
   end
 
   def download_owned_book
-    send_data convert_epub(true), filename: "#{@book.title}.epub"
     authorize @book
+    send_data convert_epub(true), filename: "#{@book.title}.epub"
   end
 
   def download_book
+    authorize @book
     send_data convert_epub(false), filename: "#{@book.title}.epub"
   end
 

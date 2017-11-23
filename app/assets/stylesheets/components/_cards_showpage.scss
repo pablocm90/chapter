@@ -1,5 +1,9 @@
+#showpage-header {
+  margin-top: 70px;
+}
+
 .showpage-card {
-  min-height: 500px;
+  min-height: 450px;
   max-height: 450px;
   max-width: 750px;
   min-width: 350px;
@@ -9,7 +13,7 @@
   position: relative;
   border-radius: 2px;
   font-family: 'Roboto', sans-serif;
-  margin: 40px auto;
+  margin: 20px auto;
   border-radius: 2px;
   box-shadow: 1px 0 10px rgba(0,0,0,0.4);
   overflow: scroll;
@@ -117,4 +121,21 @@
 
 .modal {
   z-index: 1300;
+}
+
+#book-show-header {
+  margin-top: 50px;
+}
+
+#back-btn {
+  padding-left: 22px;
+}
+
+#buy-btn {
+  margin-top: 20px;
+  margin-left: 18px;
+}
+
+#book-show-title h1 {
+  text-align: center;
 }

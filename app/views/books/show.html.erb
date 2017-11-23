@@ -1,8 +1,17 @@
 <div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
   <div class="container">
     <div class="row">
+      <div id="showpage-header">
+          <div class="dashboard-title text-center">
+            <h1 style="color: white";><%= @book.title %></h1>
+          </div>
+          <div class="text-center">
+            <%= link_to "Go back", :back, class:"btn btn-primary" %>
+          </div>
+      </div>
       <div class="col-xs-12">
         <div class="showpage-card">
+
           <ul class="nav nav-tabs" role="tablist">
             <div class="slider"></div>
             <li role="presentation " class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
@@ -14,7 +23,7 @@
               <p><strong>Author:</strong> <%= @book.author.nom_de_plume%></p>
               <p><strong>Description: </strong><%= @book.description %></p>
               <p><strong>Genre: </strong><%= @book.genre %></p>
-                <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"><p> Download book (epub) </p></button>
+                <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"> Download book (epub) </button>
             </div>
             <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %>
             </div>

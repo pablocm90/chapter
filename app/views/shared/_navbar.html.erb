@@ -7,7 +7,6 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
      <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
-    <%= link_to "TOP UP", topups_path, class: 'navbar-wagon-item navbar-wagon-link' %>
     <% if current_author %>
 
     <% else %>
@@ -48,7 +47,6 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
           <li> <%= link_to "ABOUT", about_path %> </li>
-          <li> <%= link_to "TOP UP", topups_path %> </li>
           <li> <%= link_to "MY COLLECTION", users_path %> </li>
           <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
           <li> <%= link_to "LOG OUT", destroy_registration_session_path, method: :delete %> </li>
@@ -58,7 +56,6 @@
           <li> <%= link_to "BECOME AN AUTHOR", new_author_path %> </li>
           <li> <%= link_to "MY COLLECTION", users_path %> </li>
           <li> <%= link_to "DASHBOARD", author_dashboard_path %> </li>
-          <li> <%= link_to "TOP UP", topups_path %> </li>
           <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
 
         <% else %>
