@@ -2,6 +2,13 @@
   background-color: #162B3A;
 }
 
+.edit-btn {
+  margin-bottom:10px;
+}
+
+.author-ndp {
+  margin-bottom:30px;
+}
 
 .btn-inverted {
   color: white;
@@ -38,7 +45,7 @@
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    margin-top: 13%;
+    margin-top: 9%;
     margin-left: 7%;
   }
 
@@ -110,6 +117,7 @@
 
 #author-description {
   padding: 20px;
+  hyphens:auto;
 }
 
 #dropdownMenuButton {
