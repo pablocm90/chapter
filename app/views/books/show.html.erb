@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div id="showpage-header">
-          <div class="dashboard-title text-center">
+          <div class="dashboard-title text-center" style="margin-bottom: 25px;">
             <h1 style="color: white";><%= @book.title %></h1>
           </div>
           <div class="text-center">
@@ -28,7 +28,7 @@
                   <div class="col-xs-12 col-sm-6">
                     <div class="card" id="book-show-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @book.cover_pic, crop: :fill %>');"></div>
                   </div>
-                  <div class="col-xs-12 col-sm-6">
+                  <div class="col-xs-12 col-sm-6 book-text">
                     <p><strong>Author:</strong> <%= @book.author.nom_de_plume%></p>
                     <p><strong>Description: </strong><%= @book.description %></p>
                     <p><strong>Genre: </strong><%= @book.genre %></p>
