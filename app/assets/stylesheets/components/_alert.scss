@@ -15,7 +15,11 @@
 }
 .alert-info {
   background: $green;
+  border:none;
+  font-weight:lighter;
 }
 .alert-warning {
   background: $red;
+  border:none;
+  font-weight:lighter;
 }
