@@ -1,4 +1,11 @@
-<div class="darken">
+<body class="darken">
+
+  <div class="navigation-books margin-top-90 text-center">
+
+    <%= link_to "Previous chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
+    <%= link_to "Buy book" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
+    <%= link_to "Next chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
+  </div>
 
   <div class="container margin-top-90 book">
     <div class="sharers justify-left">
@@ -9,8 +16,9 @@
       <%= link_to "#{@ndp}", author_path(@author) %>
 
       <%= @converted %>
-    <%= link_to "Download episode" ,download_book_episode_path, :action => :download_episode %>
+
       <div id="fb-root"></div>
     </div>
-  </div>
-</div>
+
+  </body>
+
