@@ -15,9 +15,9 @@
 <body>
   <% unless  @no_navbar %>
   <%= render 'shared/navbar'  %>
-  <% end %>
+<%= render 'shared/flashes'  %>
 
-  <%= render 'shared/flashes' %>
+  <% end %>
 
     <%= yield %>
 
