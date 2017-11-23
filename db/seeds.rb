@@ -32,7 +32,7 @@ p "creating dumas"
 
   p "creating main author"
 
-  url = "https://avatars2.githubusercontent.com/u/24973905?v=4"
+  url = "http://res.cloudinary.com/dpqd2snsv/image/upload/v1511457257/P1010205_n7yoi8.png"
 
   registration_main_author = Registration.create(email:"pablo@pablo", password: "pablito", username: "Pablocm90")
 
