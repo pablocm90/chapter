@@ -20,7 +20,12 @@
     color: $secondary;
     text-align: justify;
     text-justify: auto;
+    hyphens:auto;
   }
+}
+
+.overflow {
+  overflow:scroll;
 }
 
  @media only screen and (max-width: 500px) {
@@ -30,6 +35,7 @@
     }
     p{
       font-size: 15px;
+      hyphens:auto;
     }
   }
  }
