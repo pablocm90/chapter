@@ -49,6 +49,11 @@ th, td {
   padding-left: 20px;
 }
 
+
+#buy-book-btn {
+  display: flex;
+  justify-content: space-around;
+
 .twitter-share-button:hover {
   text-decoration: none;
   color: $red;
@@ -59,6 +64,7 @@ th, td {
     text-decoration: none;
     color: $red;
   }
+
 }
 
 .author-avatar {
