@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    @reviews.reverse
   end
 
   def new

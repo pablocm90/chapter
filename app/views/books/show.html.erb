@@ -14,17 +14,24 @@
 
           <ul class="nav nav-tabs" role="tablist">
             <div class="slider"></div>
-            <li role="presentation " class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
-            <li role="presentation"><a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters</a></li>
+            <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+            <li role="presentation" class=""><a href="#chapters" aria-controls="chapters" role="tab" data-toggle="tab">Chapters (<%= @book.episodes.count  %>)</a></li>
             <li role="presentation" class=""><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews (<%= @book.reviews.count  %>)</a></li>
           </ul>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="info">
-              <p><strong>Author:</strong> <%= @book.author.nom_de_plume%></p>
-              <p><strong>Description: </strong><%= @book.description %></p>
-              <p><strong>Genre: </strong><%= @book.genre %></p>
-                <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"> Download book (epub) </button>
-            </div>
+              <div class="row">
+
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="card" id="book-show-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @book.cover_pic, crop: :fill %>');"></div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <p><strong>Author:</strong> <%= @book.author.nom_de_plume%></p>
+                    <p><strong>Description: </strong><%= @book.description %></p>
+                    <p><strong>Genre: </strong><%= @book.genre %></p>
+                  </div>
+                </div>
+              </div>
             <div role="tabpanel" class="tab-pane" id="chapters"><%= render 'episodes/book_chapters' %>
             </div>
             <div role="tabpanel" class="tab-pane" id="reviews"><%= render 'books/book_reviews' %></div>

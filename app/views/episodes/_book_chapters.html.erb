@@ -1,3 +1,12 @@
+<div id="buy-book-btn">
+
+<% if current_user == @author %>
+  <%= link_to "new chapter", new_book_episode_path(@book), class: "btn btn-primary" %>
+<% else %>
+  <button class="btn btn-primary" id="buy-btn" type="button" data-toggle="modal" data-target="#Book<%=@book.id  %>"> Download book </button>
+<% end %>
+
+</div>
 <ul class="inbox">
   <li class="message">
     <div class="message-name">
@@ -11,9 +20,8 @@
     </div>
   </li>
 </ul>
-<% if current_user == @author %>
-  <%= link_to "new chapter", new_book_episode_path(@book), class: "btn btn-primary" %>
-<% end %>
+
+
 <% @episodes.each do |episode| %>
 <li class="message">
   <div class="message-name">

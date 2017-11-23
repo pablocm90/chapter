@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     @remaining_price = current_user.not_owned_episodes(@book).pluck(:price).inject(:+) unless current_user.nil?
     @author = @book.author.user
     @review = Review.new
-    @episodes = @book.episodes.order(:number).reverse
+    @episodes = @book.episodes.order(:number)
   end
 
  def new
