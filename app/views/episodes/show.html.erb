@@ -3,9 +3,9 @@
   <div class="navigation">
 
   <div class="episode-navigation text-center">
-    <%= link_to "Previous chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
-    <%= link_to "See Book" , book_path(@book), :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;margin: 0px 117px;" %>
-    <%= link_to "Next chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;" %>
+    <%= link_to "Previous chapter", book_episode_path(@book, @episode), :action => :download_episode, class:"btn-inverted" %>
+    <%= link_to "See Book" , book_episode_path(@book, @episode), :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;margin: 0px 117px;" %>
+    <%= link_to "Next chapter", book_episode_path(@book, @episode), :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;" %>
   </div>
 </div>
 
