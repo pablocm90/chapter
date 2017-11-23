@@ -1,4 +1,7 @@
-<div class="showpage-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+<body class="color-show">
+
+
+<div class="showpage-banner" >
   <div class="container">
     <div class="row">
       <div id="showpage-header">
@@ -6,7 +9,7 @@
             <h1 style="color: white";><%= @book.title %></h1>
           </div>
           <div class="text-center">
-            <%= link_to "Go back", :back, class:"btn btn-primary" %>
+            <%= link_to "Go back", :back, class:"btn-inverted" %>
           </div>
       </div>
       <div class="col-xs-12">
@@ -42,4 +45,5 @@
     </div>
   </div>
 <%= render 'shared/modal_book_download', book: @book %>
+</body>
 
