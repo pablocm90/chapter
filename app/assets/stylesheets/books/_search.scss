@@ -24,8 +24,12 @@
 }
 
 .aa-input-container {
-
   margin-top: 10px;
   margin-bottom: 18px;
 }
 
+.search-searchbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
