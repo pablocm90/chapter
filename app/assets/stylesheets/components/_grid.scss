@@ -31,6 +31,24 @@
     text-align: center;
   }
 
+@media(max-width: 720px) {
+
+  .dashboard {
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr 3fr;
+    /* re-define your grid for mobile and tablet */
+  }
+  .dashboard-picture {
+    grid-row: 1 / span 1;
+  }
+  .author-box {
+    grid-row: 2 / span 1;
+  }
+  .best-sellers {
+    grid-row: 1 / span 1;
+  }
+}
+
 .dashboard-picture {
   grid-row: 1 / span 1;
 
