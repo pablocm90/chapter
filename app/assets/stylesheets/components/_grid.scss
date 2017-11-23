@@ -41,7 +41,7 @@
 @media(min-width: 720px) {
   .dashboard {
     grid-template-columns: 200px 1fr 1fr 1fr;
-    grid-template-rows: 45% 1fr 1fr;
+    grid-template-rows: 45% 1fr;
   }
 
   .dashboard-picture {
@@ -49,12 +49,12 @@
   }
 
   .author-box {
-    grid-row: 2 / span 2;
+    grid-row: 2 / span 1;
   }
 
   .best-sellers {
     grid-column: 2 / span 3;
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 2;
   }
 }
 

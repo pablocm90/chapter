@@ -19,6 +19,10 @@
   overflow: scroll;
 }
 
+.color-show {
+  background-color: $primary;
+}
+
 .showpage-banner {
   height: 100vh;
   background-size: cover !important;
