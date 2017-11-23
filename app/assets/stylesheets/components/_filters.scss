@@ -24,7 +24,8 @@
   a {
       transition: color 0.3s ease;
       font-weight: lighter !important;
-      color: black !important;
+      color: white !important;
+      font-weight: bold;
       font-size: 15px !important;
       padding: 10px 20px;
 
@@ -49,11 +50,12 @@
 #collapseOne, #collapseTwo {
   input {
     border: 0px;
-    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.0);
     font-weight: lighter !important;
-    color: black !important;
+    color: white !important;
     font-size: 15px !important;
     padding: 10px 20px;
+    word-wrap: break-word;
   }
 }
 
