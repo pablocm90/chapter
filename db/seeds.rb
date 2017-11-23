@@ -203,6 +203,7 @@ Book.all.each do |book|
     end
   end
 end
+Book.reindex
 
 p "created #{counter} reviews"
 
