@@ -1,20 +1,33 @@
+
+<body class="darken">
 <% content_for :meta_title, "#{@episode.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @episode.description %>
 
 
-<div class="darken">
 
-  <div class="container margin-top-90 book">
+
+<div class="navigation">
+
+  <div class="episode-navigation text-center">
+    <%= link_to "Previous chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
+    <%= link_to "Buy book" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;margin: 0px 117px;" %>
+    <%= link_to "Next chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted", style:"width: 162.08px;" %>
+  </div>
+</div>
+
+  <div class="container book">
     <div class="sharers justify-left">
       <a class="fa fa-twitter twitter-share-button margin-overall"
       href="https://twitter.com/intent/tweet?text=Hey%20I%20just%20read%20this%20chapter&url=http%3A%2F%2Fchapter-klyp.herokuapp.com%2Fbooks%2F<%= @episode.book.id %>%2Fepisodes%2F<%= @episode.id %>"
       data-size="large"></a>
-      <div class="fb-share-button" data-href="http://chapter-klyp.herokuapp.com/books/12/episodes/47" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fa fa-facebook fb-xfbml-parse-ignore  margin-overall" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fchapter-klyp.herokuapp.com%2Fbooks%2F<%= @episode.book.id %>%2Fepisodes%2F<%= @episode.id %> &amp;src=sdkpreparse"></a></div></div>
-      <%= link_to "#{@ndp}", author_path(@author) %>
+      <div class="fb-share-button" data-href="http://chapter-klyp.herokuapp.com/books/12/episodes/47" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fa fa-facebook fb-xfbml-parse-ignore  margin-overall" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fchapter-klyp.herokuapp.com%2Fbooks%2F<%= @episode.book.id %>%2Fepisodes%2F<%= @episode.id %> &amp;src=sdkpreparse"></a>
+      </div>
+        <div> <%= cl_image_tag current_user.picture, class:"author-avatar"%> </div>
+    </div>
 
       <%= @converted %>
-    <%= link_to "Download episode" ,download_book_episode_path, :action => :download_episode %>
+
       <div id="fb-root"></div>
-    </div>
-  </div>
-</div>
+
+  </body>
+

@@ -26,7 +26,7 @@
         <% if current_user && current_user.tokens >= episode.price %>
           <%= form_tag book_episode_transactions_path(book, episode), method: :post do %>
             <%= hidden_field_tag 'episode', :episode %>
-            <%= submit_tag 'Buy Now', class: 'btn btn-primary' %>
+            <%= submit_tag 'Buy now', class: 'btn btn-danger', style:"margin-left: 254px;margin-top: 15px;font-weight: lighter;" %>
           <% end %>
           <% episode.price %>
         <% elsif current_user %>
@@ -36,9 +36,7 @@
         <% end %>
         </div>
       </div>
-      <div class="modal-footer">
 
-      </div>
     </div>
   </div>
 </div>
