@@ -118,19 +118,20 @@ private
 
 
     author = @book.author.nom_de_plume
-    content = "# #{@book.title}  \n#{author} "
+    content = ""
     episodes.each do |episode|
-      content += "  \n#{set_content(episode)}"
+      content += "#{set_content(episode)}  \n  \n"
     end
 
-    string = convert_markdown(content)
-
+    metadata = "---  \ntitle:  #{@book.title}  \nauthor: #{@book.author.nom_de_plume}  \nsubtitle: #{@book.quote_hover}  \ntoc-title:   \n---  \n"
+    content_with_metadata = metadata + content
+    string = content_with_metadata
     puts string
-    PandocRuby.convert(string, :s, {f: :html, t: :epub }, :table_of_contents)
+    PandocRuby.convert(string, :s, {f: :markdown, t: :epub }, :table_of_contents)
     # PandocRuby.new(string).to_epub(:table_of_content, :standalone)
   end
 
   def set_content(episode)
-    "## #{episode.title}  \n#{episode.content}"
+    "# #{episode.title}  \n#{episode.content}"
   end
 end
