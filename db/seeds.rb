@@ -39,7 +39,7 @@ p "creating dumas"
   user_main_author = registration_main_author.user
   user_main_author.remote_picture_url = url
 
-  user_main_author.update(f_name: "Pablo", l_name: "Curell", is_author: true, tokens: 1000, fav_genre: "drama", description: "Pablo Curell is an aspiring writter and developer, when not writing or coding he likes to spend time on chapter.website catching up with other people's work." )
+  user_main_author.update(f_name: "Pablo", l_name: "Curell", is_author: true, tokens: 1000, fav_genre: "drama", description: "Pablo Curell is an aspiring writer and developer, when not writing or coding he likes to spend time on chapter.website catching up with other people's work." )
 
   user_main_author.save
 
