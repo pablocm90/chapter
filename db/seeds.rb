@@ -16,10 +16,12 @@ p "creating show book"
   contents = File.read('db/book.txt')
 
 p "creating dumas"
+  url = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg/220px-Alexander_Dumas_p%C3%A8re_par_Nadar_-_Google_Art_Project.jpg"
 
   registration_author = Registration.create(email:"alexandre@dumas", password: "aramis", username: "Alex")
 
   user_author = registration_author.user
+  user_author.remote_picture_url = url
 
   user_author.update(f_name: "Alexandre", l_name: "Dumas", is_author: true, tokens: 1000, fav_genre: "drama", description: "Alexandre Dumas was born on July 24, 1802, in Villers-Cotterêts, France. He adopted the last name 'Dumas' from his grandmother, a former Haitian slave. Dumas established himself as one of the most popular and prolific authors in France, known for plays and historical adventure novels such as The Three Musketeers and The Count of Monte Cristo." )
 
