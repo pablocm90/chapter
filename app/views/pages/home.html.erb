@@ -1,12 +1,12 @@
-<div class="navbar-wagon home">
+<div class="navbar-wagon">
   <%= link_to root_path do %>
-  <%= cl_image_tag "logo.svg", class: "navbar-wagon-brand" %>
+    <%= cl_image_tag "logo.svg", class: "navbar-wagon-brand" %>
   <% end %>
 
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if current_user %>
      <a href="/about.html" class="navbar-wagon-item navbar-wagon-link">ABOUT</a>
-     <% if current_author %>
+    <% if current_author %>
 
     <% else %>
     <%= link_to "BECOME AN AUTHOR", new_author_path, class: 'navbar-wagon-item navbar-wagon-link' %>
@@ -45,7 +45,6 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if current_user && current_author %>
-
           <li> <%= link_to "ABOUT", about_path %> </li>
           <li> <%= link_to "MY COLLECTION", users_path %> </li>
           <li> <%= link_to "DASHBOARD", dashboard_path %> </li>
@@ -59,15 +58,16 @@
           <li> <%= link_to "LOG OUT", destroy_registration_session_path %> </li>
 
         <% else %>
-        <li> <%= link_to "ABOUT", about_path %> </li>
-        <li> <%= link_to "SIGN UP", new_registration_registration_path %> </li>
-        <li> <%= link_to "LOG IN", new_registration_session_path %> </li>
+          <li> <%= link_to "ABOUT", about_path %> </li>
+          <li> <%= link_to "SIGN UP", new_registration_registration_path %> </li>
+          <li> <%= link_to "LOG IN", new_registration_session_path %> </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
 
+<%= render 'shared/flashes'  %>
 
 
 <section class="example-classname" data-section-name="home">
@@ -108,7 +108,8 @@
 <section class="example-classname" data-section-name="feature-2" style="height: 676px; background-color: rgb(75, 164, 207);">
   <div class="container flex">
     <div class="description-feature-2" >
-      <h1 style="text-align:center;">DISCOVER AND SUPPORT TALENT</h1>
+      <h1 style="text-align:center;">DISCOVER</h1>
+      <h1 style="text-align:center;">AND SUPPORT TALENT</h1>
       <p style="text-align:center;">Don't be restrained by the publishing houses</p>
     </div>
   </div>
@@ -117,8 +118,8 @@
 <section class="example-classname" data-section-name="feature-3" style="height: 676px; background-color: rgb(253, 124, 39);">
   <div class="container flex">
     <div class="description-feature-3" >
-      <h1 style="text-align:center;">PUBLISH YOUR BOOK</h1>
-      <h1 style="text-align:center;">SEAMLESLY AND FOR THE WORLD</h1>
+      <h1 style="text-align:center;">YOUR AUDIENCE</h1>
+      <h1 style="text-align:center;">IS ONE CLICK AWAY</h1>
       <p style="text-align:center;">Say no to the gatekeepers</p>
     </div>
   </div>

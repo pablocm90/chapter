@@ -3,10 +3,14 @@
 * ------------------------------------- */
 
 .alert {
-  margin-top: 60px;
   text-align: center;
   color: white;
   margin-bottom:0px;
+      position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+
 
 }
 .alert-info {
