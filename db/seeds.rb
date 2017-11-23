@@ -49,7 +49,7 @@ p "creating dumas"
 
 p "creating rest of users"
 
-users_pictures {
+users_pictures = {
   "AlexVaca" => "https://avatars2.githubusercontent.com/u/31826596?v=4",
   "CarmenLongo" => "https://avatars2.githubusercontent.com/u/31891782?v=4",
   "ChrisTalib" => "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/ry7ys9cfi7wn4hc0kfao.jpg",
@@ -96,13 +96,14 @@ users_pictures.each do |user, picture|
     transaction_users << user
   end
 end
-p "created #{counter} Registrations and #{counter_user} Users"
+p "created #{counter} Registrations and #{user_counter} Users"
 
 counter = 0
 40.times do
-  username = Faker::Internet.username
+  username = Faker::Internet.user_name
   email = Faker::Internet.email
-    registration = Registration.new(username: username, email: email, password: password)
+  password = "password"
+  registration = Registration.new(username: username, email: email, password: password)
   if registration.save
     registration.save
     transaction_users << registration.user
@@ -152,7 +153,7 @@ p "it has #{counter} chapters"
 
 p "user_main_author owns 3 chapters of the three musketeers"
 
-main_book.episodes.order(:number).reverse[0..2].each do |episode|
+main_book.episodes.order(:number)[0..2].each do |episode|
 
   Transaction.create(user: user_main_author, book: main_book, episode: episode)
 
@@ -231,12 +232,13 @@ p "creating transactions"
 transaction_users.each do |user|
   Book.all.each do |book|
     probability = 85
-    book.episodes.order(:number).reverse.each do |episode|
+    book.episodes.order(:number).each do |episode|
       if rand(0..100) < probability
         transaction = Transaction.new
         transaction.user = user
         transaction.book = book
         transaction.episode = episode
+        probability -= 10
         if transaction.save
           counter += 1
           transaction.save
@@ -257,7 +259,7 @@ Book.all.each do |book|
   params = {}
   rand(10..50).times do
     review = Review.new
-    review.user = User.order("RANDOM()").first
+    review.user = review_users.sample
     review.book = book
     review.rating = rand(3..5)
     review.content = Faker::HarryPotter.quote
