@@ -1,12 +1,6 @@
 
 <body class="darken">
-<% content_for :meta_title, "#{@episode.title} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @episode.description %>
-
-
-
-
-<div class="navigation">
+  <div class="navigation">
 
   <div class="episode-navigation text-center">
     <%= link_to "Previous chapter" ,download_book_episode_path, :action => :download_episode, class:"btn-inverted" %>
