@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     @current_author ||= current_user.try(:author)
   end
 
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb

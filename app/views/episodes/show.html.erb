@@ -1,4 +1,10 @@
+
 <body class="darken">
+<% content_for :meta_title, "#{@episode.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @episode.description %>
+
+
+
 
 <div class="navigation">
 
@@ -22,7 +28,6 @@
       <%= @converted %>
 
       <div id="fb-root"></div>
-    </div>
 
   </body>
 
